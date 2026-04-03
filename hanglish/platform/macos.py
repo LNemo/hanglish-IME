@@ -62,9 +62,25 @@ class MacHook(BaseHook):
 
     def _trigger_candidate_mode(self):
         if not self.buffer: return
-        self.current_candidates = self.romanizer.get_candidates(self.buffer)
-        
-        # Add English to Candidates list if not already there
+
+        # NLP 랭킹된 후보 사용
+        ranker = self.romanizer._get_ranker()
+        dfs_candidates = self.romanizer.get_candidates(self.buffer)
+
+        # 전처리된 입력도 시도 (deureo→deuleo 등)
+        preprocessed = self.romanizer._preprocess(self.buffer)
+        if preprocessed != self.buffer.lower():
+            extra = self.romanizer.get_candidates(preprocessed)
+            existing = set(extra)
+            for c in dfs_candidates:
+                if c not in existing:
+                    extra.append(c)
+            dfs_candidates = extra
+
+        ranked = ranker.rank(self.buffer, raw_candidates=dfs_candidates if dfs_candidates else None)
+        self.current_candidates = [rc.text for rc in ranked[:9]]  # 최대 9개 (숫자키 1-9)
+
+        # 영어 원문이 후보에 없으면 마지막에 추가
         if self.buffer not in self.current_candidates:
             self.current_candidates.append(self.buffer)
             
