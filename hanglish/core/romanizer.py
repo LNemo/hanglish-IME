@@ -14,19 +14,29 @@ JONGSUNG = ["", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "
 
 
 class Romanizer:
-    def __init__(self, rules_path: str = None):
+    def __init__(self, rules_path: str = None, use_nlp: bool = True):
         if not rules_path:
             # 기본 경로 (프로젝트 루트의 data/romanization_rules.json)
             base_dir = Path(__file__).parent.parent.parent
             rules_path = base_dir / "data" / "romanization_rules.json"
-            
+
         with open(rules_path, "r", encoding="utf-8") as f:
             self.rules = json.load(f)
-            
+
         # 매핑 캐시
         self.initial_consonants = self.rules["consonants"]["initial"]
         self.vowels = self.rules["vowels"]
         self.final_consonants = self.rules["consonants"]["final"]
+
+        # NLP ranker (lazy-loaded)
+        self._use_nlp = use_nlp
+        self._ranker = None
+
+    def _get_ranker(self):
+        if self._ranker is None:
+            from hanglish.core.candidate import CandidateRanker
+            self._ranker = CandidateRanker()
+        return self._ranker
 
     def _compose_hangul(self, cho: str, jung: str, jong: str = "") -> str:
         """초성, 중성, 종성을 합쳐서 하나의 한글 문자로 만듭니다."""
@@ -42,11 +52,74 @@ class Romanizer:
 
     def romanize(self, text: str) -> str:
         """
-        간략화된 예시: 'annyeong' -> '안녕' 
-        기본적으로 `get_candidates` 중 첫 번째 결과를 반환합니다.
+        로마자 입력을 한글로 변환합니다.
+        NLP 모드 시 Viterbi 기반 후보 랭킹을 사용하고,
+        비활성 시 DFS 후보 중 첫 번째를 반환합니다.
         """
+        if self._use_nlp:
+            return self.romanize_nlp(text)
         candidates = self.get_candidates(text)
         return candidates[0] if candidates else text
+
+    @staticmethod
+    def _preprocess(text: str) -> str:
+        """Normalize common romanization variants before DFS.
+
+        Converts non-standard but common romanized Korean spellings
+        to their canonical forms so DFS can produce correct candidates.
+        Only applied at specific positions to avoid breaking valid inputs.
+        """
+        import re
+        original = text.lower()
+        result = original
+
+        # deureo → deuleo (e.g. mandeureo → mandeuleo → 만들어)
+        result = result.replace("deureo", "deuleo")
+        result = result.replace("geureo", "geuleo")
+        result = result.replace("neureo", "neuleo")
+
+        # eur → eul when followed by a vowel-starting syllable
+        # (e.g. heureo → heuleo)
+        result = re.sub(r"eur([aeiouy])", r"eul\\1", result)
+
+        # ser → seo at end of word (e.g. haeser → haeseo)
+        if result.endswith("ser"):
+            result = result[:-3] + "seo"
+        # ser followed by a consonant or end
+        result = re.sub(r"ser(?=[^aeiouy]|$)", "seo", result)
+
+        # ger → geo at end of word (common typo)
+        if result.endswith("ger"):
+            result = result[:-3] + "geo"
+
+        return result
+
+    def romanize_nlp(self, text: str) -> str:
+        """NLP 기반 변환: 한영 판별 + Viterbi 분절 + 확률 랭킹."""
+        ranker = self._get_ranker()
+        # Try both original and preprocessed input
+        preprocessed = self._preprocess(text)
+        dfs_candidates = self.get_candidates(text)
+        if preprocessed != text.lower():
+            extra_candidates = self.get_candidates(preprocessed)
+            # Preprocessed candidates go first — they're from normalized input
+            # which tends to produce better Hangul compositions
+            existing = set(extra_candidates)
+            for c in dfs_candidates:
+                if c not in existing:
+                    extra_candidates.append(c)
+            dfs_candidates = extra_candidates
+        if dfs_candidates:
+            # Valid Korean romanization exists — rank with Viterbi
+            ranked = ranker.rank(text, raw_candidates=dfs_candidates)
+            if ranked:
+                return ranked[0].text
+        else:
+            # No Korean candidates — try language discrimination only
+            ranked = ranker.rank(text)
+            if ranked:
+                return ranked[0].text
+        return text
 
     def get_candidates(self, text: str) -> list[str]:
         """
