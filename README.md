@@ -48,9 +48,9 @@ The development installer uses an ad-hoc signature. Developer ID signing and App
 
 ## For developers
 
-The repository contains the conversion source, native macOS input method, build tools, tests, and development notes. It does **not** include model weights, downloaded or generated datasets, local experiment artifacts, or installer images.
+The repository contains the conversion source, native macOS input method, build tools, and tests. It does **not** include model weights, downloaded or generated datasets, local experiment artifacts, or installer images.
 
-**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](docs/development-setup.md) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Public model downloads are not available yet.
+**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](native/macos/README.md#build-and-verify) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Public model downloads are not available yet.
 
 On a Mac with Xcode Command Line Tools, run the model-free native checks from the repository root:
 
@@ -58,21 +58,8 @@ On a Mac with Xcode Command Line Tools, run the model-free native checks from th
 bash native/macos/test.sh
 ```
 
-These check composition state, engine-process protocol handling, and Swift types. They do not prove that input-source selection, actual typing, or model conversion works. Manual keyboard diagnostics have moved to `scripts/manual/` and require `--run`; importing them sends no keystrokes. Use the fresh-clone test commands in [development setup](docs/development-setup.md); research tests may require additional assets.
-
-## More information
-
-Most detailed development records are currently in Korean:
-
-- [macOS installation and development (English)](native/macos/README.md)
-- [Package structure (한국어)](docs/macos-package.md)
-- [GitHub and Release preparation (한국어)](docs/github-release.md)
-- [What works and what needs improvement (한국어)](docs/development-retrospective.md)
-- [Training and data provenance (한국어)](docs/neural-training.md)
-- [Platform comparison (한국어)](docs/ime-platform-comparison.md)
-
-English is the default README. Translations should keep the same supported platforms, limitations, and release status as this file.
+These check composition state, engine-process protocol handling, and Swift types. They do not prove that input-source selection, actual typing, or model conversion works. Manual keyboard diagnostics have moved to `scripts/manual/` and require `--run`; importing them sends no keystrokes. Use the fresh-clone test commands in [development setup](native/macos/README.md#build-and-verify); research tests may require additional assets.
 
 ## License
 
-Original Hanglish code and authored seed data use [CC BY-NC 4.0](LICENSE). Sharing and adaptation require attribution and a noncommercial purpose; indicate changes when sharing modified material. This is source-available software with noncommercial terms, not OSI-defined open source. See [license scope](docs/licensing.md), and [third-party notices](THIRD_PARTY_NOTICES.md). External dictionaries and models retain their own terms.
+Original Hanglish code and authored seed data use [CC BY-NC 4.0](LICENSE). Sharing and adaptation require attribution and a noncommercial purpose; indicate changes when sharing modified material. This is source-available software with noncommercial terms, not OSI-defined open source. See [license scope](LICENSE), and [third-party notices](THIRD_PARTY_NOTICES.md). External dictionaries and models retain their own terms.

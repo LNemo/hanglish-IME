@@ -62,9 +62,27 @@ The older [install.sh](install.sh) refuses to install a lightweight app without 
 
 ## Build and verify
 
-A fresh clone runs the model-free baseline. The full learned engine still requires external/generated data and model weights. Follow [development setup](../../docs/development-setup.md) for locked dependencies and verified asset import; the package command checks [runtime-assets.lock.json](Packaging/runtime-assets.lock.json) before building. Xcode Command Line Tools and Python 3.11 arm64 are required. Public model downloads are not available yet.
+A fresh clone runs the model-free baseline. The full learned engine still requires external/generated data and model weights. Prepare the locked dependencies and import verified assets as shown below; the package command checks [runtime-assets.lock.json](Packaging/runtime-assets.lock.json) before building. Xcode Command Line Tools and Python 3.11 arm64 are required. Public model downloads are not available yet.
 
+Use a separate checkout/environment if you already run an engine from `.venv`:
+`uv sync` can remove packages outside the selected dependency set.
 From the repository root:
+
+```sh
+# Model-free Python checks, using only locked test dependencies.
+uv sync --frozen --only-group dev --python 3.11
+.venv/bin/python scripts/prepare_runtime_assets.py check --profile baseline
+.venv/bin/python -m pytest tests/test_dictionary.py tests/test_romanizer.py tests/test_baseline_assets.py tests/test_manual_diagnostics.py tests/test_prepare_runtime_assets.py tests/test_prepare_english_dictionary.py -q
+
+# Full engine: install dependencies and import from a trusted complete installation.
+uv sync --frozen --extra learning --python 3.11
+.venv/bin/python scripts/prepare_runtime_assets.py import --from "$HOME/Library/Input Methods/Hanglish.app/Contents/Resources/Engine" --profile package
+.venv/bin/python scripts/prepare_runtime_assets.py check --profile package
+```
+
+The importer checks file sizes and SHA-256 before copying and refuses conflicting
+local files. Model weights are not downloaded automatically. Hashes verify file
+identity; they do not grant redistribution rights.
 
 ```sh
 # Composition, process-protocol, and type checks; no models needed.
@@ -87,6 +105,5 @@ bash native/macos/test.sh --live "$HOME/Library/Input Methods/Hanglish.app/Conte
 - macOS or individual apps may restrict input methods in password fields and special text controls.
 - Developer ID signing and notarization are planned before a general installer release; they are not prerequisites for publishing source code.
 - Preserve bundled third-party licenses and notices. Public redistribution of trained models still needs a separate review.
-- See the [package record](../../docs/macos-package.md), [app compatibility checks](../../docs/macos-ime-validation.md), and [platform comparison](../../docs/ime-platform-comparison.md). These detailed records are currently in Korean.
 
-Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE); see [license scope](../../docs/licensing.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).
+Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE); see [full license](../../LICENSE) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

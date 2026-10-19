@@ -4,12 +4,6 @@ Project licensing does not replace the terms of external software, data or model
 weights. This inventory records known sources; it is not a declaration that every
 asset is cleared for public redistribution.
 
-See the [2026-10-19 redistribution review](docs/redistribution-audit-20261019.md)
-for the exact selected engine, training lineage, additional upstream evidence,
-and remaining decisions. The [follow-up review](docs/license-followup-20261019.md)
-records the dictionary replacement and distinguishes unchanged data, prepared
-training data and model licensing.
-
 ## English dictionary — SCOWL / English Speller Database
 
 `data/english_dict.txt` now contains **89,140 words** from the official standard
@@ -39,8 +33,7 @@ unresolved; replacement of the current file does not remove those historical
 copies. Address them before publishing the repository. The historical
 [notice](licenses/dwyl-english-words/UNLICENSE) and
 [source record](licenses/dwyl-english-words/SOURCE.json) remain for traceability;
-they do not describe the current dictionary. See the
-[earlier review](docs/redistribution-audit-20261019.md) for the original evidence.
+they do not describe the current dictionary.
 
 ## Other data and model components
 
@@ -60,7 +53,7 @@ they do not describe the current dictionary. See the
   Evaluation* (2021), https://arxiv.org/abs/2105.09680. Extracted/normalized
   training corpora retain applicable upstream terms; the original project's
   CC BY-NC license does not replace them. This lineage alone does not determine
-  whether trained weights are legally adaptations; see the review.
+  whether trained weights are legally adaptations.
 - Packaged Python and native dependencies retain individual licenses. See the
   [package notices](native/macos/Packaging/THIRD_PARTY_NOTICES.md) and the generated
   `Resources/Licenses/python-distributions.json` in a development package.

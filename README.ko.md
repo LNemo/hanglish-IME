@@ -48,9 +48,9 @@ Hanglish는 **한국어를 말할 수 있지만 한글로 적는 데 어려움�
 
 ## 개발자를 위한 안내
 
-변환기 소스, macOS 입력기, 빌드 도구, 테스트와 개발 기록을 포함합니다. 모델 가중치, 내려받거나 생성한 데이터, 로컬 실험 산출물, 설치 이미지는 포함하지 않습니다.
+변환기 소스, macOS 입력기, 빌드 도구, 테스트를 포함합니다. 모델 가중치, 내려받거나 생성한 데이터, 로컬 실험 산출물, 설치 이미지는 포함하지 않습니다.
 
-**새로 clone한 소스에서 모델 없는 기본 변환을 실행할 수 있습니다. 완전한 학습 엔진과 설치 파일에는 추가 자산이 필요합니다.** [개발 환경 준비 안내(영어)](docs/development-setup.md)에 잠긴 의존성 설치, 자산 검사, 신뢰할 수 있는 로컬 설치본에서 가져오는 절차를 정리했습니다. [자산 잠금 파일](native/macos/Packaging/runtime-assets.lock.json)로 SHA-256을 검사하며, 공개 모델 다운로드는 아직 제공하지 않습니다.
+**새로 clone한 소스에서 모델 없는 기본 변환을 실행할 수 있습니다. 완전한 학습 엔진과 설치 파일에는 추가 자산이 필요합니다.** [개발 환경 준비 안내(영어)](native/macos/README.md#build-and-verify)에 잠긴 의존성 설치, 자산 검사, 신뢰할 수 있는 로컬 설치본에서 가져오는 절차를 정리했습니다. [자산 잠금 파일](native/macos/Packaging/runtime-assets.lock.json)로 SHA-256을 검사하며, 공개 모델 다운로드는 아직 제공하지 않습니다.
 
 Xcode Command Line Tools가 설치된 Mac에서 저장소 루트를 기준으로 모델 없는 네이티브 검사를 실행할 수 있습니다.
 
@@ -58,21 +58,8 @@ Xcode Command Line Tools가 설치된 Mac에서 저장소 루트를 기준으로
 bash native/macos/test.sh
 ```
 
-조합 상태, 엔진 프로세스의 통신 처리, Swift 타입을 검사합니다. 실제 입력기 선택·키 입력·모델 변환의 성공까지 증명하지는 않습니다. 수동 키보드 진단은 `scripts/manual/`로 옮겼고 `--run`이 있어야 실행됩니다. import만으로 키를 보내지 않습니다. [개발 환경 안내](docs/development-setup.md)의 기본 테스트 명령을 사용하세요. 연구용 테스트에는 추가 자산이 필요할 수 있습니다.
-
-## 자세한 기록
-
-상세 개발 기록은 현재 대부분 한국어입니다.
-
-- [macOS 설치와 개발(English)](native/macos/README.md)
-- [패키지 구조](docs/macos-package.md)
-- [GitHub 및 Release 준비](docs/github-release.md)
-- [잘 맞추는 범위와 개선점](docs/development-retrospective.md)
-- [학습·데이터 출처](docs/neural-training.md)
-- [플랫폼 비교](docs/ime-platform-comparison.md)
-
-기본 README는 영어입니다. 번역본의 지원 환경·한계·배포 상태는 영어 원문과 동일하게 유지합니다.
+조합 상태, 엔진 프로세스의 통신 처리, Swift 타입을 검사합니다. 실제 입력기 선택·키 입력·모델 변환의 성공까지 증명하지는 않습니다. 수동 키보드 진단은 `scripts/manual/`로 옮겼고 `--run`이 있어야 실행됩니다. import만으로 키를 보내지 않습니다. [개발 환경 안내](native/macos/README.md#build-and-verify)의 기본 테스트 명령을 사용하세요. 연구용 테스트에는 추가 자산이 필요할 수 있습니다.
 
 ## 라이선스
 
-자체 코드와 직접 작성한 사전에는 [CC BY-NC 4.0](LICENSE)을 적용합니다. 저작자 표시와 비상업적 이용을 조건으로 공유·수정을 허용하며, 수정본 공유 시 변경 사실을 표시해야 합니다. 비상업 조건으로 소스를 공개하는 방식이며, OSI 정의의 오픈소스는 아닙니다. [라이선스 설명(영어)](docs/licensing.md)과 [외부 구성요소 고지(영어)](THIRD_PARTY_NOTICES.md)를 참고하세요. 외부 사전·모델은 원래 조건을 유지합니다.
+자체 코드와 직접 작성한 사전에는 [CC BY-NC 4.0](LICENSE)을 적용합니다. 저작자 표시와 비상업적 이용을 조건으로 공유·수정을 허용하며, 수정본 공유 시 변경 사실을 표시해야 합니다. 비상업 조건으로 소스를 공개하는 방식이며, OSI 정의의 오픈소스는 아닙니다. [라이선스 설명(영어)](LICENSE)과 [외부 구성요소 고지(영어)](THIRD_PARTY_NOTICES.md)를 참고하세요. 외부 사전·모델은 원래 조건을 유지합니다.

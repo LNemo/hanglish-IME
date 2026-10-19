@@ -48,9 +48,9 @@ El instalador de desarrollo tiene una firma ad-hoc. Aún no se han completado la
 
 ## Para desarrolladores
 
-El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas y notas de desarrollo. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
+El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
 
-**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](docs/development-setup.md) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. El [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json) registra SHA-256. Todavía no hay descargas públicas de modelos.
+**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. El [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json) registra SHA-256. Todavía no hay descargas públicas de modelos.
 
 En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio las comprobaciones nativas que no requieren modelos:
 
@@ -58,21 +58,8 @@ En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio l
 bash native/macos/test.sh
 ```
 
-Comprueban el estado de composición, el protocolo con el proceso del motor y los tipos de Swift. No demuestran la selección real de la fuente de entrada, la escritura o la conversión del modelo. Los diagnósticos manuales se han movido a `scripts/manual/` y requieren `--run`; importarlos no envía pulsaciones. Usa las pruebas básicas de la [guía de desarrollo](docs/development-setup.md). Las pruebas de investigación pueden necesitar recursos adicionales.
-
-## Más información
-
-La mayoría de los registros detallados de desarrollo están actualmente en coreano:
-
-- [Instalación y desarrollo en macOS (English)](native/macos/README.md)
-- [Estructura del paquete (한국어)](docs/macos-package.md)
-- [Preparación de GitHub y Releases (한국어)](docs/github-release.md)
-- [Qué funciona y qué necesita mejorar (한국어)](docs/development-retrospective.md)
-- [Entrenamiento y procedencia de los datos (한국어)](docs/neural-training.md)
-- [Comparación de plataformas (한국어)](docs/ime-platform-comparison.md)
-
-El README principal está en inglés. Las traducciones deben mantener las mismas plataformas compatibles, limitaciones y estado de publicación.
+Comprueban el estado de composición, el protocolo con el proceso del motor y los tipos de Swift. No demuestran la selección real de la fuente de entrada, la escritura o la conversión del modelo. Los diagnósticos manuales se han movido a `scripts/manual/` y requieren `--run`; importarlos no envía pulsaciones. Usa las pruebas básicas de la [guía de desarrollo](native/macos/README.md#build-and-verify). Las pruebas de investigación pueden necesitar recursos adicionales.
 
 ## Licencia
 
-El código original y los diccionarios propios usan [CC BY-NC 4.0](LICENSE). Permite compartir y adaptar para fines no comerciales con atribución; al compartir material modificado, deben indicarse los cambios. Es software con código disponible bajo condiciones no comerciales, no código abierto según la definición de la OSI. Consulta el [alcance de la licencia (en inglés)](docs/licensing.md) y los [avisos de terceros (en inglés)](THIRD_PARTY_NOTICES.md). Los diccionarios y modelos externos conservan sus condiciones originales.
+El código original y los diccionarios propios usan [CC BY-NC 4.0](LICENSE). Permite compartir y adaptar para fines no comerciales con atribución; al compartir material modificado, deben indicarse los cambios. Es software con código disponible bajo condiciones no comerciales, no código abierto según la definición de la OSI. Consulta el [alcance de la licencia (en inglés)](LICENSE) y los [avisos de terceros (en inglés)](THIRD_PARTY_NOTICES.md). Los diccionarios y modelos externos conservan sus condiciones originales.

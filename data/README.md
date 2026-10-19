@@ -19,4 +19,4 @@ and hashes. Rebuild with `bash scripts/download_data.sh` from the repository roo
 see [third-party notices](../THIRD_PARTY_NOTICES.md). It is not included in the native
 package manifest. MeCab downloads, generated training lexicons, corpora and model
 weights remain local. The selected native engine needs them; follow the
-[development setup](../docs/development-setup.md) to verify and import exact assets.
+[development setup](../native/macos/README.md#build-and-verify) to verify and import exact assets.

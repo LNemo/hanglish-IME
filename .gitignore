@@ -170,3 +170,11 @@ cython_debug/
 /playground/
 /tests/test_playground_server.py
 /docs/web-validation.md
+
+# Documentation and internal work records stay local; publish README/legal notices only.
+*.md
+!README*.md
+!THIRD_PARTY_NOTICES.md
+!/native/macos/Packaging/wordfreq-NOTICE.md
+!/licenses/**/*.md
+/docs/
