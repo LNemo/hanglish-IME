@@ -4,6 +4,11 @@ import Darwin
 @main
 struct EngineClientTests {
     private final class Box<T> { var value: T? }
+    // Stored weak references work with both older and newer Swift compilers.
+    private final class WeakRequest {
+        weak var value: EngineRequest?
+        init(_ value: EngineRequest?) { self.value = value }
+    }
     private static var failures: [String] = []
 
     static func main() throws {
@@ -158,13 +163,13 @@ done
         let client = client(fixture)
         var current: EngineRequest? = client.convert("slow-current", requestID: "current-id") { _ in }
         var queued: EngineRequest? = client.convert("queued-cancel", requestID: "queued-id") { _ in }
-        weak let releasedCurrent = current
-        weak let releasedQueued = queued
+        let releasedCurrent = WeakRequest(current)
+        let releasedQueued = WeakRequest(queued)
         current?.cancel()
         queued?.cancel()
         current = nil
         queued = nil
-        expect(releasedCurrent == nil && releasedQueued == nil,
+        expect(releasedCurrent.value == nil && releasedQueued.value == nil,
                "cancellation: client retained cancelled request handles")
         client.close()
     }
