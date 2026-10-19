@@ -36,7 +36,7 @@ There is **no published GitHub Release yet**. The repository is currently privat
 
 If you have received the development installer, follow the [macOS installation guide](native/macos/README.md) ([한국어](native/macos/README.ko.md)). A complete installer bundles the conversion engine, models, and Python runtime. Once installed, conversion runs locally and does not send your typed text to a server. You do not need a development server, Tailscale, or a separate Python installation to use that package.
 
-The installer uses English by default and includes Korean localization. Development packages use an ad-hoc signature. Developer ID signing and Apple notarization have not been completed, and app compatibility is still being tested.
+The installer uses English by default and includes Korean localization. Development packages use an ad-hoc signature. Release-mode packages require Developer ID signing and Apple notarization; check the artifact manifest and notarization log for the specific package. App compatibility is still being tested.
 
 ## Limitations
 

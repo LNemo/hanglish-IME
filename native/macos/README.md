@@ -21,7 +21,7 @@ dist/Hanglish-0.2.6-arm64-development-NONPUBLIC.dmg
 3. If Hanglish is not enabled automatically, open **System Settings → Keyboard → Text Input → Edit → +**, find **Korean → Hanglish**, and add it. Labels may vary with your macOS language and version.
 4. Select Hanglish from the input menu in the menu bar. Its icon reads `han`.
 
-The installer uses English by default and includes Korean localization. The development package has an ad-hoc signature and is explicitly marked nonpublic. Developer ID signing and Apple notarization have not been completed.
+The installer uses English by default and includes Korean localization. The development package has an ad-hoc signature and is explicitly marked nonpublic. Release-mode packages require Developer ID signing and Apple notarization. Check the accompanying manifest and notarization log for the status of a specific artifact.
 
 If Hanglish does not appear, save your work before logging out and back in. On the development Mac, a persistent missing-input-source problem was resolved after restarting and removing/re-adding **Hanglish** in Keyboard settings. That is an observed recovery, not a guarantee for every Mac. Updates from 0.2.0 also changed the input-mode registration format and may require removing/re-adding Hanglish.
 
@@ -127,9 +127,8 @@ Release preflight rejects a missing or mismatched identity, team ID, profile, or
 worktree. When those checks pass, the script signs with hardened runtime and timestamps,
 submits the DMG for notarization, staples the accepted ticket, verifies it with
 `hdiutil`, `codesign`, `stapler`, and Gatekeeper, then writes
-`Hanglish-0.2.6-arm64.dmg`, its checksum, manifest, and notarization log. These steps
-describe the supported workflow; no Developer ID release or notarized public artifact
-has been produced yet.
+`Hanglish-0.2.6-arm64.dmg`, its checksum, manifest, and notarization log. These technical checks do not publish a GitHub Release or resolve model-license
+questions. The manifest identifies the exact source commit and validation gaps.
 
 `test.sh` checks composition state, engine-process handling, and Swift types. `--live` additionally starts the supplied bundled engine, checks representative conversions, and verifies its selected model version. Actual input-source selection, typing, and icon appearance still need UI testing.
 

@@ -13,7 +13,7 @@ Python 3.11 런타임, 변환 엔진, 학습 모델을 하나의 설치 이미�
 현재 패키지는 **Apple Silicon(arm64), 최소 배포 대상 macOS 14 이상**으로 빌드한다.
 지금까지 실제 로컬 검증은 macOS 27에서만 진행했으므로, 최소 배포 대상 설정만으로
 macOS 14 동작을 확인했다고 볼 수 없다. 개발 패키지는 ad-hoc 서명 상태이고 비공개용으로
-명시된다. 일반 배포용 Developer ID 서명과 Apple 공증은 아직 적용하지 않았다.
+명시된다. 릴리스 모드 패키지는 Developer ID 서명과 Apple 공증을 거친다. 개별 산출물의 상태는 함께 제공되는 manifest와 공증 로그에서 확인한다.
 
 ## 설치
 
@@ -133,8 +133,8 @@ bash native/macos/package.sh
 사전 검사는 인증서·팀 ID·프로필 누락이나 불일치, 변경 사항이 남은 작업 트리를 거부한다.
 통과하면 hardened runtime과 timestamp를 적용해 서명하고, DMG 공증과 ticket staple을
 수행한 뒤 `hdiutil`, `codesign`, `stapler`, Gatekeeper로 검사한다. 이후
-`Hanglish-0.2.6-arm64.dmg`, 체크섬, manifest, 공증 로그를 만든다. 이는 지원하는 재현
-절차를 설명한 것이며, 현재 Developer ID 릴리스나 공증된 공개 산출물이 완성됐다는 뜻은 아니다.
+`Hanglish-0.2.6-arm64.dmg`, 체크섬, manifest, 공증 로그를 만든다. 이 기술 검증은 GitHub Release를 발행하거나 모델 라이선스 문제를 해결하지 않는다.
+manifest에는 정확한 소스 커밋과 남은 검증 항목이 기록된다.
 
 `test.sh`는 조합 상태, 엔진 프로세스 관리, Swift 소스 타입 검사를 실행한다. `--live`는
 지정한 번들 리소스의 실제 내장 엔진을 시작해 대표 문장을 변환하고 선택된 모델 버전을
