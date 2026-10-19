@@ -178,3 +178,6 @@ cython_debug/
 !/native/macos/Packaging/wordfreq-NOTICE.md
 !/licenses/**/*.md
 /docs/
+
+# Superseded dictionary provenance is kept only in local history backups.
+/licenses/dwyl-english-words/

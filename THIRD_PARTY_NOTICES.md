@@ -25,16 +25,6 @@ Official sources: [release/download guide](https://wordlist.aspell.net/dicts/),
 [pinned expanded list](https://github.com/en-wl/wordlist-diff/blob/71d7dd07676edb60ade43552e10b41314b7e9287/en_US.txt),
 [pinned copyright](https://github.com/en-wl/wordlist-diff/blob/71d7dd07676edb60ade43552e10b41314b7e9287/Copyright).
 
-### Historical replaced list
-
-Earlier Git commits still contain the dwyl/english-words list. Its Unlicense
-declaration and Infochimps provenance wording left the full redistribution basis
-unresolved; replacement of the current file does not remove those historical
-copies. Address them before publishing the repository. The historical
-[notice](licenses/dwyl-english-words/UNLICENSE) and
-[source record](licenses/dwyl-english-words/SOURCE.json) remain for traceability;
-they do not describe the current dictionary.
-
 ## Other data and model components
 
 - Small Hanglish seed dictionaries: see [data/README.md](data/README.md).
