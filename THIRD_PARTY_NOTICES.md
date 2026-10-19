@@ -6,37 +6,41 @@ asset is cleared for public redistribution.
 
 See the [2026-10-19 redistribution review](docs/redistribution-audit-20261019.md)
 for the exact selected engine, training lineage, additional upstream evidence,
-and remaining decisions.
+and remaining decisions. The [follow-up review](docs/license-followup-20261019.md)
+records the dictionary replacement and distinguishes unchanged data, prepared
+training data and model licensing.
 
-## Legacy English dictionary
+## English dictionary — SCOWL / English Speller Database
 
-`data/english_dict.txt` is the legacy optional English word list. The selected
-native macOS engine does not bundle this file. Its unique word set matches
-`words_alpha.txt` in [dwyl/english-words at revision
-20f5cc9](https://github.com/dwyl/english-words/tree/20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c).
-The local file has different ordering/formatting; the audit does not establish
-which historical revision originally produced it.
+`data/english_dict.txt` now contains **89,140 words** from the official standard
+US English SCOWL/ESDB 2026.02.25 expanded plain list. The selected native macOS
+engine does not bundle this optional legacy-engine file.
 
-Upstream declares **Unlicense**, not MIT. The unmodified license text is in
-[licenses/dwyl-english-words/UNLICENSE](licenses/dwyl-english-words/UNLICENSE),
-and [SOURCE.json](licenses/dwyl-english-words/SOURCE.json) records the pinned
-URLs, upstream hashes and existing local file hash.
+The [upstream permission notice](licenses/scowl/Copyright) allows use, copying,
+modification, distribution and sale, subject to preserving copyright and permission
+notices. The full upstream notice is retained unchanged. This list retains those
+terms; Hanglish's CC BY-NC license does not replace them.
 
-However, the [upstream README](https://github.com/dwyl/english-words/blob/20f5cc9b3f0ccc8ce45d814c532b7c2031bba31c/README.md)
-attributes the underlying list to Infochimps and says “Copyright still belongs to
-them.” Therefore the original dataset's redistribution basis remains unresolved.
-Before making this repository public, resolve that provenance or replace/remove
-the list, including historical copies as appropriate. It is retained in this
-private repository for existing behavior while that decision is outstanding.
+[SOURCE.json](licenses/scowl/SOURCE.json) pins the official release revision,
+source/output SHA-256 hashes and transformations: lowercase, retain ASCII-letter
+words, deduplicate, sort and normalize line endings. `scripts/download_data.sh`
+invokes the standard-library generator, which verifies the source and output
+before atomically replacing the dictionary. No Hunspell dependency is needed.
 
-The pinned repository also contains Moby provenance metadata recording a
-public-domain grant. This supports a possible underlying source, but the audit
-did not establish the complete transformation/addition chain to this word list.
-See the review for the source links and jurisdiction qualification.
+Official sources: [release/download guide](https://wordlist.aspell.net/dicts/),
+[pinned expanded list](https://github.com/en-wl/wordlist-diff/blob/71d7dd07676edb60ade43552e10b41314b7e9287/en_US.txt),
+[pinned copyright](https://github.com/en-wl/wordlist-diff/blob/71d7dd07676edb60ade43552e10b41314b7e9287/Copyright).
 
-`scripts/download_data.sh` downloads a fixed revision, verifies its SHA-256,
-normalizes line endings/order, and replaces the local file only after successful
-verification. It does not resolve the upstream rights question.
+### Historical replaced list
+
+Earlier Git commits still contain the dwyl/english-words list. Its Unlicense
+declaration and Infochimps provenance wording left the full redistribution basis
+unresolved; replacement of the current file does not remove those historical
+copies. Address them before publishing the repository. The historical
+[notice](licenses/dwyl-english-words/UNLICENSE) and
+[source record](licenses/dwyl-english-words/SOURCE.json) remain for traceability;
+they do not describe the current dictionary. See the
+[earlier review](docs/redistribution-audit-20261019.md) for the original evidence.
 
 ## Other data and model components
 

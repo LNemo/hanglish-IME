@@ -1,0 +1,33 @@
+{
+  "schema": "hanglish-english-dictionary-v1",
+  "upstream": "SCOWL / English Speller Database",
+  "release": "2026.02.25",
+  "tag": "rel-2026.02.25",
+  "repository": "https://github.com/en-wl/wordlist-diff",
+  "revision": "71d7dd07676edb60ade43552e10b41314b7e9287",
+  "selection": "Official en_US standard expanded plain word list (size 60); no Australian or >80/custom database material.",
+  "source": {
+    "url": "https://raw.githubusercontent.com/en-wl/wordlist-diff/71d7dd07676edb60ade43552e10b41314b7e9287/en_US.txt",
+    "bytes": 1033485,
+    "sha256": "4ff7e0b6d86763e1e042ffd746e94cdf4432618702deac303a1669e2a838db04"
+  },
+  "copyright": {
+    "url": "https://raw.githubusercontent.com/en-wl/wordlist-diff/71d7dd07676edb60ade43552e10b41314b7e9287/Copyright",
+    "path": "licenses/scowl/Copyright",
+    "sha256": "090575a131b4260926c7a6b30a90aca0f5db5fbb5c46778e0c5855227bf6ebc3"
+  },
+  "transformation": [
+    "lowercase",
+    "retain only ASCII letters a-z",
+    "deduplicate",
+    "sort by ASCII code point",
+    "LF line endings with final newline"
+  ],
+  "output": {
+    "path": "data/english_dict.txt",
+    "bytes": 829409,
+    "words": 89140,
+    "sha256": "8d90f221162c4f83b50189cf756ed47788a6a6255c3e6ed7565dc99a97cbdc2a"
+  },
+  "license": "SCOWL permissive copyright/permission notice; retained separately from Hanglish CC-BY-NC-4.0."
+}
