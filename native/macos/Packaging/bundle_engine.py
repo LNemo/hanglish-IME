@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import platform
 import shutil
+import subprocess
 import sys
 import sysconfig
 
@@ -45,6 +46,8 @@ def main():
     args = parser.parse_args()
     if sys.version_info[:2] != (3, 11) or platform.machine() != "arm64":
         raise SystemExit("This release requires the pinned Python 3.11 arm64 build environment.")
+    subprocess.run([sys.executable, str(ROOT / "scripts/prepare_runtime_assets.py"),
+                    "check", "--profile", "package"], check=True)
     resources = args.resources.resolve()
     resources.mkdir(parents=True, exist_ok=True)
     runtime, engine = resources / "Python", resources / "Engine"
@@ -95,6 +98,8 @@ def main():
     # Retain upstream license/attribution documents independently of importability.
     notice = resources / "Licenses"
     notice.mkdir()
+    for name in ("LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"):
+        copy_file(ROOT / name, notice / "Hanglish" / name)
     for source in ROOT.glob("data/external/koelectra-small-v3/*"):
         if source.name.lower().startswith(("license", "readme", "source")) and source.is_file():
             copy_file(source, notice / "KoELECTRA" / source.name)

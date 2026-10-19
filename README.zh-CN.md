@@ -32,7 +32,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 **当前原生原型：macOS 0.2.5，Apple Silicon，macOS 14 或更高版本。** Windows、Android 和 iOS 输入法尚未实现。
 
-**目前尚未发布 GitHub Release。** 仓库当前为私有仓库，项目许可证和模型的公开分发方案仍在准备中。
+**目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款，模型的公开分发方案仍在准备中。
 
 如果你已收到开发版安装包，请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
 
@@ -50,7 +50,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 仓库包含转换源码、原生 macOS 输入法、构建工具、测试和开发记录，不包含模型权重、下载或生成的数据集、本地实验产物以及安装镜像。
 
-**仅凭新 clone 的源码，还不能运行完整的学习型引擎，也不能构建独立安装包。** 必需文件列在[引擎文件清单](native/macos/Packaging/engine-files.json)中；部分文件仍依赖本地实验路径。公开分发前，需要补充可复现的资源下载与校验流程。
+**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](docs/development-setup.md)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)记录 SHA-256。目前尚未提供公开模型下载。
 
 在安装了 Xcode Command Line Tools 的 Mac 上，可从仓库根目录执行不需要模型的原生检查：
 
@@ -58,7 +58,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 bash native/macos/test.sh
 ```
 
-检查涵盖文本组合状态、引擎进程通信处理和 Swift 类型，不代表已验证实际输入源切换、打字或模型转换。`tests/` 中有些手动键盘诊断文件会在 import 时执行，因此**不要直接运行整个 pytest 测试集**。提供通用测试命令前，需要先将这些诊断工具分离出去。
+检查涵盖文本组合状态、引擎进程通信处理和 Swift 类型，不代表已验证实际输入源切换、打字或模型转换。手动键盘诊断已移至 `scripts/manual/`，必须指定 `--run` 才会运行；仅 import 不会发送按键。请使用[开发环境准备](docs/development-setup.md)中的基础测试命令。研究用测试可能需要额外资源。
 
 ## 更多资料
 
@@ -72,3 +72,7 @@ bash native/macos/test.sh
 - [平台比较（한국어）](docs/ime-platform-comparison.md)
 
 英语是默认 README 语言。各翻译版应与英文版保持相同的支持平台、功能限制和发布状态。
+
+## 许可证
+
+原创代码和自行编写的词典采用 [CC BY-NC 4.0](LICENSE)。允许在署名和非商业用途条件下分享、改编；分享修改后的材料时须注明改动。这是附带非商业条款的源码开放，并非 OSI 定义的开源。请参阅[许可范围（英文）](docs/licensing.md)以及[第三方声明（英文）](THIRD_PARTY_NOTICES.md)。外部词典和模型仍适用各自的原有条款。

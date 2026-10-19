@@ -32,7 +32,7 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 **Prototipo nativo actual: macOS 0.2.5, Apple Silicon y macOS 14 o posterior.** Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
-**Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora; la licencia del proyecto y las condiciones de distribución pública de los modelos siguen en preparación.
+**Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
 
 Si has recibido el instalador de desarrollo, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
 
@@ -50,7 +50,7 @@ El instalador de desarrollo tiene una firma ad-hoc. Aún no se han completado la
 
 El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas y notas de desarrollo. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
 
-**Un clon nuevo todavía no permite ejecutar el motor aprendido completo ni compilar el instalador independiente.** Los archivos necesarios se enumeran en el [manifiesto del motor](native/macos/Packaging/engine-files.json); algunos siguen usando rutas de experimentos locales. Antes de distribuirlo públicamente hace falta un proceso reproducible de descarga y verificación de esos recursos.
+**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](docs/development-setup.md) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. El [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json) registra SHA-256. Todavía no hay descargas públicas de modelos.
 
 En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio las comprobaciones nativas que no requieren modelos:
 
@@ -58,7 +58,7 @@ En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio l
 bash native/macos/test.sh
 ```
 
-Comprueban el estado de composición, el protocolo de comunicación con el proceso del motor y los tipos de Swift. No demuestran que funcionen la selección real de la fuente de entrada, la escritura o la conversión del modelo. Algunos archivos de `tests/` son diagnósticos manuales de teclado que se ejecutan al importarlos: **no ejecutes indiscriminadamente toda la suite de pytest**. Hay que separarlos antes de ofrecer un comando general de pruebas.
+Comprueban el estado de composición, el protocolo con el proceso del motor y los tipos de Swift. No demuestran la selección real de la fuente de entrada, la escritura o la conversión del modelo. Los diagnósticos manuales se han movido a `scripts/manual/` y requieren `--run`; importarlos no envía pulsaciones. Usa las pruebas básicas de la [guía de desarrollo](docs/development-setup.md). Las pruebas de investigación pueden necesitar recursos adicionales.
 
 ## Más información
 
@@ -72,3 +72,7 @@ La mayoría de los registros detallados de desarrollo están actualmente en core
 - [Comparación de plataformas (한국어)](docs/ime-platform-comparison.md)
 
 El README principal está en inglés. Las traducciones deben mantener las mismas plataformas compatibles, limitaciones y estado de publicación.
+
+## Licencia
+
+El código original y los diccionarios propios usan [CC BY-NC 4.0](LICENSE). Permite compartir y adaptar para fines no comerciales con atribución; al compartir material modificado, deben indicarse los cambios. Es software con código disponible bajo condiciones no comerciales, no código abierto según la definición de la OSI. Consulta el [alcance de la licencia (en inglés)](docs/licensing.md) y los [avisos de terceros (en inglés)](THIRD_PARTY_NOTICES.md). Los diccionarios y modelos externos conservan sus condiciones originales.

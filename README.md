@@ -32,7 +32,7 @@ Korean pronunciation does not uniquely determine spelling. Hanglish tries to rec
 
 **Current native prototype: macOS 0.2.5, Apple Silicon, macOS 14 or later.** Windows, Android, and iOS input methods are not implemented yet.
 
-There is **no published GitHub Release yet**. The repository is currently private, and the project license and public model distribution arrangements are still being prepared.
+There is **no published GitHub Release yet**. The repository is currently private. Original Hanglish code uses noncommercial terms; public model distribution arrangements are still being prepared.
 
 If you have received the development installer, follow the [macOS installation guide](native/macos/README.md) ([한국어](native/macos/README.ko.md)). A complete installer bundles the conversion engine, models, and Python runtime. Once installed, conversion runs locally and does not send your typed text to a server. You do not need a development server, Tailscale, or a separate Python installation to use that package.
 
@@ -50,7 +50,7 @@ The development installer uses an ad-hoc signature. Developer ID signing and App
 
 The repository contains the conversion source, native macOS input method, build tools, tests, and development notes. It does **not** include model weights, downloaded or generated datasets, local experiment artifacts, or installer images.
 
-**A fresh clone cannot yet run the complete learned engine or build the standalone installer.** Required assets are listed in [the engine file manifest](native/macos/Packaging/engine-files.json); some still use local experiment paths. A reproducible asset download and verification process is needed before public distribution.
+**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](docs/development-setup.md) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Public model downloads are not available yet.
 
 On a Mac with Xcode Command Line Tools, run the model-free native checks from the repository root:
 
@@ -58,7 +58,7 @@ On a Mac with Xcode Command Line Tools, run the model-free native checks from th
 bash native/macos/test.sh
 ```
 
-These check composition state, engine-process protocol handling, and Swift types. They do not prove that input-source selection, actual typing, or model conversion works. Some files under `tests/` are manual keyboard diagnostics that run when imported, so **do not run the entire pytest suite indiscriminately**. Those diagnostics need to be separated before a general test command is provided.
+These check composition state, engine-process protocol handling, and Swift types. They do not prove that input-source selection, actual typing, or model conversion works. Manual keyboard diagnostics have moved to `scripts/manual/` and require `--run`; importing them sends no keystrokes. Use the fresh-clone test commands in [development setup](docs/development-setup.md); research tests may require additional assets.
 
 ## More information
 
@@ -72,3 +72,7 @@ Most detailed development records are currently in Korean:
 - [Platform comparison (한국어)](docs/ime-platform-comparison.md)
 
 English is the default README. Translations should keep the same supported platforms, limitations, and release status as this file.
+
+## License
+
+Original Hanglish code and authored seed data use [CC BY-NC 4.0](LICENSE). Sharing and adaptation require attribution and a noncommercial purpose; indicate changes when sharing modified material. This is source-available software with noncommercial terms, not OSI-defined open source. See [license scope](docs/licensing.md), and [third-party notices](THIRD_PARTY_NOTICES.md). External dictionaries and models retain their own terms.

@@ -89,6 +89,7 @@ dist/Hanglish-0.2.5-arm64.dmg
 새로 clone한 저장소에는 모델과 일부 필수 데이터가 없어 완전한 설치 패키지를 바로
 빌드할 수 없다. 필요한 파일은 [엔진 파일 명세](Packaging/engine-files.json)에 있으며,
 모델 없이 실행하는 `test.sh`와 별도로 준비해야 한다.
+[개발 환경 준비 안내(영어)](../../docs/development-setup.md)에 의존성 설치와 해시로 검증하는 로컬 자산 가져오기 절차를 정리했다. 패키지는 빌드 전에 자산을 검사한다.
 
 저장소 루트에서 실행한다.
 
@@ -120,3 +121,6 @@ Tools와 프로젝트의 Python 3.11 빌드 환경이 필요하다. 완성된 DM
 
 다른 플랫폼의 구현 방향은 [네 플랫폼 비교](../../docs/ime-platform-comparison.md)를
 참고한다.
+
+자체 코드에는 [CC BY-NC 4.0](../../LICENSE)을 적용한다.
+[적용 범위(영어)](../../docs/licensing.md)와 [외부 구성요소 고지(영어)](../../THIRD_PARTY_NOTICES.md)를 참고한다.

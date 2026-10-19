@@ -62,7 +62,7 @@ The older [install.sh](install.sh) refuses to install a lightweight app without 
 
 ## Build and verify
 
-A fresh clone lacks model weights and several required data files. Building a complete installer is **not yet reproducible from the repository alone**. Required inputs are listed in [engine-files.json](Packaging/engine-files.json); some currently live in local experiment directories. Xcode Command Line Tools, the project's Python 3.11 arm64 build environment, and those assets are required.
+A fresh clone runs the model-free baseline. The full learned engine still requires external/generated data and model weights. Follow [development setup](../../docs/development-setup.md) for locked dependencies and verified asset import; the package command checks [runtime-assets.lock.json](Packaging/runtime-assets.lock.json) before building. Xcode Command Line Tools and Python 3.11 arm64 are required. Public model downloads are not available yet.
 
 From the repository root:
 
@@ -88,3 +88,5 @@ bash native/macos/test.sh --live "$HOME/Library/Input Methods/Hanglish.app/Conte
 - Developer ID signing and notarization are planned before a general installer release; they are not prerequisites for publishing source code.
 - Preserve bundled third-party licenses and notices. Public redistribution of trained models still needs a separate review.
 - See the [package record](../../docs/macos-package.md), [app compatibility checks](../../docs/macos-ime-validation.md), and [platform comparison](../../docs/ime-platform-comparison.md). These detailed records are currently in Korean.
+
+Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE); see [license scope](../../docs/licensing.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

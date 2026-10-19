@@ -4,6 +4,11 @@ task_dir="$(cd "$(dirname "$0")" && pwd)"
 repo_dir="$(cd "$task_dir/../.." && pwd)"
 python="$repo_dir/.venv/bin/python"
 [[ "$(uname -m)" == arm64 ]] || { echo 'This package targets Apple Silicon.' >&2; exit 1; }
+[[ -x "$python" ]] || { echo 'Prepare .venv first; see docs/development-setup.md.' >&2; exit 1; }
+"$python" "$repo_dir/scripts/prepare_runtime_assets.py" check --profile package || {
+  echo 'Runtime assets are missing or differ from the lock. See docs/development-setup.md.' >&2
+  exit 1
+}
 bash "$task_dir/build.sh"
 mkdir -p "$task_dir/build" "$repo_dir/dist"
 stage="$(mktemp -d "$task_dir/build/package.XXXXXX")"
@@ -26,6 +31,8 @@ plutil -lint "$installer/Contents/Info.plist"
 codesign --force --sign - "$installer"
 codesign --verify --deep --strict "$installer"
 cp "$task_dir/Packaging/THIRD_PARTY_NOTICES.md" "$stage/THIRD_PARTY_NOTICES.md"
+cp "$repo_dir/LICENSE" "$stage/LICENSE"
+cp "$repo_dir/NOTICE" "$stage/NOTICE"
 cp "$repo_dir/docs/macos-package.md" "$stage/설치 안내.md"
 version="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$payload/Contents/Info.plist")"
 dmg="$repo_dir/dist/Hanglish-$version-arm64.dmg"

@@ -164,8 +164,6 @@ cython_debug/
 /data/external/
 /data/challenge/
 /data/natural_context/
-/data/morphology_lexicon.json
-/data/workbench_lexicon.json
 /docs/experiment-*.json
 
 # Local-only experimental web interface (keep files on this machine).

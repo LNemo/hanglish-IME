@@ -1,0 +1,511 @@
+{
+  "schema": "hanglish-runtime-assets-v1",
+  "engine_version": "experimental-score-scale-1-f6976e1b269d",
+  "note": "Exact local development assets. Hashes do not establish redistribution permission. No model downloads or public weights are provided.",
+  "files": [
+    {
+      "path": ".omx/artifacts/current-phonetic-choice-training-v1/model.json",
+      "size": 812,
+      "sha256": "3c71014f423b3487990b5d1d318dfcd1ee7b3a69b2900ad76e1b9adf81f83abf",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.json",
+      "size": 509,
+      "sha256": "c7dcd4ad5aabb5849d89dc8847697c3eab66eaac1679126b06df0c37573f6e9d",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.pt",
+      "size": 3877115,
+      "sha256": "f06b0a7cd6c5ccbdfaa376cc29f59e90b3fcf0ae3a157fd2c4f7efaa73b4180d",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/phonetic-choice-calibration-training-v1/weights.json",
+      "size": 459,
+      "sha256": "930e3ef942061e6d459d7527c0e073fc6ad5626d59f5170e9b11df8499b39f4b",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/phonetic-score-scale-training-v1/model.json",
+      "size": 394,
+      "sha256": "e07462d50da0b67304a82a9a261068ccc84b8055a99b5d70af56db530d245838",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.json",
+      "size": 3280,
+      "sha256": "8a80b8713c86951895ae031a74271569d4e3d7a164c500d4e3b310fc05c04a04",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt",
+      "size": 4413318,
+      "sha256": "6aba4c441f3f0cb7cd870be80ccbf39a215c87a76890d5e2a90fdbb14c9618a7",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.json",
+      "size": 2954,
+      "sha256": "55896da7ad1a24773d2504f5a470763b76109b0cff4af482a143612d08824dae",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.pt",
+      "size": 4413318,
+      "sha256": "832e7171a73daad4a02864668447725e7ae790e50ab7458f3a409701f0878663",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/context_ranker.json",
+      "size": 4586,
+      "sha256": "e49f3b675389cfe629a6d4a0b80625d170d6e401a217baefbbb6307ce7496983",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/context_ranker.pt",
+      "size": 2199316,
+      "sha256": "4b6285525486fd188346947452cfd33e0dff2a547efc52853aa6a7f7059ae516",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/phonetic_transducer.json",
+      "size": 4953,
+      "sha256": "bc3946a84b8ecf5a7522ae63ea3bd2b2ad92745f9087d6ff8536f9d1424643da",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/phonetic_transducer.pre-padding.json",
+      "size": 3965,
+      "sha256": "1a54e459157ced91d25496276bb0c2d5ce3ca1693386e6b125b9599e4358671b",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/phonetic_transducer.pre-padding.pt",
+      "size": 3877245,
+      "sha256": "b7dda7df4f0787ebfe17528fa5ca6030c2f4636d43d5b5c9c2d2f2cb0e26403b",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/phonetic_transducer.pt",
+      "size": 3877245,
+      "sha256": "d287b7992a75a96f2639e9520faba597bb34ebb0bcc502b85960cbb5a310ba43",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/config.json",
+      "size": 823,
+      "sha256": "8703d582f1e16300ab44e501e4a131b15f0a133b7b74bbcfb51e7e53009fe05a",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/metadata.json",
+      "size": 12946,
+      "sha256": "9745724c24517603452bf8d62a3079ddb25dcc8a0bc3572d8d61514afa379a2f",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/model.safetensors",
+      "size": 56512908,
+      "sha256": "54ca7d24b2bf17d1ba8f5181476ce91032acc94149a2baf401fe47e859f2907c",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/special_tokens_map.json",
+      "size": 695,
+      "sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/tokenizer.json",
+      "size": 815100,
+      "sha256": "5ee39bd824ba876371d68c5e958a8169c29b29060b8db19e6269403f3d3c7999",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/tokenizer_config.json",
+      "size": 1456,
+      "sha256": "5a85ad076d4ae965ccff1888927079a924e3ffe401be44da855ff08a0ad0c45d",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/semantic_ranker/vocab.txt",
+      "size": 263327,
+      "sha256": "6e886927dfcecd22029b1ba80c10a1374740259c1067fc3a28d964b7ae2d55a7",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/config.json",
+      "size": 823,
+      "sha256": "8703d582f1e16300ab44e501e4a131b15f0a133b7b74bbcfb51e7e53009fe05a",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/metadata.json",
+      "size": 9046,
+      "sha256": "8a6a1f9736fab0173003751e70c5e7ef0fa139a0e773444986ede044e0e55d14",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/model.safetensors",
+      "size": 56512908,
+      "sha256": "a68f3bd26733e9bc897a182f78b1decafefa3582fa82b6b2cfcaa34672412ffa",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/special_tokens_map.json",
+      "size": 695,
+      "sha256": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/tokenizer.json",
+      "size": 815100,
+      "sha256": "5ee39bd824ba876371d68c5e958a8169c29b29060b8db19e6269403f3d3c7999",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/tokenizer_config.json",
+      "size": 1456,
+      "sha256": "5a85ad076d4ae965ccff1888927079a924e3ffe401be44da855ff08a0ad0c45d",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "checkpoints/sentence_ranker/vocab.txt",
+      "size": 263327,
+      "sha256": "6e886927dfcecd22029b1ba80c10a1374740259c1067fc3a28d964b7ae2d55a7",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": "data/challenge/train_lexicon.json",
+      "size": 40815,
+      "sha256": "b2ed482e585e7e779b2dd466c91ade1e2faa586cb8a6c72e1b2f36103f0e2ee5",
+      "profiles": [
+        "package"
+      ],
+      "kind": "generated-training-lexicon",
+      "distribution": "provenance-review-required"
+    },
+    {
+      "path": "data/common_english.txt",
+      "size": 6749,
+      "sha256": "6cc9307527a95ca761379b1702990d2c84d8bd3d9687b29b6256baf253460344",
+      "profiles": [
+        "baseline",
+        "package"
+      ],
+      "kind": "project-authored-data",
+      "distribution": "project-license"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/COPYING",
+      "size": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/Inflect.csv",
+      "size": 4042583,
+      "sha256": "ff9a82d6f97aa75b86f03c33e2d615486200d7433f1c86c2e33a8c18d647064c",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/MAG.csv",
+      "size": 842240,
+      "sha256": "d9842fd7f1efc6398fb06c0d3b4c881571b49b91fb340017a8a688f7bd4a4785",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/NNBC.csv",
+      "size": 33212,
+      "sha256": "e230971ad18d2162dfe9b46286b9b969f8eeab5d37006cd989959a335ec6b0b2",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/NNG.csv",
+      "size": 14868349,
+      "sha256": "93be2e17bf9349f400bd24baa47fc3edee997c61727f5df95677714ed3f35745",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/NNP.csv",
+      "size": 198413,
+      "sha256": "72f5d577c9ddaf4da77cd57ef40c4ad6c98cfb31aa99744395aba33d2014344c",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/NP.csv",
+      "size": 15005,
+      "sha256": "8a6e963b73696b944bfbf4d3362a54a0d82d1854cad906f3ae27a78ea227d24b",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/NR.csv",
+      "size": 23238,
+      "sha256": "30fe26849cec9251152af1dcf83af88111db3076810f2b4f7b468a9d84a0dad1",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/SOURCE.json",
+      "size": 1526,
+      "sha256": "a37012ed65843a0b72d5db8fe02632ba62ed4ed97dff85face0e21cbc46801d0",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/VA.csv",
+      "size": 117146,
+      "sha256": "5508849ef6054533ffe1e81a8c2351838e538e98ba62a9f97a09836f2f19dbab",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/VCN.csv",
+      "size": 321,
+      "sha256": "d7237953df47b40ed383887383c5a4d24699d1c55ebed6eb1545e90f4d621b1b",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/VCP.csv",
+      "size": 369,
+      "sha256": "80a2068b76a16fd32335f767209f073757d2a0e50c104fba17a68ef932dab3bd",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/VV.csv",
+      "size": 362987,
+      "sha256": "2929d7cfd45c30d64bfe2b8e6e31f6362772c95a7e2646968a10df04116f60d2",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/VX.csv",
+      "size": 5204,
+      "sha256": "b8168dcdf7bcb0d7aadbd91b5372f24bfd5d4908f631a561f31e4945daf0a543",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/external/mecab-ko-dic/XR.csv",
+      "size": 165259,
+      "sha256": "ab645b6332e56fe767edaf27409dfc03211d64e56dd4b562d19a671d6ec9e2d7",
+      "profiles": [
+        "package"
+      ],
+      "kind": "third-party-data",
+      "distribution": "Apache-2.0; preserve COPYING and SOURCE.json"
+    },
+    {
+      "path": "data/it_terms.txt",
+      "size": 1175,
+      "sha256": "8792d9833290fa9833b5211c97eba08977811a6a7c8b59959ab99795451b368b",
+      "profiles": [
+        "baseline",
+        "package"
+      ],
+      "kind": "project-authored-data",
+      "distribution": "project-license"
+    },
+    {
+      "path": "data/morphology_lexicon.json",
+      "size": 7502,
+      "sha256": "4978469af328113095ed832bb0a3455deee74a1015ba1f40583a43551d613c8b",
+      "profiles": [
+        "baseline",
+        "package"
+      ],
+      "kind": "project-authored-data",
+      "distribution": "project-license"
+    },
+    {
+      "path": "data/workbench_lexicon.json",
+      "size": 2509,
+      "sha256": "7ac198df458d64f7bf8d2ead091738736c19fb97b507e2e3b05a67fd180fa847",
+      "profiles": [
+        "baseline",
+        "package"
+      ],
+      "kind": "project-authored-data",
+      "distribution": "project-license"
+    },
+    {
+      "path": "hanglish/core/data/predicate_boundary_inventory.json",
+      "size": 6392,
+      "sha256": "5da10f07dd9b1a494ad7465c0e215c78982b6d7e252b1f603f7232cf714bb06a",
+      "profiles": [
+        "package"
+      ],
+      "kind": "derived-data",
+      "distribution": "Apache-2.0; preserve mecab-ko-dic.COPYING"
+    }
+  ]
+}
