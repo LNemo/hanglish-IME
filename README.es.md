@@ -30,13 +30,13 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 ## Disponibilidad
 
-**Prototipo nativo actual: macOS 0.2.5, Apple Silicon y macOS 14 o posterior.** Aún no hay métodos de entrada implementados para Windows, Android o iOS.
+**Prototipo nativo actual: macOS 0.2.6 (compilación 8), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Por ahora solo se ha probado localmente en macOS 27; todavía hay que comprobar la compatibilidad en macOS 14. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
 **Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
 
 Si has recibido el instalador de desarrollo, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
 
-El instalador de desarrollo tiene una firma ad-hoc. Aún no se han completado la firma con Developer ID ni la notarización de Apple, y se sigue probando la compatibilidad con distintas aplicaciones.
+El instalador usa inglés de forma predeterminada e incluye localización al coreano. El instalador de desarrollo tiene una firma ad-hoc. Aún no se han completado la firma con Developer ID ni la notarización de Apple, y se sigue probando la compatibilidad con distintas aplicaciones.
 
 ## Limitaciones
 
@@ -50,7 +50,7 @@ El instalador de desarrollo tiene una firma ad-hoc. Aún no se han completado la
 
 El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
 
-**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. El [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json) registra SHA-256. Todavía no hay descargas públicas de modelos.
+**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. Solo se puede importar un paquete que coincida exactamente con el [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json); después de normalizar los metadatos de procedencia, una instalación antigua de la versión 0.2.5 ya no coincide con el bloqueo actual. Todavía no hay descargas públicas de modelos.
 
 En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio las comprobaciones nativas que no requieren modelos:
 

@@ -1,11 +1,12 @@
-# Hanglish private development package — third-party notices
+# Hanglish macOS package — third-party notices
 
-This package is a local development build, not a license-cleared public release.
+These notices apply to both development and signed release-candidate packages.
 Original Hanglish code uses CC BY-NC 4.0. Preserve the LICENSE
 and NOTICE copied into Resources/Licenses/Hanglish; third-party terms remain separate.
 Do not infer permission to redistribute trained model weights from the software
 licenses alone. Training and base-model provenance remain in Engine/checkpoints/*/metadata.json.
-Some metadata records historical build paths; these are provenance, not runtime dependencies.
+Machine-local build paths in project metadata are normalized to repository-relative
+provenance. Model weights and upstream attribution remain unchanged.
 
 ## Included software and data
 
@@ -26,9 +27,11 @@ Some metadata records historical build paths; these are provenance, not runtime 
   `SOURCE.json` preserved. See engine-files.json for the complete selected list.
   External evaluation/training corpora are not included.
 - KoELECTRA-derived rankers: the base repository is
-  `monologg/koelectra-small-v3-discriminator`. Checkpoint metadata explicitly notes
-  that repository license and checkpoint license metadata are not interchangeable.
-  Existing model cards/provenance are preserved; public model distribution needs review.
+  `monologg/koelectra-small-v3-discriminator`. The official v3 project release links
+  to that model; its Apache-2.0 project license and pinned source record are included
+  under `Resources/Licenses/KoELECTRA-project`. The pinned model revision has no
+  separate license file or model-card license metadata. This leaves uncertainty
+  about weight-license scope; it is not a stated redistribution prohibition.
 - KLUE v1.1 training provenance: the packaged sentence ranker and both CTC models
   were trained using KLUE-derived data; the original corpus is not bundled.
   Credit KLUE Team, *KLUE: Korean Language Understanding Evaluation* (2021),
@@ -42,7 +45,7 @@ included. The current trained Hanglish engine is retained without retraining.
 
 ## Distribution boundary
 
-The app is ad-hoc signed for local development. It is not Developer ID signed or
-notarized. Public distribution requires appropriate signing/notarization and an
-audit of software, data, and model redistribution terms. These notes do not replace
-the upstream licenses supplied in the package.
+The adjacent artifact manifest records whether this is a nonpublic ad-hoc
+development build or a Developer ID signed and notarized release candidate.
+Signing and notarization do not grant rights to third-party models or data.
+These notes do not replace the upstream licenses supplied in the package.

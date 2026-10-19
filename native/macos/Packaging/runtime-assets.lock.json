@@ -1,6 +1,6 @@
 {
   "schema": "hanglish-runtime-assets-v1",
-  "engine_version": "experimental-score-scale-1-f6976e1b269d",
+  "engine_version": "experimental-score-scale-1-b95e9d9ccb46",
   "note": "Exact local development assets. Hashes do not establish redistribution permission. No model downloads or public weights are provided.",
   "files": [
     {
@@ -55,13 +55,17 @@
     },
     {
       "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.json",
-      "size": 3280,
-      "sha256": "8a80b8713c86951895ae031a74271569d4e3d7a164c500d4e3b310fc05c04a04",
+      "size": 2752,
+      "sha256": "954f8022a2a674dfd379002f0713998e508bae844a0ce211e2cf88131c54ed78",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "redistribution-review-required",
+      "metadata_normalization": {
+        "previous_sha256": "8a80b8713c86951895ae031a74271569d4e3d7a164c500d4e3b310fc05c04a04",
+        "transformation": "repository-relative-provenance-v1"
+      }
     },
     {
       "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt",
@@ -75,13 +79,17 @@
     },
     {
       "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.json",
-      "size": 2954,
-      "sha256": "55896da7ad1a24773d2504f5a470763b76109b0cff4af482a143612d08824dae",
+      "size": 2492,
+      "sha256": "a5c8b896518209ea8f7de24c3a4d273539378a5ca3a2476cb54c9df527a2209b",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "redistribution-review-required",
+      "metadata_normalization": {
+        "previous_sha256": "55896da7ad1a24773d2504f5a470763b76109b0cff4af482a143612d08824dae",
+        "transformation": "repository-relative-provenance-v1"
+      }
     },
     {
       "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.pt",
@@ -95,13 +103,17 @@
     },
     {
       "path": "checkpoints/context_ranker.json",
-      "size": 4586,
-      "sha256": "e49f3b675389cfe629a6d4a0b80625d170d6e401a217baefbbb6307ce7496983",
+      "size": 4520,
+      "sha256": "180451594f8cc954f472efd643d7738b64ed1b69d6621b16356d70bf39149933",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "redistribution-review-required",
+      "metadata_normalization": {
+        "previous_sha256": "e49f3b675389cfe629a6d4a0b80625d170d6e401a217baefbbb6307ce7496983",
+        "transformation": "repository-relative-provenance-v1"
+      }
     },
     {
       "path": "checkpoints/context_ranker.pt",
@@ -165,13 +177,17 @@
     },
     {
       "path": "checkpoints/semantic_ranker/metadata.json",
-      "size": 12946,
-      "sha256": "9745724c24517603452bf8d62a3079ddb25dcc8a0bc3572d8d61514afa379a2f",
+      "size": 12781,
+      "sha256": "1c6e4a7d6a69b73f432346475aa762a0aa9e7798403eff7e040dce438e179b7b",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "redistribution-review-required",
+      "metadata_normalization": {
+        "previous_sha256": "9745724c24517603452bf8d62a3079ddb25dcc8a0bc3572d8d61514afa379a2f",
+        "transformation": "repository-relative-provenance-v1"
+      }
     },
     {
       "path": "checkpoints/semantic_ranker/model.safetensors",
@@ -235,13 +251,17 @@
     },
     {
       "path": "checkpoints/sentence_ranker/metadata.json",
-      "size": 9046,
-      "sha256": "8a6a1f9736fab0173003751e70c5e7ef0fa139a0e773444986ede044e0e55d14",
+      "size": 8881,
+      "sha256": "49efb1f3b31d411716780d752d522ae62b1626aab98646de676ccb5e0e93ae24",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "redistribution-review-required",
+      "metadata_normalization": {
+        "previous_sha256": "8a6a1f9736fab0173003751e70c5e7ef0fa139a0e773444986ede044e0e55d14",
+        "transformation": "repository-relative-provenance-v1"
+      }
     },
     {
       "path": "checkpoints/sentence_ranker/model.safetensors",

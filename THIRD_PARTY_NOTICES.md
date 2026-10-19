@@ -35,9 +35,12 @@ Official sources: [release/download guide](https://wordlist.aspell.net/dicts/),
   attributions. Preserve the [upstream notice](native/macos/Packaging/wordfreq-NOTICE.md)
   and [license texts](native/macos/Packaging/wordfreq-LICENSE.txt).
 - Trained rankers and transducers: weights and training datasets stay outside
-  Git. KoELECTRA source licensing does not by itself establish permission for
-  all base weights, training sources or derived checkpoints. Their public
-  distribution remains pending review.
+  Git. The official KoELECTRA v3 project release links to the exact base model
+  used here. Its [Apache-2.0 project license](licenses/koelectra/PROJECT-LICENSE.txt)
+  and [pinned provenance](licenses/koelectra/SOURCE.json) are preserved. The pinned
+  Hugging Face model revision has no separate license file or model-card license
+  metadata. This is an unresolved scope question, not evidence of a redistribution
+  prohibition. Public model distribution remains pending review.
 - KLUE v1.1: packaged sentence-ranker and CTC training metadata trace to
   CC BY-SA 4.0 data. Credit KLUE Team, *KLUE: Korean Language Understanding
   Evaluation* (2021), https://arxiv.org/abs/2105.09680. Extracted/normalized

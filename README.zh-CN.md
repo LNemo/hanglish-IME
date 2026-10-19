@@ -30,13 +30,13 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 ## 支持环境与发布状态
 
-**当前原生原型：macOS 0.2.5，Apple Silicon，macOS 14 或更高版本。** Windows、Android 和 iOS 输入法尚未实现。
+**当前原生原型：macOS 0.2.6（构建 8），Apple Silicon，最低部署目标为 macOS 14 或更高版本。** 目前仅在 macOS 27 上进行了本地验证，仍需在 macOS 14 上单独确认兼容性。Windows、Android 和 iOS 输入法尚未实现。
 
 **目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款，模型的公开分发方案仍在准备中。
 
 如果你已收到开发版安装包，请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
 
-开发版安装包使用 ad-hoc 签名。Developer ID 签名和 Apple 公证尚未完成，各应用的兼容性也仍在测试。
+安装程序默认显示英文，并提供韩文界面。开发版安装包使用 ad-hoc 签名。Developer ID 签名和 Apple 公证尚未完成，各应用的兼容性也仍在测试。
 
 ## 当前限制
 
@@ -50,7 +50,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 仓库包含转换源码、原生 macOS 输入法、构建工具、测试，不包含模型权重、下载或生成的数据集、本地实验产物以及安装镜像。
 
-**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)记录 SHA-256。目前尚未提供公开模型下载。
+**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。只能导入与[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)完全一致的安装包；来源元数据规范化后，旧版 0.2.5 安装包不再匹配当前锁定文件。目前尚未提供公开模型下载。
 
 在安装了 Xcode Command Line Tools 的 Mac 上，可从仓库根目录执行不需要模型的原生检查：
 

@@ -30,13 +30,13 @@ Korean pronunciation does not uniquely determine spelling. Hanglish tries to rec
 
 ## Availability
 
-**Current native prototype: macOS 0.2.5, Apple Silicon, macOS 14 or later.** Windows, Android, and iOS input methods are not implemented yet.
+**Current native prototype: macOS 0.2.6 (build 8), Apple Silicon, with a deployment target of macOS 14 or later.** It has only been exercised locally on macOS 27 so far; macOS 14 compatibility still needs testing on that OS. Windows, Android, and iOS input methods are not implemented yet.
 
 There is **no published GitHub Release yet**. The repository is currently private. Original Hanglish code uses noncommercial terms; public model distribution arrangements are still being prepared.
 
 If you have received the development installer, follow the [macOS installation guide](native/macos/README.md) ([한국어](native/macos/README.ko.md)). A complete installer bundles the conversion engine, models, and Python runtime. Once installed, conversion runs locally and does not send your typed text to a server. You do not need a development server, Tailscale, or a separate Python installation to use that package.
 
-The development installer uses an ad-hoc signature. Developer ID signing and Apple notarization have not been completed, and app compatibility is still being tested.
+The installer uses English by default and includes Korean localization. Development packages use an ad-hoc signature. Developer ID signing and Apple notarization have not been completed, and app compatibility is still being tested.
 
 ## Limitations
 
@@ -50,7 +50,7 @@ The development installer uses an ad-hoc signature. Developer ID signing and App
 
 The repository contains the conversion source, native macOS input method, build tools, and tests. It does **not** include model weights, downloaded or generated datasets, local experiment artifacts, or installer images.
 
-**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](native/macos/README.md#build-and-verify) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Public model downloads are not available yet.
+**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](native/macos/README.md#build-and-verify) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Import requires a bundle that exactly matches the current lock; an older 0.2.5 installation does not match after provenance metadata normalization. Public model downloads are not available yet.
 
 On a Mac with Xcode Command Line Tools, run the model-free native checks from the repository root:
 

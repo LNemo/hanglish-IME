@@ -9,6 +9,7 @@ resources="$stage/Relocated App/Contents/Resources"
 ditto "$1" "$resources"
 swiftc -swift-version 5 -module-cache-path "$task_dir/build/module-cache" \
   "$task_dir/Sources/CompositionState.swift" "$task_dir/Sources/EngineClient.swift" \
+  "$task_dir/Shared/Localization.swift" \
   "$task_dir/Tests/EngineSmokeTests.swift" -o "$stage/engine-smoke"
 cat > "$stage/isolation.sb" <<'PROFILE'
 (version 1)

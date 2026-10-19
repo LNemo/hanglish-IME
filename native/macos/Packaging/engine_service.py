@@ -32,6 +32,7 @@ def serve(stream, output, make_engine):
         if not line:
             break
         request_id = ""
+        error_code = "invalid_request"
         try:
             if len(line) > MAX_FRAME:
                 while line and not line.endswith(b"\n"):
@@ -42,14 +43,17 @@ def serve(stream, output, make_engine):
                 request_id = payload["request_id"][:100]
             request_id, text = validate_request(payload)
             if engine is None:
+                error_code = "initialization_failed"
                 engine = make_engine()
+            error_code = "conversion_failed"
             result = engine.convert(text, context="", engine="neural", mode="batch", raw=False)
             response = {key: result[key] for key in ("result", "candidates", "version")}
             response["candidates"] = [{"text": candidate["text"]} for candidate in result["candidates"]]
             response["request_id"] = request_id
         except Exception:
             # Avoid exception messages containing typed text, paths or model internals.
-            response = {"request_id": request_id, "error": "conversion_unavailable"}
+            response = {"request_id": request_id, "error": "conversion_unavailable",
+                        "error_code": error_code}
         try:
             output.write(json.dumps(response, ensure_ascii=False) + "\n")
             output.flush()

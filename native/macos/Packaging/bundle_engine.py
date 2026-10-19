@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import importlib.metadata as metadata
 import json
+import os
 from pathlib import Path
 import platform
 import shutil
@@ -14,6 +15,7 @@ import sysconfig
 
 from packaging.requirements import Requirement
 from packaging.utils import canonicalize_name
+from release_metadata import PRIVATE_PATH, sanitize_metadata
 
 ROOT = Path(__file__).resolve().parents[3]
 SEEDS = ("torch", "transformers", "numpy", "wordfreq", "safetensors", "tokenizers")
@@ -92,14 +94,30 @@ def main():
         for source in matches:
             if source.is_file():
                 selected.add(source)
+    metadata_changes = {}
     for source in sorted(selected):
-        copy_file(source, engine / source.relative_to(ROOT))
+        relative = source.relative_to(ROOT)
+        destination = engine / relative
+        copy_file(source, destination)
+        if (source.suffix == ".json" and source.name != "tokenizer.json"
+                and relative.parts[0] in ("checkpoints", ".omx")):
+            original = json.loads(source.read_text(encoding="utf-8"))
+            cleaned = sanitize_metadata(original)
+            if cleaned != original:
+                destination.write_text(json.dumps(cleaned, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                metadata_changes[str(relative)] = {
+                    "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                    "packaged_sha256": hashlib.sha256(destination.read_bytes()).hexdigest(),
+                    "transformation": "repository-relative-provenance-v1",
+                }
     copy_file(Path(__file__).with_name("engine_service.py"), engine / "engine_service.py")
     # Retain upstream license/attribution documents independently of importability.
     notice = resources / "Licenses"
     notice.mkdir()
     for name in ("LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"):
         copy_file(ROOT / name, notice / "Hanglish" / name)
+    for name in ("PROJECT-LICENSE.txt", "SOURCE.json"):
+        copy_file(ROOT / "licenses/koelectra" / name, notice / "KoELECTRA-project" / name)
     for source in ROOT.glob("data/external/koelectra-small-v3/*"):
         if source.name.lower().startswith(("license", "readme", "source")) and source.is_file():
             copy_file(source, notice / "KoELECTRA" / source.name)
@@ -111,9 +129,31 @@ def main():
     for link in runtime.rglob("*"):
         if link.is_symlink() and not link.resolve().is_relative_to(runtime):
             raise ValueError(f"External runtime symlink: {link.relative_to(runtime)}")
+    for path in engine.rglob("*.json"):
+        value = json.loads(path.read_text(encoding="utf-8"))
+        # Tokenizer vocabulary keys such as '/' are tokens, not provenance paths.
+        private_path = (bool(PRIVATE_PATH.search(path.read_text(encoding="utf-8")))
+                        if path.name == "tokenizer.json" else sanitize_metadata(value) != value)
+        if private_path:
+            raise ValueError(f"Private build path remains in packaged metadata: {path.relative_to(engine)}")
+    # Metadata participates in the engine identity. Measure the packaged identity
+    # instead of falsely advertising the original source version after redaction.
+    probe = subprocess.run(
+        [str(runtime / "bin/python3.11"), "-I", "-B", str(engine / "engine_service.py")],
+        input=json.dumps({"request_id": "package-version", "input": "imnida"}) + "\n",
+        text=True, capture_output=True, timeout=120, check=True,
+        env={"PATH": "/usr/bin:/bin:/usr/sbin:/sbin", "HOME": os.environ.get("HOME", "/tmp")},
+    )
+    reply = json.loads(probe.stdout)
+    packaged_version = reply.get("version")
+    if (reply.get("request_id") != "package-version" or reply.get("result") != "입니다"
+            or packaged_version != specification["selected_version"]):
+        raise ValueError("Packaged engine identity/conversion check failed")
     manifest = {"schema": "hanglish-bundled-engine-v1", "python": platform.python_version(),
                 "architecture": "arm64", "minimum_macos": "14.0",
-                "engine_version": specification["selected_version"],
+                "engine_version": packaged_version,
+                "source_engine_version": specification["selected_version"],
+                "metadata_transformations": metadata_changes,
                 "packages": [{"name": p["name"], "version": p["version"]} for p in package_manifest],
                 "engine_files": {str(p.relative_to(engine)): hashlib.sha256(p.read_bytes()).hexdigest()
                                  for p in sorted(engine.rglob("*")) if p.is_file()}}

@@ -1,0 +1,9 @@
+{
+  "project": "monologg/KoELECTRA",
+  "project_revision": "37055c3f47806bc4b3854a62c0c90d05f11742f5",
+  "project_license_url": "https://raw.githubusercontent.com/monologg/KoELECTRA/37055c3f47806bc4b3854a62c0c90d05f11742f5/LICENSE",
+  "project_license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+  "model": "monologg/koelectra-small-v3-discriminator",
+  "model_revision": "7488f8db0f208beff4a1f3f9bb3ed04650a89ed7",
+  "scope": "The Apache-2.0 text is preserved from the official KoELECTRA source project. Its v3 release README links to this exact model repository. The pinned model revision has no separate LICENSE or model-card license metadata; no independent weight-license grant is asserted here."
+}

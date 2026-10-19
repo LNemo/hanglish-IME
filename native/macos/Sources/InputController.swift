@@ -163,7 +163,9 @@ final class HanglishInputController: IMKInputController {
 
     override func menu() -> NSMenu! {
         let menu = NSMenu(title: "Hanglish")
-        let status = composition.errorMessage ?? (composition.pendingRevision != nil ? "변환 중… 원문 편집 가능" : "Enter 변환 → Enter 확정 · Tab 후보 · Esc 원문")
+        let status = composition.errorMessage ?? (composition.pendingRevision != nil
+            ? localized("Converting… You can keep editing the original text")
+            : localized("Enter convert → Enter confirm · Tab candidates · Esc original"))
         let item = NSMenuItem(title: status, action: nil, keyEquivalent: "")
         item.isEnabled = false
         menu.addItem(item)

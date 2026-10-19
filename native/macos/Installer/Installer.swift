@@ -27,15 +27,15 @@ struct InstallOutcome {
     let switchedFromHanglish: Bool
 
     var userMessage: String {
-        var lines = ["Hanglish 설치를 마쳤습니다."]
-        if let backup { lines.append("이전 버전은 \(backup.path)에 보관했습니다.") }
+        var lines = [localized("Hanglish installation is complete.")]
+        if let backup { lines.append(localized("The previous version was saved at %@.", backup.path)) }
         if enabled {
-            lines.append("메뉴 막대의 입력기 메뉴에서 Hanglish를 선택하세요.")
+            lines.append(localized("Select Hanglish from the input menu in the menu bar."))
         } else {
-            lines.append("시스템 설정 → 키보드 → 텍스트 입력 → 편집에서 Hanglish를 추가하세요.")
+            lines.append(localized("Add Hanglish in System Settings → Keyboard → Text Input → Edit."))
         }
         if switchedFromHanglish {
-            lines.append("업데이트를 안전하게 마치기 위해 입력기를 ABC로 전환했습니다.")
+            lines.append(localized("The input source was switched to ABC to complete the update safely."))
         }
         return lines.joined(separator: "\n")
     }
@@ -72,16 +72,16 @@ final class HanglishInstaller {
         backupRoot: URL,
         registerInputSource: Bool
     ) throws -> InstallOutcome {
-        let payload = try validatedAbsoluteAppURL(payload, role: "설치 파일")
-        let destination = try validatedAbsoluteAppURL(destination, role: "설치 위치", mayNotExist: true)
-        let backupRoot = try validatedAbsoluteDirectoryURL(backupRoot, role: "백업 위치")
+        let payload = try validatedAbsoluteAppURL(payload, role: localized("installation package"))
+        let destination = try validatedAbsoluteAppURL(destination, role: localized("installation destination"), mayNotExist: true)
+        let backupRoot = try validatedAbsoluteDirectoryURL(backupRoot, role: localized("backup destination"))
 
-        try requireRegularBundle(payload, expectedIdentifier: hanglishBundleIdentifier, role: "설치 파일")
+        try requireRegularBundle(payload, expectedIdentifier: hanglishBundleIdentifier, role: localized("installation package"))
         let payloadSourceIdentifiers = try declaredInputSourceIdentifiers(in: payload)
         var sourceIdentifiersToReplace = Set(knownHanglishInputSourceIdentifiers)
         sourceIdentifiersToReplace.formUnion(payloadSourceIdentifiers)
         if fileManager.fileExists(atPath: destination.path) {
-            try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: "기존 설치본")
+            try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: localized("existing installation"))
             sourceIdentifiersToReplace.formUnion(try managedInputSourceIdentifiers(in: destination))
         }
 
@@ -91,7 +91,7 @@ final class HanglishInstaller {
         defer { try? fileManager.removeItem(at: staging) }
 
         try fileManager.copyItem(at: payload, to: staging)
-        try requireRegularBundle(staging, expectedIdentifier: hanglishBundleIdentifier, role: "복사된 설치 파일")
+        try requireRegularBundle(staging, expectedIdentifier: hanglishBundleIdentifier, role: localized("copied installation package"))
         try signatureValidator(staging)
 
         var switched = false
@@ -110,7 +110,10 @@ final class HanglishInstaller {
             try fileManager.moveItem(at: staging, to: destination)
         } catch {
             try restoreBackupIfPresent(backup, to: destination)
-            throw InstallerError.message("새 버전을 설치하지 못했습니다. 이전 버전은 복구했습니다. (\(error.localizedDescription))")
+            throw InstallerError.message(localized(
+                "The new version could not be installed. The previous version was restored. (%@)",
+                error.localizedDescription
+            ))
         }
 
         guard registerInputSource else {
@@ -122,26 +125,33 @@ final class HanglishInstaller {
             do {
                 try rollbackInstalledBundle(destination: destination, backup: backup)
             } catch {
-                let backupDescription = backup?.path ?? "이전 설치본 없음"
-                throw InstallerError.message(
-                    "macOS 입력기 등록과 자동 복구에 실패했습니다. 백업: \(backupDescription). " +
-                    "새 설치본을 변경하지 말고 백업을 확인하세요. (복구 오류: \(error.localizedDescription))"
-                )
+                let backupDescription = backup?.path ?? localized("No previous installation")
+                throw InstallerError.message(localized(
+                    "Registering the macOS input source and automatic recovery both failed. Backup: %@. Do not modify the new installation; check the backup. (Recovery error: %@)",
+                    backupDescription,
+                    error.localizedDescription
+                ))
             }
             if let backup {
                 let restoreStatus = TISRegisterInputSource(destination as CFURL)
                 guard restoreStatus == noErr else {
-                    throw InstallerError.message(
-                        "새 버전 등록에 실패해 이전 앱 파일은 복구했지만 macOS에 다시 등록하지 못했습니다. " +
-                        "복구된 앱: \(destination.path), 백업 위치: \(backup.path), 오류: \(restoreStatus)"
-                    )
+                    throw InstallerError.message(localized(
+                        "The new version could not be registered. The previous app was restored, but macOS could not register it again. Restored app: %@, backup: %@, error: %d",
+                        destination.path,
+                        backup.path,
+                        restoreStatus
+                    ))
                 }
-                throw InstallerError.message(
-                    "macOS에 새 입력기를 등록하지 못해 이전 버전으로 되돌렸습니다. " +
-                    "백업 위치: \(backup.path), 오류: \(registerStatus)"
-                )
+                throw InstallerError.message(localized(
+                    "The new input source could not be registered with macOS, so the previous version was restored. Backup: %@, error: %d",
+                    backup.path,
+                    registerStatus
+                ))
             }
-            throw InstallerError.message("macOS에 입력기를 등록하지 못해 새 설치본을 제거했습니다. (오류 \(registerStatus))")
+            throw InstallerError.message(localized(
+                "The input source could not be registered with macOS, so the new installation was removed. (Error %d)",
+                registerStatus
+            ))
         }
 
         let enabled = enablePreferredInputSource(identifiers: payloadSourceIdentifiers)
@@ -149,9 +159,9 @@ final class HanglishInstaller {
     }
 
     func uninstall(destination: URL, backupRoot: URL, manageInputSource: Bool = true) throws -> URL {
-        let destination = try validatedAbsoluteAppURL(destination, role: "설치 위치")
-        let backupRoot = try validatedAbsoluteDirectoryURL(backupRoot, role: "백업 위치")
-        try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: "설치본")
+        let destination = try validatedAbsoluteAppURL(destination, role: localized("installation destination"))
+        let backupRoot = try validatedAbsoluteDirectoryURL(backupRoot, role: localized("backup destination"))
+        try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: localized("installed app"))
 
         if manageInputSource {
             let managedIdentifiers = try managedInputSourceIdentifiers(in: destination)
@@ -170,11 +180,11 @@ final class HanglishInstaller {
     }
 
     func inspect(destination: URL) throws -> [String: Any] {
-        let destination = try validatedAbsoluteAppURL(destination, role: "확인 위치", mayNotExist: true)
+        let destination = try validatedAbsoluteAppURL(destination, role: localized("inspection destination"), mayNotExist: true)
         guard fileManager.fileExists(atPath: destination.path) else {
             return ["installed": false, "path": destination.path]
         }
-        try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: "설치본")
+        try requireRegularBundle(destination, expectedIdentifier: hanglishBundleIdentifier, role: localized("installed app"))
         let plist = try bundleInfo(at: destination)
         return [
             "installed": true,
@@ -191,27 +201,27 @@ final class HanglishInstaller {
 
     private func validatedAbsoluteAppURL(_ url: URL, role: String, mayNotExist: Bool = false) throws -> URL {
         guard url.path.hasPrefix("/"), url.pathExtension == "app" else {
-            throw InstallerError.message("\(role)은 절대 경로의 .app이어야 합니다.")
+            throw InstallerError.message(localized("%@ must be an absolute path to an .app bundle.", role))
         }
         let standardized = url.standardizedFileURL
         if fileManager.fileExists(atPath: standardized.path) {
             try rejectSymbolicLink(standardized, role: role)
         } else if !mayNotExist {
-            throw InstallerError.message("\(role)을 찾을 수 없습니다: \(standardized.path)")
+            throw InstallerError.message(localized("%@ could not be found: %@", role, standardized.path))
         }
         return standardized
     }
 
     private func validatedAbsoluteDirectoryURL(_ url: URL, role: String) throws -> URL {
         guard url.path.hasPrefix("/") else {
-            throw InstallerError.message("\(role)은 절대 경로여야 합니다.")
+            throw InstallerError.message(localized("%@ must be an absolute path.", role))
         }
         let standardized = url.standardizedFileURL
         if fileManager.fileExists(atPath: standardized.path) {
             try rejectSymbolicLink(standardized, role: role)
             var isDirectory: ObjCBool = false
             guard fileManager.fileExists(atPath: standardized.path, isDirectory: &isDirectory), isDirectory.boolValue else {
-                throw InstallerError.message("\(role)이 폴더가 아닙니다.")
+                throw InstallerError.message(localized("%@ is not a folder.", role))
             }
         }
         return standardized
@@ -220,7 +230,7 @@ final class HanglishInstaller {
     private func rejectSymbolicLink(_ url: URL, role: String) throws {
         let attributes = try fileManager.attributesOfItem(atPath: url.path)
         if attributes[.type] as? FileAttributeType == .typeSymbolicLink {
-            throw InstallerError.message("\(role)이 심볼릭 링크여서 안전하게 처리할 수 없습니다: \(url.path)")
+            throw InstallerError.message(localized("%@ is a symbolic link and cannot be handled safely: %@", role, url.path))
         }
     }
 
@@ -228,11 +238,11 @@ final class HanglishInstaller {
         try rejectSymbolicLink(url, role: role)
         var isDirectory: ObjCBool = false
         guard fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory), isDirectory.boolValue else {
-            throw InstallerError.message("\(role)이 앱 번들이 아닙니다: \(url.path)")
+            throw InstallerError.message(localized("%@ is not an app bundle: %@", role, url.path))
         }
         let info = try bundleInfo(at: url)
         guard info["CFBundleIdentifier"] as? String == expectedIdentifier else {
-            throw InstallerError.message("\(role)이 Hanglish 앱이 아니므로 변경하지 않았습니다.")
+            throw InstallerError.message(localized("%@ is not a Hanglish app, so it was left unchanged.", role))
         }
     }
 
@@ -240,7 +250,7 @@ final class HanglishInstaller {
         let plistURL = url.appendingPathComponent("Contents/Info.plist")
         let data = try Data(contentsOf: plistURL)
         guard let value = try PropertyListSerialization.propertyList(from: data, format: nil) as? [String: Any] else {
-            throw InstallerError.message("앱 정보 파일을 읽을 수 없습니다: \(plistURL.path)")
+            throw InstallerError.message(localized("The app information file could not be read: %@", plistURL.path))
         }
         return value
     }
@@ -285,7 +295,7 @@ final class HanglishInstaller {
         try process.run()
         process.waitUntilExit()
         guard process.terminationStatus == 0 else {
-            throw InstallerError.message("설치 파일의 코드 서명을 확인하지 못했습니다.")
+            throw InstallerError.message(localized("The installation package's code signature could not be verified."))
         }
     }
 
@@ -297,10 +307,9 @@ final class HanglishInstaller {
             Thread.sleep(forTimeInterval: 0.1)
         }
         guard !applications.contains(where: { !$0.isTerminated }) else {
-            throw InstallerError.message(
-                "실행 중인 Hanglish 입력기를 종료하지 못해 설치 파일을 변경하지 않았습니다. " +
-                "다른 입력기로 전환하고 Hanglish를 사용하는 앱을 닫은 뒤 다시 시도하세요."
-            )
+            throw InstallerError.message(localized(
+                "The running Hanglish input source could not be closed, so the installation was left unchanged. Switch to another input source, close apps using Hanglish, and try again."
+            ))
         }
     }
 }
@@ -401,10 +410,10 @@ private func switchToABCIfHanglishIsCurrent(managedIdentifiers: Set<String>) -> 
 }
 
 final class InstallerWindowController: NSWindowController {
-    private let statusLabel = NSTextField(wrappingLabelWithString: "Hanglish와 변환 엔진을 이 Mac에 설치합니다.")
-    private let installButton = NSButton(title: "설치 / 업데이트", target: nil, action: nil)
-    private let uninstallButton = NSButton(title: "제거 후 보관", target: nil, action: nil)
-    private let guideButton = NSButton(title: "입력기 설정 안내", target: nil, action: nil)
+    private let statusLabel = NSTextField(wrappingLabelWithString: localized("Install Hanglish and its conversion engine on this Mac."))
+    private let installButton = NSButton(title: localized("Install / Update"), target: nil, action: nil)
+    private let uninstallButton = NSButton(title: localized("Remove and Save Backup"), target: nil, action: nil)
+    private let guideButton = NSButton(title: localized("Input Source Setup Help"), target: nil, action: nil)
     private let progress = NSProgressIndicator()
     private let installer = HanglishInstaller()
 
@@ -415,7 +424,7 @@ final class InstallerWindowController: NSWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "Hanglish 설치"
+        window.title = localized("Hanglish Installer")
         window.center()
         super.init(window: window)
         configureUI()
@@ -425,9 +434,9 @@ final class InstallerWindowController: NSWindowController {
 
     private func configureUI() {
         guard let content = window?.contentView else { return }
-        let title = NSTextField(labelWithString: "Hanglish 입력기")
+        let title = NSTextField(labelWithString: localized("Hanglish Input Source"))
         title.font = .systemFont(ofSize: 24, weight: .semibold)
-        let detail = NSTextField(wrappingLabelWithString: "입력기와 로컬 변환 엔진·모델을 함께 설치합니다. 관리자 암호는 필요하지 않습니다.")
+        let detail = NSTextField(wrappingLabelWithString: localized("Installs the input source with its local conversion engine and model. No administrator password is required."))
         detail.textColor = .secondaryLabelColor
 
         installButton.target = self
@@ -466,10 +475,10 @@ final class InstallerWindowController: NSWindowController {
 
     @objc private func installPressed() {
         guard let payload = HanglishInstaller.bundledPayload else {
-            statusLabel.stringValue = "설치 패키지 안에서 Hanglish.app을 찾지 못했습니다."
+            statusLabel.stringValue = localized("Hanglish.app could not be found in the installation package.")
             return
         }
-        runTask(initialStatus: "설치 파일을 확인하고 있습니다…") { [installer] in
+        runTask(initialStatus: localized("Checking the installation package…")) { [installer] in
             try installer.install(
                 payload: payload,
                 destination: HanglishInstaller.defaultDestination,
@@ -481,22 +490,22 @@ final class InstallerWindowController: NSWindowController {
 
     @objc private func uninstallPressed() {
         let alert = NSAlert()
-        alert.messageText = "Hanglish를 제거할까요?"
-        alert.informativeText = "설치본은 삭제하지 않고 백업 폴더로 옮깁니다."
-        alert.addButton(withTitle: "제거 후 보관")
-        alert.addButton(withTitle: "취소")
+        alert.messageText = localized("Remove Hanglish?")
+        alert.informativeText = localized("The installed app will be moved to the backup folder instead of being deleted.")
+        alert.addButton(withTitle: localized("Remove and Save Backup"))
+        alert.addButton(withTitle: localized("Cancel"))
         guard alert.runModal() == .alertFirstButtonReturn else { return }
-        runTask(initialStatus: "Hanglish를 안전하게 보관하고 있습니다…") { [installer] in
+        runTask(initialStatus: localized("Moving Hanglish to a safe backup…")) { [installer] in
             let backup = try installer.uninstall(
                 destination: HanglishInstaller.defaultDestination,
                 backupRoot: HanglishInstaller.defaultBackupRoot
             )
-            return "Hanglish를 제거했습니다. 설치본은 \(backup.path)에 보관했습니다."
+            return localized("Hanglish was removed. The installed app was saved at %@.", backup.path)
         }
     }
 
     @objc private func guidePressed() {
-        statusLabel.stringValue = "시스템 설정 → 키보드 → 텍스트 입력 → 편집 → + → 한국어에서 Hanglish를 추가한 뒤, 메뉴 막대의 입력기 메뉴에서 선택하세요."
+        statusLabel.stringValue = localized("Open System Settings → Keyboard → Text Input → Edit → +. Add Hanglish under Korean, then select it from the input menu in the menu bar.")
     }
 
     private func runTask(initialStatus: String, operation: @escaping () throws -> String) {
@@ -539,7 +548,9 @@ private func writeError(_ message: String) {
 
 private func argumentValue(_ name: String, in arguments: [String]) throws -> String? {
     guard let index = arguments.firstIndex(of: name) else { return nil }
-    guard index + 1 < arguments.count else { throw InstallerError.message("\(name) 뒤에 경로가 필요합니다.") }
+    guard index + 1 < arguments.count else {
+        throw InstallerError.message(localized("%@ requires a path after it.", name))
+    }
     return arguments[index + 1]
 }
 
@@ -559,7 +570,7 @@ private func runCommandLine(_ arguments: [String]) -> Int32 {
         }
         if arguments.contains("--install") {
             guard let payload = HanglishInstaller.bundledPayload else {
-                throw InstallerError.message("설치 패키지 안에서 Hanglish.app을 찾지 못했습니다.")
+                throw InstallerError.message(localized("Hanglish.app could not be found in the installation package."))
             }
             let outcome = try installer.install(
                 payload: payload,
@@ -576,10 +587,10 @@ private func runCommandLine(_ arguments: [String]) -> Int32 {
                 backupRoot: backupRoot,
                 manageInputSource: !arguments.contains("--no-register")
             )
-            print("Hanglish를 제거하고 \(backup.path)에 보관했습니다.")
+            print(localized("Hanglish was removed and saved at %@.", backup.path))
             return 0
         }
-        writeError("사용법: Hanglish Installer --install|--inspect|--uninstall [--destination /absolute/Hanglish.app] [--backup-root /absolute/folder] [--no-register]")
+        writeError(localized("Usage: Hanglish Installer --install|--inspect|--uninstall [--destination /absolute/Hanglish.app] [--backup-root /absolute/folder] [--no-register]"))
         return 2
     } catch {
         writeError(error.localizedDescription)
@@ -587,13 +598,18 @@ private func runCommandLine(_ arguments: [String]) -> Int32 {
     }
 }
 
-let installerArguments = Array(CommandLine.arguments.dropFirst())
-if installerArguments.contains("--install") || installerArguments.contains("--inspect") || installerArguments.contains("--uninstall") {
-    exit(runCommandLine(installerArguments))
-}
+@main
+enum InstallerMain {
+    static func main() {
+        let installerArguments = Array(CommandLine.arguments.dropFirst())
+        if installerArguments.contains("--install") || installerArguments.contains("--inspect") || installerArguments.contains("--uninstall") {
+            exit(runCommandLine(installerArguments))
+        }
 
-let application = NSApplication.shared
-let delegate = InstallerAppDelegate()
-application.delegate = delegate
-application.setActivationPolicy(.regular)
-application.run()
+        let application = NSApplication.shared
+        let delegate = InstallerAppDelegate()
+        application.delegate = delegate
+        application.setActivationPolicy(.regular)
+        application.run()
+    }
+}

@@ -20,19 +20,23 @@ swiftc "${swift_flags[@]}" \
 "$test_dir/composition-state-tests"
 
 swiftc "${swift_flags[@]}" \
+  "$task_dir/Shared/Localization.swift" \
   "$task_dir/Sources/EngineClient.swift" \
   "$task_dir/Tests/EngineClientTests.swift" \
   -o "$test_dir/engine-client-tests"
 "$test_dir/engine-client-tests"
 
+app_sources=(
+  "$task_dir/Sources/CompositionState.swift"
+  "$task_dir/Sources/EngineClient.swift"
+  "$task_dir/Shared/Localization.swift"
+  "$task_dir/Sources/InputController.swift"
+  "$task_dir/Sources/main.swift"
+)
 swiftc "${swift_flags[@]}" \
   -target "$(uname -m)-apple-macosx14.0" \
   -framework Cocoa -framework InputMethodKit \
-  -typecheck \
-  "$task_dir/Sources/CompositionState.swift" \
-  "$task_dir/Sources/EngineClient.swift" \
-  "$task_dir/Sources/InputController.swift" \
-  "$task_dir/Sources/main.swift"
+  -typecheck "${app_sources[@]}"
 printf 'Hanglish macOS app sources: typecheck passed\n'
 
 case "${1:-}" in
@@ -41,6 +45,7 @@ case "${1:-}" in
     [[ $# -eq 2 ]] || { printf 'Usage: %s --live <resources-directory>\n' "$0" >&2; exit 2; }
     swiftc "${swift_flags[@]}" \
       "$task_dir/Sources/CompositionState.swift" \
+      "$task_dir/Shared/Localization.swift" \
       "$task_dir/Sources/EngineClient.swift" \
       "$task_dir/Tests/EngineSmokeTests.swift" \
       -o "$test_dir/engine-smoke-tests"

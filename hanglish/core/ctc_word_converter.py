@@ -19,7 +19,7 @@ DEFAULT_WORD_CHECKPOINT = ROOT / ".omx/artifacts/sentence-ctc-pilot-v1/model.pt"
 EXPECTED_CTC_CHECKPOINT_SHA256 = (
     "832e7171a73daad4a02864668447725e7ae790e50ab7458f3a409701f0878663")
 EXPECTED_CTC_METADATA_SHA256 = (
-    "55896da7ad1a24773d2504f5a470763b76109b0cff4af482a143612d08824dae")
+    "a5c8b896518209ea8f7de24c3a4d273539378a5ca3a2476cb54c9df527a2209b")
 HANGUL = re.compile(r"[가-힣]")
 REASONS = {"complete", "empty_output", "invalid_utf8", "invalid_jamo", "no_valid_path"}
 

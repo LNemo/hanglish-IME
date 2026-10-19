@@ -20,11 +20,21 @@ module_cache="$test_root/module-cache"
 
 mkdir -p "$installer_app/Contents/MacOS" "$installer_app/Contents/Resources" "$module_cache"
 cp "$task_dir/Installer/Info.plist" "$installer_app/Contents/Info.plist"
+ditto "$task_dir/Installer/Resources" "$installer_app/Contents/Resources"
 swiftc -swift-version 5 -module-cache-path "$module_cache" \
   -target "$(uname -m)-apple-macosx13.0" \
   -framework Cocoa -framework Carbon \
+  "$task_dir/Shared/Localization.swift" \
   "$task_dir/Installer/Installer.swift" \
   -o "$installer_binary"
+
+# The executable must select its bundled Korean resources when macOS prefers Korean.
+if "$installer_binary" -AppleLanguages '(ko)' --inspect --destination \
+    >"$test_root/korean.out" 2>"$test_root/korean.err"; then
+  printf 'Expected a missing destination argument failure.\n' >&2
+  exit 1
+fi
+grep -q '뒤에 경로가 필요합니다' "$test_root/korean.err"
 
 make_payload() {
   local version="$1"
@@ -36,7 +46,7 @@ make_payload() {
 }
 
 run_installer() {
-  "$installer_binary" "$@" \
+  "$installer_binary" -AppleLanguages '(en)' "$@" \
     --destination "$destination" \
     --backup-root "$backup_root" \
     --no-register
@@ -62,14 +72,14 @@ if run_installer --install >"$test_root/signature.out" 2>"$test_root/signature.e
   exit 1
 fi
 test "$(tr -d '\n' < "$destination/Contents/Resources/installer-test-version.txt")" = "version-2"
-grep -q '서명' "$test_root/signature.err"
+grep -q 'code signature' "$test_root/signature.err"
 
 # An unrelated app at the destination must never be overwritten.
 unsafe_destination="$test_root/unsafe/Hanglish.app"
 mkdir -p "$test_root/unsafe"
 cp -R "$installer_app" "$unsafe_destination"
 make_payload "version-3"
-if "$installer_binary" --install \
+if "$installer_binary" -AppleLanguages '(en)' --install \
     --destination "$unsafe_destination" \
     --backup-root "$backup_root" \
     --no-register >"$test_root/unrelated.out" 2>"$test_root/unrelated.err"; then
@@ -77,7 +87,7 @@ if "$installer_binary" --install \
   exit 1
 fi
 test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$unsafe_destination/Contents/Info.plist")" = "org.hanglish.inputmethod.Installer"
-grep -q 'Hanglish 앱이 아니므로' "$test_root/unrelated.err"
+grep -q 'not a Hanglish app' "$test_root/unrelated.err"
 
 # Removal is recoverable: it moves the installation into a new backup.
 run_installer --uninstall >/dev/null

@@ -15,13 +15,13 @@ enum EngineError: Error, LocalizedError, Equatable {
     var errorDescription: String? {
         switch self {
         case .unavailable:
-            return "내장 변환 엔진을 시작할 수 없습니다. Esc로 원문을 확정할 수 있습니다."
+            return localized("The built-in conversion engine could not be started. Press Esc to keep the original text.")
         case .invalidResponse:
-            return "변환 응답이 올바르지 않습니다. 원문은 보존됩니다."
+            return localized("The conversion response was invalid. Your original text is preserved.")
         case .busy:
-            return "변환 요청이 많습니다. 잠시 후 다시 시도하거나 Esc로 원문을 확정할 수 있습니다."
+            return localized("The conversion engine is busy. Try again shortly or press Esc to keep the original text.")
         case .timedOut:
-            return "변환 시간이 초과되었습니다. 다시 시도하거나 Esc로 원문을 확정할 수 있습니다."
+            return localized("The conversion timed out. Try again or press Esc to keep the original text.")
         }
     }
 }

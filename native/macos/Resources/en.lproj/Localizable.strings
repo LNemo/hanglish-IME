@@ -1,0 +1,6 @@
+"The built-in conversion engine could not be started. Press Esc to keep the original text." = "The built-in conversion engine could not be started. Press Esc to keep the original text.";
+"The conversion response was invalid. Your original text is preserved." = "The conversion response was invalid. Your original text is preserved.";
+"The conversion engine is busy. Try again shortly or press Esc to keep the original text." = "The conversion engine is busy. Try again shortly or press Esc to keep the original text.";
+"The conversion timed out. Try again or press Esc to keep the original text." = "The conversion timed out. Try again or press Esc to keep the original text.";
+"Converting… You can keep editing the original text" = "Converting… You can keep editing the original text";
+"Enter convert → Enter confirm · Tab candidates · Esc original" = "Enter convert → Enter confirm · Tab candidates · Esc original";

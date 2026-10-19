@@ -30,8 +30,8 @@ def test_valid_request_reduced_response():
 
 def test_invalid_and_exception_do_not_echo_input_and_next_request_survives():
     rows = run(b'{"input":"crash","request_id":"bad"}\nnot-json\n{"input":"imnida","request_id":"ok"}\n')
-    assert rows[0] == {"error": "conversion_unavailable", "request_id": "bad"}
-    assert rows[1] == {"error": "conversion_unavailable", "request_id": ""}
+    assert rows[0] == {"error": "conversion_unavailable", "request_id": "bad", "error_code": "conversion_failed"}
+    assert rows[1] == {"error": "conversion_unavailable", "request_id": "", "error_code": "invalid_request"}
     assert rows[2]["result"] == "입니다"
 
 
@@ -44,3 +44,21 @@ def test_hints_and_invalid_types_rejected():
     for extra in [{"context": "힌트"}, {"input": 1}, {"raw": 1}, {"engine": "baseline"}, {"input": "a" * 2001}]:
         payload = {"input": "imnida", "request_id": "1", **extra}
         assert "error" in run((json.dumps(payload) + "\n").encode())[0]
+
+
+def test_initialization_failure_has_safe_category_and_can_retry():
+    attempts = []
+
+    def factory():
+        attempts.append(True)
+        if len(attempts) == 1:
+            raise RuntimeError("/Users/private-person/models secret-input")
+        return Engine()
+
+    output = io.StringIO()
+    service.serve(io.BytesIO(b'{"input":"imnida","request_id":"1"}\n'
+                            b'{"input":"imnida","request_id":"2"}\n'), output, factory)
+    rows = [json.loads(line) for line in output.getvalue().splitlines()]
+    assert rows[0] == {"error": "conversion_unavailable", "request_id": "1", "error_code": "initialization_failed"}
+    assert rows[1]["result"] == "입니다"
+    assert "/Users/" not in output.getvalue() and "secret-input" not in output.getvalue()

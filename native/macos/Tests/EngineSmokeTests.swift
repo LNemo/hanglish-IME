@@ -22,6 +22,14 @@ struct EngineSmokeTests {
             exit(2)
         }
         let resourcesURL = URL(fileURLWithPath: arguments[2], isDirectory: true)
+        let manifestURL = resourcesURL.appendingPathComponent("engine-manifest.json")
+        guard let manifestData = try? Data(contentsOf: manifestURL),
+              let manifest = try? JSONSerialization.jsonObject(with: manifestData) as? [String: Any],
+              let expectedVersion = manifest["engine_version"] as? String,
+              !expectedVersion.isEmpty else {
+            FileHandle.standardError.write(Data("Missing packaged engine identity manifest\n".utf8))
+            exit(1)
+        }
         let client = EngineClient(resourcesURL: resourcesURL)
         var failures: [String] = []
         var observedVersion: String?
@@ -52,8 +60,8 @@ struct EngineSmokeTests {
                 }
                 if reply.version.isEmpty {
                     failures.append("\(fixture.id): response version was empty")
-                } else if reply.version != "experimental-score-scale-1-f6976e1b269d" {
-                    failures.append("\(fixture.id): response version was not the selected f697 engine")
+                } else if reply.version != expectedVersion {
+                    failures.append("\(fixture.id): response version did not match the packaged manifest")
                 } else if let observedVersion, reply.version != observedVersion {
                     failures.append("\(fixture.id): response version changed during the smoke test")
                 } else {

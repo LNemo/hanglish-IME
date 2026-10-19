@@ -1,7 +1,7 @@
 {
   "schema": "hanglish-macos-engine-files-v1",
-  "description": "Runtime closure for the verified f697 neural Workbench path. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
-  "selected_version": "experimental-score-scale-1-f6976e1b269d",
+  "description": "Runtime closure for the verified neural engine. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
+  "selected_version": "experimental-score-scale-1-b95e9d9ccb46",
   "required": {
     "source_packages": [
       "hanglish/__init__.py",
