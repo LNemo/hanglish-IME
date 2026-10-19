@@ -29,6 +29,13 @@ Some metadata records historical build paths; these are provenance, not runtime 
   `monologg/koelectra-small-v3-discriminator`. Checkpoint metadata explicitly notes
   that repository license and checkpoint license metadata are not interchangeable.
   Existing model cards/provenance are preserved; public model distribution needs review.
+- KLUE v1.1 training provenance: the packaged sentence ranker and both CTC models
+  were trained using KLUE-derived data; the original corpus is not bundled.
+  Credit KLUE Team, *KLUE: Korean Language Understanding Evaluation* (2021),
+  https://arxiv.org/abs/2105.09680. Upstream data terms are CC BY-SA 4.0:
+  https://github.com/KLUE-benchmark/KLUE/blob/3efd98708a40ff49251fddde35453f8fbb11f536/License.md
+  Preparation included text-window extraction/normalization and romanization.
+  This attribution does not settle the distribution terms of trained weights.
 
 No Qwen/EXAONE/Roberta weights, datasets, developer environments, or web server are
 included. The current trained Hanglish engine is retained without retraining.
