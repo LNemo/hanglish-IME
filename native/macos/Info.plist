@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>org.hanglish.inputmethod.Hanglish</string>
+  <key>CFBundleName</key><string>Hanglish</string>
+  <key>CFBundleDisplayName</key><string>Hanglish</string>
+  <key>CFBundleExecutable</key><string>Hanglish</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleVersion</key><string>7</string>
+  <key>CFBundleShortVersionString</key><string>0.2.5</string>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>LSMinimumSystemVersion</key><string>14.0</string>
+  <key>CFBundleIconFile</key><string>Hanglish.icns</string>
+  <key>LSBackgroundOnly</key><true/>
+  <key>NSPrincipalClass</key><string>NSApplication</string>
+  <key>InputMethodConnectionName</key><string>org.hanglish.inputmethod.Hanglish_Connection</string>
+  <key>InputMethodServerControllerClass</key><string>HanglishInputController</string>
+  <key>TISInputSourceID</key><string>org.hanglish.inputmethod.Hanglish</string>
+  <key>TISIntendedLanguage</key><string>ko</string>
+  <key>tsInputMethodCharacterRepertoireKey</key><array><string>Hang</string><string>Latn</string></array>
+  <key>tsInputMethodIconFileKey</key><string>Hanglish.tiff</string>
+  <key>TISIconIsTemplate</key><true/>
+  <key>ComponentInputModeDict</key><dict>
+    <key>tsInputModeListKey</key><dict>
+      <key>org.hanglish.inputmethod.Hanglish.Han</key><dict>
+        <key>TISInputSourceID</key><string>org.hanglish.inputmethod.Hanglish.Han</string>
+        <key>TISIntendedLanguage</key><string>ko</string>
+        <key>TISIconLabels</key><dict>
+          <key>CustomIcon</key><string>HanglishCursor@2x.pdf</string>
+        </dict>
+        <key>TISIconIsTemplate</key><true/>
+        <key>tsInputModeDefaultStateKey</key><true/>
+        <key>tsInputModeIsVisibleKey</key><true/>
+        <key>tsInputModePrimaryInScriptKey</key><true/>
+        <key>tsInputModeScriptKey</key><string>smKorean</string>
+        <key>tsInputModeCharacterRepertoireKey</key><array><string>Hang</string><string>Latn</string></array>
+        <key>tsInputModeMenuIconFileKey</key><string>HanglishMenu.pdf</string>
+        <key>tsInputModeAlternateMenuIconFileKey</key><string>HanglishMenu.pdf</string>
+        <key>tsInputModePaletteIconFileKey</key><string>HanglishMenu.pdf</string>
+      </dict>
+    </dict>
+    <key>tsVisibleInputModeOrderedArrayKey</key><array><string>org.hanglish.inputmethod.Hanglish.Han</string></array>
+  </dict>
+</dict></plist>

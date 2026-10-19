@@ -1,0 +1,110 @@
+{
+  "schema": "hanglish-macos-engine-files-v1",
+  "description": "Runtime closure for the verified f697 neural Workbench path. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
+  "selected_version": "experimental-score-scale-1-f6976e1b269d",
+  "required": {
+    "source_packages": [
+      "hanglish/__init__.py",
+      "hanglish/core/**/*.py",
+      "hanglish/models/**/*.py"
+    ],
+    "data": [
+      "data/common_english.txt",
+      "data/it_terms.txt",
+      "data/morphology_lexicon.json",
+      "data/workbench_lexicon.json",
+      "data/challenge/train_lexicon.json",
+      "data/external/mecab-ko-dic/NNBC.csv",
+      "data/external/mecab-ko-dic/SOURCE.json",
+      "data/external/mecab-ko-dic/COPYING",
+      "hanglish/core/data/predicate_boundary_inventory.json",
+      "data/external/mecab-ko-dic/NNG.csv",
+      "data/external/mecab-ko-dic/NNP.csv",
+      "data/external/mecab-ko-dic/NP.csv",
+      "data/external/mecab-ko-dic/NR.csv",
+      "data/external/mecab-ko-dic/MAG.csv",
+      "data/external/mecab-ko-dic/VV.csv",
+      "data/external/mecab-ko-dic/VA.csv",
+      "data/external/mecab-ko-dic/VX.csv",
+      "data/external/mecab-ko-dic/VCP.csv",
+      "data/external/mecab-ko-dic/VCN.csv",
+      "data/external/mecab-ko-dic/XR.csv",
+      "data/external/mecab-ko-dic/Inflect.csv"
+    ],
+    "models_and_metadata": [
+      "checkpoints/semantic_ranker/config.json",
+      "checkpoints/semantic_ranker/metadata.json",
+      "checkpoints/semantic_ranker/model.safetensors",
+      "checkpoints/semantic_ranker/special_tokens_map.json",
+      "checkpoints/semantic_ranker/tokenizer.json",
+      "checkpoints/semantic_ranker/tokenizer_config.json",
+      "checkpoints/semantic_ranker/vocab.txt",
+      "checkpoints/sentence_ranker/config.json",
+      "checkpoints/sentence_ranker/metadata.json",
+      "checkpoints/sentence_ranker/model.safetensors",
+      "checkpoints/sentence_ranker/special_tokens_map.json",
+      "checkpoints/sentence_ranker/tokenizer.json",
+      "checkpoints/sentence_ranker/tokenizer_config.json",
+      "checkpoints/sentence_ranker/vocab.txt",
+      ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.pt",
+      ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.json",
+      ".omx/artifacts/phonetic-score-scale-training-v1/model.json",
+      ".omx/artifacts/phonetic-choice-calibration-training-v1/weights.json",
+      ".omx/artifacts/sentence-ctc-pilot-v1/model.pt",
+      ".omx/artifacts/sentence-ctc-pilot-v1/model.json",
+      ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt",
+      ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.json"
+    ]
+  },
+  "optional_compatibility": {
+    "description": "Needed only if the packaged runtime retains the non-semantic fallback or its source/version authentication. Do not delete when copying the whole verified Python runtime.",
+    "files": [
+      "checkpoints/context_ranker.pt",
+      "checkpoints/context_ranker.json",
+      "checkpoints/phonetic_transducer.pt",
+      "checkpoints/phonetic_transducer.json",
+      "checkpoints/phonetic_transducer.pre-padding.pt",
+      "checkpoints/phonetic_transducer.pre-padding.json",
+      ".omx/artifacts/current-phonetic-choice-training-v1/model.json"
+    ]
+  },
+  "licenses_and_provenance": [
+    "data/external/mecab-ko-dic/COPYING",
+    "data/external/mecab-ko-dic/SOURCE.json",
+    "checkpoints/semantic_ranker/metadata.json",
+    "checkpoints/sentence_ranker/metadata.json"
+  ],
+  "source_files_hashed_by_runtime_version": [
+    "hanglish/core/neural_converter.py",
+    "hanglish/core/score_scale_converter.py",
+    "hanglish/core/production_phonetic_choice_converter.py",
+    "hanglish/core/phonetic_choice_converter.py",
+    "hanglish/core/phonology.py",
+    "hanglish/core/ctc_union_converter.py",
+    "hanglish/core/ctc_word_converter.py",
+    "hanglish/core/mixed_span_converter.py",
+    "hanglish/core/mixed_span_proposals.py",
+    "hanglish/core/phonetic_word_union_converter.py",
+    "hanglish/core/lattice.py",
+    "hanglish/core/lexical_data.py",
+    "hanglish/core/predicate_boundaries.py",
+    "hanglish/core/productive_endings.py",
+    "hanglish/core/numeric_structure.py",
+    "hanglish/models/semantic_ranker.py",
+    "hanglish/models/sentence_ranker.py",
+    "hanglish/models/sentence_ctc.py",
+    "hanglish/models/sentence_transducer.py",
+    "hanglish/models/phonetic_transducer.py",
+    "hanglish/models/phonetic_choice_features.py",
+    "hanglish/models/phonetic_likelihood.py",
+    "hanglish/models/batched_phonetic_decode.py"
+  ],
+  "not_runtime": [
+    ".omx/artifacts/**/predictions.jsonl",
+    ".omx/artifacts/**/updates.jsonl",
+    ".omx/artifacts/**/resources.jsonl",
+    "data/challenge/**/*.jsonl",
+    "scripts/**"
+  ],
+  "runtime_dependency_note": "Private stdio child process. Python runtime and dependency closure are included by bundle_engine.py; no HTTP service, PyQt6 or pynput required."
+}

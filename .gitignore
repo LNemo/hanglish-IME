@@ -148,3 +148,27 @@ cython_debug/
 # Project specific
 .agents/
 .vscode/
+
+# Local agent state, credentials, and experiments
+/.omx/
+/.omc/
+/.codex/
+/.aws/
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Downloaded weights and generated training/evaluation data stay local.
+/checkpoints/
+/data/external/
+/data/challenge/
+/data/natural_context/
+/data/morphology_lexicon.json
+/data/workbench_lexicon.json
+/docs/experiment-*.json
+
+# Local-only experimental web interface (keep files on this machine).
+/playground/
+/tests/test_playground_server.py
+/docs/web-validation.md
