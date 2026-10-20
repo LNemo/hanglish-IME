@@ -4,7 +4,7 @@
 
 Hanglish is for people who can speak Korean but find it difficult to write in Hangul. Type Korean pronunciation with Latin letters, request Korean candidates, and choose the spelling you want.
 
-The current prototype is **0.2.6 (build 8), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. It has only been exercised locally on macOS 27 so far; the minimum target is a build setting, not evidence of a successful macOS 14 test. This is an experimental preview. Check the release notes for the tested systems and known limitations of the package you receive.
+The current prototype is **0.2.6 (build 8), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are an **unverified preview**. The minimum target is a build setting, not a compatibility guarantee. This is an experimental preview. Check the release notes for the tested systems and known limitations of the package you receive.
 
 A complete installer includes the input method, Python 3.11 runtime, conversion engine, and trained models. After installation, conversion runs locally; typed text is not sent to a server. A development server, virtual environment, and Tailscale connection are not required.
 
@@ -143,9 +143,9 @@ questions. The manifest identifies the exact source commit and validation gaps.
 
 ## Distribution and compatibility
 
-- The native build targets Apple Silicon with macOS 14 as its minimum deployment target. Current local testing was performed only on macOS 27; macOS 14 still requires testing on an actual compatible system.
+- The native build targets Apple Silicon with macOS 14 as its minimum deployment target. Local testing was performed on macOS 27. Untested versions, including macOS 14, are offered as an unverified preview; real installation and input-source use on those versions remain unverified.
 - macOS or individual apps may restrict input methods in password fields and special text controls.
 - Developer ID signing and notarization are required before a general installer release. The current development artifact is ad-hoc signed, marked nonpublic, and must not be published as the public release.
-- Preserve bundled third-party licenses and notices. Public redistribution of trained models still needs a separate review.
+- Preserve bundled third-party licenses and notices. For the KoELECTRA base model, Hanglish uses the official project’s Apache-2.0 license as its licensing basis; see the third-party notices for the pinned source and training-data terms.
 
 Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE); see [full license](../../LICENSE) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

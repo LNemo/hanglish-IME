@@ -30,7 +30,7 @@ Korean pronunciation does not uniquely determine spelling. Hanglish tries to rec
 
 ## Availability
 
-**Current native prototype: macOS 0.2.6 (build 8), Apple Silicon, with a deployment target of macOS 14 or later.** It has only been exercised locally on macOS 27 so far; macOS 14 compatibility still needs testing on that OS. Windows, Android, and iOS input methods are not implemented yet.
+**Current native prototype: macOS 0.2.6 (build 8), Apple Silicon, with a deployment target of macOS 14 or later.** Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are offered as an **unverified preview**; the deployment target does not guarantee compatibility. Windows, Android, and iOS input methods are not implemented yet.
 
 There is **no published GitHub Release yet**. The repository is currently private. Original Hanglish code uses noncommercial terms; public model distribution arrangements are still being prepared.
 

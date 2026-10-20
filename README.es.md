@@ -30,7 +30,7 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 ## Disponibilidad
 
-**Prototipo nativo actual: macOS 0.2.6 (compilación 8), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Por ahora solo se ha probado localmente en macOS 27; todavía hay que comprobar la compatibilidad en macOS 14. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
+**Prototipo nativo actual: macOS 0.2.6 (compilación 8), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
 **Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
 

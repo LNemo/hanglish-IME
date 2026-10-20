@@ -39,8 +39,10 @@ Official sources: [release/download guide](https://wordlist.aspell.net/dicts/),
   used here. Its [Apache-2.0 project license](licenses/koelectra/PROJECT-LICENSE.txt)
   and [pinned provenance](licenses/koelectra/SOURCE.json) are preserved. The pinned
   Hugging Face model revision has no separate license file or model-card license
-  metadata. This is an unresolved scope question, not evidence of a redistribution
-  prohibition. Public model distribution remains pending review.
+  metadata. Hanglish uses the official project’s Apache-2.0 license as the
+  licensing basis for this base model, based on that direct release link. This
+  records the project’s distribution policy; it does not assert that a separate
+  license grant was obtained from the Hugging Face repository.
 - KLUE v1.1: packaged sentence-ranker and CTC training metadata trace to
   CC BY-SA 4.0 data. Credit KLUE Team, *KLUE: Korean Language Understanding
   Evaluation* (2021), https://arxiv.org/abs/2105.09680. Extracted/normalized

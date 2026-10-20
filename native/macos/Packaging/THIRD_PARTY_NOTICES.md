@@ -3,8 +3,8 @@
 These notices apply to both development and signed release-candidate packages.
 Original Hanglish code uses CC BY-NC 4.0. Preserve the LICENSE
 and NOTICE copied into Resources/Licenses/Hanglish; third-party terms remain separate.
-Do not infer permission to redistribute trained model weights from the software
-licenses alone. Training and base-model provenance remain in Engine/checkpoints/*/metadata.json.
+External model and data terms remain separate from Hanglish’s own code license.
+The licensing basis for the KoELECTRA base model is recorded below. Training and base-model provenance remain in Engine/checkpoints/*/metadata.json.
 Machine-local build paths in project metadata are normalized to repository-relative
 provenance. Model weights and upstream attribution remain unchanged.
 
@@ -30,8 +30,10 @@ provenance. Model weights and upstream attribution remain unchanged.
   `monologg/koelectra-small-v3-discriminator`. The official v3 project release links
   to that model; its Apache-2.0 project license and pinned source record are included
   under `Resources/Licenses/KoELECTRA-project`. The pinned model revision has no
-  separate license file or model-card license metadata. This leaves uncertainty
-  about weight-license scope; it is not a stated redistribution prohibition.
+  separate license file or model-card license metadata. Hanglish uses the official
+  project’s Apache-2.0 license as the licensing basis for this base model, based
+  on the direct release link. This is the project’s distribution policy, not a
+  claim that a separate license grant was obtained from the model repository.
 - KLUE v1.1 training provenance: the packaged sentence ranker and both CTC models
   were trained using KLUE-derived data; the original corpus is not bundled.
   Credit KLUE Team, *KLUE: Korean Language Understanding Evaluation* (2021),
