@@ -10,6 +10,7 @@ from pathlib import Path
 import plistlib
 import subprocess
 import sys
+import tempfile
 from typing import Any, Callable, Sequence
 from urllib.parse import urlsplit
 
@@ -245,7 +246,7 @@ def find_stage_issues(stage: Path, forbidden_root: str) -> list[str]:
 
 
 def verify_release_artifact(dmg: Path, runner: Runner = run) -> None:
-    commands = [
+    artifact_commands = [
         ["/usr/bin/hdiutil", "verify", str(dmg)],
         ["/usr/bin/codesign", "--verify", "--verbose=2", str(dmg)],
         ["/usr/bin/xcrun", "stapler", "validate", str(dmg)],
@@ -260,8 +261,55 @@ def verify_release_artifact(dmg: Path, runner: Runner = run) -> None:
             str(dmg),
         ],
     ]
-    for command in commands:
+    for command in artifact_commands:
         runner(command)
+
+    with tempfile.TemporaryDirectory(prefix="hanglish-release-verify-") as temporary:
+        mount_point = Path(temporary) / "volume"
+        mount_point.mkdir()
+        runner(
+            [
+                "/usr/bin/hdiutil",
+                "attach",
+                "-readonly",
+                "-nobrowse",
+                "-noautoopen",
+                "-mountpoint",
+                str(mount_point),
+                str(dmg),
+            ]
+        )
+        try:
+            installer = mount_point / "Hanglish Installer.app"
+            input_method = installer / "Contents/Resources/Hanglish.app"
+            for description, app in (
+                ("installer application", installer),
+                ("input method application", input_method),
+            ):
+                if not app.is_dir():
+                    raise ValueError(f"mounted DMG is missing the {description}: {app}")
+                runner(
+                    [
+                        "/usr/bin/codesign",
+                        "--verify",
+                        "--deep",
+                        "--strict",
+                        "--verbose=2",
+                        str(app),
+                    ]
+                )
+                runner(
+                    [
+                        "/usr/sbin/spctl",
+                        "--assess",
+                        "--type",
+                        "execute",
+                        "--verbose=4",
+                        str(app),
+                    ]
+                )
+        finally:
+            runner(["/usr/bin/hdiutil", "detach", str(mount_point)])
 
 
 def app_version(plist_path: Path) -> str:

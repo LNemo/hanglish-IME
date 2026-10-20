@@ -261,12 +261,65 @@ def test_release_manifest_rejects_source_drift(tmp_path, monkeypatch):
         )
 
 
-def test_release_artifact_verification_includes_gatekeeper_and_staple():
-    runner = FakeRunner(["", "", "", ""])
+def test_release_artifact_verification_checks_mounted_apps_and_detaches():
+    class MountedDMGRunner(FakeRunner):
+        def __call__(self, command):
+            if command[:2] == ["/usr/bin/hdiutil", "attach"]:
+                mount_point = Path(command[command.index("-mountpoint") + 1])
+                (mount_point / "Hanglish Installer.app/Contents/Resources/Hanglish.app").mkdir(
+                    parents=True
+                )
+            return super().__call__(command)
+
+    runner = MountedDMGRunner([""] * 10)
     release.verify_release_artifact(Path("Hanglish.dmg"), runner)
     flattened = [" ".join(command) for command in runner.commands]
     assert any("stapler validate" in command for command in flattened)
     assert any("spctl --assess --type open" in command for command in flattened)
+    attach = next(command for command in runner.commands if "attach" in command)
+    assert "-readonly" in attach
+    assert "-mountpoint" in attach
+    assert sum("codesign --verify --deep --strict" in command for command in flattened) == 2
+    assert sum("spctl --assess --type execute" in command for command in flattened) == 2
+    assert runner.commands[-1][:2] == ["/usr/bin/hdiutil", "detach"]
+
+
+def test_release_artifact_verification_detaches_after_mounted_app_failure():
+    commands = []
+
+    def fail_installer_signature(command):
+        command = list(command)
+        commands.append(command)
+        if command[:2] == ["/usr/bin/hdiutil", "attach"]:
+            mount_point = Path(command[command.index("-mountpoint") + 1])
+            (mount_point / "Hanglish Installer.app/Contents/Resources/Hanglish.app").mkdir(
+                parents=True
+            )
+        if command[:4] == [
+            "/usr/bin/codesign",
+            "--verify",
+            "--deep",
+            "--strict",
+        ]:
+            raise subprocess.CalledProcessError(1, command)
+        return subprocess.CompletedProcess(command, 0, "", "")
+
+    with pytest.raises(subprocess.CalledProcessError):
+        release.verify_release_artifact(Path("Hanglish.dmg"), fail_installer_signature)
+    assert commands[-1][:2] == ["/usr/bin/hdiutil", "detach"]
+
+
+def test_release_artifact_verification_detaches_when_payload_is_missing():
+    commands = []
+
+    def mount_without_payload(command):
+        command = list(command)
+        commands.append(command)
+        return subprocess.CompletedProcess(command, 0, "", "")
+
+    with pytest.raises(ValueError, match="missing the installer application"):
+        release.verify_release_artifact(Path("Hanglish.dmg"), mount_without_payload)
+    assert commands[-1][:2] == ["/usr/bin/hdiutil", "detach"]
 
 
 def test_signing_commands_distinguish_development_and_release():

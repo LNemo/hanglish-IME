@@ -10,6 +10,7 @@ team_id="${HANGLISH_TEAM_ID:-}"
 notary_profile="${HANGLISH_NOTARY_PROFILE:-}"
 arch="$(uname -m)"
 release_commit=""
+build_commit=""
 cleanup_paths=()
 
 cleanup() {
@@ -30,6 +31,7 @@ mkdir -p "$task_dir/build" "$repo_dir/dist"
 
 version="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$task_dir/Info.plist")"
 build_number="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$task_dir/Info.plist")"
+build_commit="$(git -C "$repo_dir" rev-parse HEAD)"
 if [[ "$package_mode" == release ]]; then
   [[ -n "$signing_identity" && -n "$team_id" && -n "$notary_profile" ]] || {
     echo 'Release mode requires HANGLISH_SIGNING_IDENTITY, HANGLISH_TEAM_ID, and HANGLISH_NOTARY_PROFILE.' >&2
@@ -42,6 +44,7 @@ if [[ "$package_mode" == release ]]; then
     --profile "$notary_profile" --commit-output "$preflight_commit_file"
   IFS= read -r release_commit < "$preflight_commit_file"
   [[ -n "$release_commit" ]] || { echo 'Release preflight returned no source commit.' >&2; exit 1; }
+  build_commit="$release_commit"
 fi
 
 suffix=""
@@ -118,8 +121,8 @@ codesign --verify --deep --strict --verbose=2 "$installer"
 cp "$task_dir/Packaging/THIRD_PARTY_NOTICES.md" "$stage/THIRD_PARTY_NOTICES.md"
 cp "$repo_dir/LICENSE" "$stage/LICENSE"
 cp "$repo_dir/NOTICE" "$stage/NOTICE"
-cp "$task_dir/README.md" "$stage/Installation Guide.md"
-cp "$task_dir/README.ko.md" "$stage/설치 안내.md"
+"$python" "$task_dir/Packaging/package_guides.py" \
+  --repo "$repo_dir" --output-dir "$stage" --commit "$build_commit"
 if [[ "$package_mode" == development ]]; then
   printf '%s\n' \
     'NONPUBLIC DEVELOPMENT BUILD' \
@@ -154,6 +157,7 @@ manifest_command=("$python" "$task_dir/Packaging/release_tools.py" manifest \
   --input "$task_dir/Packaging/runtime-assets.lock.json" \
   --input "$task_dir/Packaging/engine-files.json" \
   --input "$task_dir/Packaging/THIRD_PARTY_NOTICES.md" \
+  --input "$task_dir/README.md" --input "$task_dir/README.ko.md" \
   --input "$repo_dir/LICENSE" --input "$repo_dir/NOTICE" --input "$repo_dir/uv.lock" \
   --tree-input "bundled-python=$payload/Contents/Resources/Python" \
   --tree-input "bundled-engine=$payload/Contents/Resources/Engine")

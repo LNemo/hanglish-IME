@@ -34,7 +34,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 **目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款，模型的公开分发方案仍在准备中。
 
-如果你已收到开发版安装包，请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
+安装与输入源设置请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
 
 安装程序默认显示英文，并提供韩文界面。开发版安装包使用 ad-hoc 签名。发布模式安装包须完成 Developer ID 签名和 Apple 公证；请查看该安装包的 manifest 和公证日志。各应用的兼容性仍在测试。
 

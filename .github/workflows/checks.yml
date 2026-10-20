@@ -49,6 +49,7 @@ jobs:
           tests/test_bundled_engine_service.py
           tests/test_release_metadata.py
           tests/test_release_packaging.py
+          tests/test_package_guides.py
           -q
 
   macos:

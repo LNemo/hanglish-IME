@@ -34,7 +34,7 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 **Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
 
-Si has recibido el instalador de desarrollo, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
+Para instalar y configurar la fuente de entrada, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
 
 El instalador usa inglés de forma predeterminada e incluye localización al coreano. El instalador de desarrollo tiene una firma ad-hoc. Los paquetes del modo release requieren firma con Developer ID y notarización de Apple; consulte el manifiesto y el registro de notarización del paquete concreto. Se sigue probando la compatibilidad con distintas aplicaciones.
 

@@ -4,32 +4,41 @@
 
 Hanglish is for people who can speak Korean but find it difficult to write in Hangul. Type Korean pronunciation with Latin letters, request Korean candidates, and choose the spelling you want.
 
-The current prototype is **0.2.6 (build 8), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. It has only been exercised locally on macOS 27 so far; the minimum target is a build setting, not evidence of a successful macOS 14 test. There is no published GitHub Release yet. The instructions below apply if you have received a development installer.
+The current prototype is **0.2.6 (build 8), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. It has only been exercised locally on macOS 27 so far; the minimum target is a build setting, not evidence of a successful macOS 14 test. This is an experimental preview. Check the release notes for the tested systems and known limitations of the package you receive.
 
 A complete installer includes the input method, Python 3.11 runtime, conversion engine, and trained models. After installation, conversion runs locally; typed text is not sent to a server. A development server, virtual environment, and Tailscale connection are not required.
 
-## Install a development build
+## Download and install
 
-The current local build produces:
+When a public installer is available, download it from the [Hanglish Releases page](https://github.com/LNemo/hanglish-IME/releases). If no installer assets are listed, there is no public download for that version. These steps also apply to a complete installer supplied by the maintainer. An unavailable Releases page does not mean your Mac needs additional setup.
 
-```text
-dist/Hanglish-0.2.6-arm64-development-NONPUBLIC.dmg
-```
+Choose the Apple Silicon `.dmg` asset, such as `Hanglish-0.2.6-arm64.dmg`. The **Source code** ZIP and tar.gz archives are for developers and cannot be installed as an input method. Intel Macs are not supported. You can check your Mac's chip and macOS version in **Apple menu → About This Mac**.
+
+Packages with `development-NONPUBLIC` in the filename are separate development builds with ad-hoc signatures. They are not the public installer. Release-mode packages require Developer ID signing and Apple notarization; their accompanying manifest and notarization log identify the exact artifact. Do not disable macOS security checks to install a package that is blocked; check that you obtained the intended package and report the exact message.
 
 1. Open the DMG and run **Hanglish Installer**.
 2. Choose **Install / Update**. On a Mac using Korean, this is shown as **설치 / 업데이트**. Administrator credentials are not required for this user-level installation.
 3. If Hanglish is not enabled automatically, open **System Settings → Keyboard → Text Input → Edit → +**, find **Korean → Hanglish**, and add it. Labels may vary with your macOS language and version.
 4. Select Hanglish from the input menu in the menu bar. Its icon reads `han`.
+5. Open a new TextEdit document and try the first conversion below. Once installation succeeds, close the installer and eject the DMG; Hanglish runs from the installed copy.
 
-The installer uses English by default and includes Korean localization. The development package has an ad-hoc signature and is explicitly marked nonpublic. Release-mode packages require Developer ID signing and Apple notarization. Check the accompanying manifest and notarization log for the status of a specific artifact.
+The installer uses English by default and includes Korean localization. It installs for the current macOS user. The engine and models are included; you do not need Terminal commands, a Python installation, an Apple Developer account, or a separately started server for normal use.
 
 If Hanglish does not appear, save your work before logging out and back in. On the development Mac, a persistent missing-input-source problem was resolved after restarting and removing/re-adding **Hanglish** in Keyboard settings. That is an observed recovery, not a guarantee for every Mac. Updates from 0.2.0 also changed the input-mode registration format and may require removing/re-adding Hanglish.
 
 The app installs to `~/Library/Input Methods/Hanglish.app`. Updates preserve the previous installation under `~/Library/Application Support/Hanglish/Backups`. The installer attempts to restore it if copying or registration fails; if that recovery also fails, it reports the backup location.
 
+## Select Hanglish and set switching shortcuts
+
+If the input menu is hidden, open **System Settings → Keyboard → Text Input → Edit** and enable **Show Input menu in menu bar**. Add Hanglish there if it is missing, then select it from that menu.
+
+To review or change the switching keys, open **System Settings → Keyboard → Keyboard Shortcuts → Input Sources**. The usual shortcuts are **Control–Space** for the previous input source and **Control–Option–Space** for the next one. Your settings may differ. If a shortcut only toggles ABC and another input source, first select Hanglish directly from the menu and check that it was added successfully. See Apple's [input-source settings](https://support.apple.com/guide/mac-help/mchl84525d76/mac) and [keyboard shortcuts](https://support.apple.com/102650).
+
+Hanglish has no separate settings app yet. Input-source selection and switching shortcuts are configured in macOS. The conversion engine starts automatically when needed.
+
 ## Type Korean
 
-For example, type `jeoneun haksaengimnida`, press Enter to request **저는 학생입니다** (“I am a student”), then press Enter again to insert it. `imnida` can become **입니다**, and `testreul sihaenghanda` can become **test를 시행한다** while preserving the English word.
+For a first test in TextEdit, select Hanglish, type `jeoneun haksaengimnida`, press Enter to request **저는 학생입니다** (“I am a student”), then press Enter again to insert it. The first conversion may take longer while the engine starts. `imnida` can become **입니다**, and `testreul sihaenghanda` can become **test를 시행한다** while preserving the English word.
 
 | Action | Result |
 |---|---|
