@@ -175,15 +175,18 @@ done
     }
 
     private static func testTimeoutThenRestart(_ fixture: Fixture) {
-        let client = client(fixture, timeout: 0.15)
-        expect(error(from: request(client, input: "timeout", id: "timeout-id", timeout: 1)) == .timedOut,
+        // The fixture stalls for two seconds. Allow normal process scheduling
+        // after a busy signing build without requiring restart within 150 ms.
+        let client = client(fixture, timeout: 1)
+        defer { client.close() }
+        expect(error(from: request(client, input: "timeout", id: "timeout-id", timeout: 3)) == .timedOut,
                "timeout: request did not time out")
-        guard case .success(let reply)? = request(client, input: "restart", id: "restart-id", timeout: 2) else {
-            failures.append("timeout: process did not restart for the next request")
+        let restarted = request(client, input: "restart", id: "restart-id", timeout: 3)
+        guard case .success(let reply)? = restarted else {
+            failures.append("timeout: next request failed: \(String(describing: restarted))")
             return
         }
         expect(reply.result == "restarted", "timeout: restarted process returned wrong data")
-        client.close()
     }
 
     private static func testUncooperativeChildIsReaped(_ fixture: Fixture) {
