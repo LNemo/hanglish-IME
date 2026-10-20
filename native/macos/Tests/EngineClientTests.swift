@@ -191,8 +191,11 @@ done
 
     private static func testUncooperativeChildIsReaped(_ fixture: Fixture) {
         try? FileManager.default.removeItem(at: fixture.stubbornPID)
-        let client = client(fixture, timeout: 0.1)
-        expect(error(from: request(client, input: "stubborn", id: "stubborn-id", timeout: 1)) == .timedOut,
+        // This child never replies. Keep a bounded timeout while giving the
+        // following healthy process the same scheduling budget as other tests.
+        let client = client(fixture, timeout: 1)
+        defer { client.close() }
+        expect(error(from: request(client, input: "stubborn", id: "stubborn-id", timeout: 3)) == .timedOut,
                "reaping: stubborn child did not time out")
         guard let data = try? Data(contentsOf: fixture.stubbornPID),
               let text = String(data: data, encoding: .utf8),
@@ -202,11 +205,12 @@ done
         }
         expect(wait(until: { Darwin.kill(pid, 0) == -1 && errno == ESRCH }, timeout: 2),
                "reaping: child that ignored termination remained alive")
-        guard case .success? = request(client, input: "restart", id: "restart-id", timeout: 2) else {
-            failures.append("reaping: client did not restart after killing stubborn child")
+        let restarted = request(client, input: "restart", id: "restart-id", timeout: 3)
+        guard case .success(let reply)? = restarted else {
+            failures.append("reaping: next request failed: \(String(describing: restarted))")
             return
         }
-        client.close()
+        expect(reply.result == "restarted", "reaping: restarted process returned wrong data")
     }
 
     private static func testCrashThenRestart(_ fixture: Fixture) {
