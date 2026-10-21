@@ -2,11 +2,62 @@
   "schema": "hanglish-macos-engine-files-v1",
   "description": "Runtime closure for the verified neural engine. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
   "selected_version": "experimental-score-scale-1-04bb07322495",
+  "release_model_selection": {
+    "release_version": "0.2.7",
+    "training_metadata_flags_are_historical": true,
+    "models": {
+      "phonetic_residual": {
+        "checkpoint": ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.pt",
+        "checkpoint_sha256": "ec544c15203bb7fac49f981c1ca1f26769305d413b1a187135affbc8c0c34d62",
+        "metadata": ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.json",
+        "metadata_sha256": "fbbf2b26b9fb501a18acb73090be7935e6b50e76a21bbad35adfa52698949109"
+      },
+      "ctc_word": {
+        "checkpoint": ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.pt",
+        "checkpoint_sha256": "fb88a38dc8070fa0877b4d98d1a117940d94b132d33b847610f8bb2b7f89a9c7",
+        "metadata": ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.json",
+        "metadata_sha256": "202d47c6eb92b6740c53cd07cbe768809cdc1bda63855bc8cfdb03670ba0c7ac"
+      },
+      "ctc_growth": {
+        "checkpoint": ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.pt",
+        "checkpoint_sha256": "1312683a4e3b3238a793ad2bea2a7427c98953a5bb4996ea91d5e43a6d22108e",
+        "metadata": ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.json",
+        "metadata_sha256": "7b5d3a03fb953d0d5af699008bd3eb0fcec52fad6bf39a2a7d2b7b08fb72e1ea"
+      }
+    }
+  },
   "required": {
     "source_packages": [
       "hanglish/__init__.py",
       "hanglish/core/**/*.py",
-      "hanglish/models/**/*.py"
+      "hanglish/models/__init__.py",
+      "hanglish/models/batched_phonetic_decode.py",
+      "hanglish/models/bilstm_crf.py",
+      "hanglish/models/candidate_evidence.py",
+      "hanglish/models/character_edge_residual.py",
+      "hanglish/models/context_ranker.py",
+      "hanglish/models/contextual_character_residual.py",
+      "hanglish/models/electra_plausibility.py",
+      "hanglish/models/full_context_word_ranker.py",
+      "hanglish/models/learned_context_metric.py",
+      "hanglish/models/local_span_objective.py",
+      "hanglish/models/neural_context_retrieval.py",
+      "hanglish/models/phonetic_choice_features.py",
+      "hanglish/models/phonetic_likelihood.py",
+      "hanglish/models/phonetic_transducer.py",
+      "hanglish/models/retrieved_context_evidence.py",
+      "hanglish/models/roman_sentence_ranker.py",
+      "hanglish/models/semantic_ranker.py",
+      "hanglish/models/sentence_ctc.py",
+      "hanglish/models/sentence_ranker.py",
+      "hanglish/models/sentence_transducer.py",
+      "hanglish/models/seq2seq.py",
+      "hanglish/models/shared_edge_residual.py",
+      "hanglish/models/source_span_residual.py",
+      "hanglish/models/span_supervision.py",
+      "hanglish/models/span_token_bridge.py",
+      "hanglish/models/structured_candidate_ranker.py",
+      "hanglish/models/training_guard.py"
     ],
     "data": [
       "data/common_english.txt",

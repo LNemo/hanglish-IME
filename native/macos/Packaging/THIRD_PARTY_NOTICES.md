@@ -4,7 +4,8 @@ These notices apply to both development and signed release-candidate packages.
 Original Hanglish code uses CC BY-NC 4.0. Preserve the LICENSE
 and NOTICE copied into Resources/Licenses/Hanglish; third-party terms remain separate.
 External model and data terms remain separate from Hanglish’s own code license.
-The licensing basis for the KoELECTRA base model is recorded below. Training and base-model provenance remain in Engine/checkpoints/*/metadata.json.
+The licensing basis for the KoELECTRA base model is recorded below. Ranker training and base-model provenance remain in Engine/checkpoints/*/metadata.json.
+Retrained transducer provenance accompanies the selected weights under Engine/.omx/artifacts/.
 Machine-local build paths in project metadata are normalized to repository-relative
 provenance. Model weights and upstream attribution remain unchanged.
 
@@ -43,7 +44,10 @@ provenance. Model weights and upstream attribution remain unchanged.
   This attribution does not settle the distribution terms of trained weights.
 
 No Qwen/EXAONE/Roberta weights, datasets, developer environments, or web server are
-included. The current trained Hanglish engine is retained without retraining.
+included. Version 0.2.7 selects retrained phonetic and CTC transducers based on the
+corrected romanization rules. The existing semantic and sentence rankers are retained.
+The engine manifest records the selected model paths and hashes; candidate-only flags
+in frozen training metadata describe the training run before release selection.
 
 ## Distribution boundary
 

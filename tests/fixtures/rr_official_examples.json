@@ -4,12 +4,14 @@
   "normative_text": {
     "current_rr_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
     "current_rr_effective": "2024-05-23, MCST Notice 2024-27",
-    "comparison": "All textual RR rules in Ch.1-Ch.3 match the 2018 NIKL compilation except Ch.3 art.6 updates the category term 문화재명 to 국가유산명; current law page renders tables/examples as images, so fixture examples are transcribed from the 2018 NIKL official compilation and should be kept under source review."
+    "comparison": "All textual RR rules in Ch.1-Ch.3 match the 2018 NIKL compilation except Ch.3 art.6 updates the category term 문화재명 to 국가유산명; current law page renders tables/examples as images, so fixture examples are transcribed from the 2018 NIKL official compilation with per-case source references retained for rule-parity checks.",
+    "reuse_basis": "Regulatory examples reproduce state-issued language notices, covered by Korean Copyright Act Article 7(2), and the state compilation of those notices, Article 7(4). Additional pronunciation cases record short factual word/pronunciation pairs with independently written notes. NIKL explanatory prose and document layout are not reproduced."
   },
   "sources": {
     "current_rr": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
     "nikl_norms_2018_pdf": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
-    "standard_pronunciation": "Same NIKL PDF, pp.120-131"
+    "standard_pronunciation": "Same NIKL PDF, pp.120-131",
+    "copyright_act_article_7": "https://www.law.go.kr/lsSc.do?menuId=1&query=%EC%A0%80%EC%9E%91%EA%B6%8C%EB%B2%95&subMenuId=15"
   },
   "fixture_count": 186,
   "fixtures": [

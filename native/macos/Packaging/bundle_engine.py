@@ -153,6 +153,7 @@ def main():
                 "architecture": "arm64", "minimum_macos": "14.0",
                 "engine_version": packaged_version,
                 "source_engine_version": specification["selected_version"],
+                "model_selection": specification["release_model_selection"],
                 "metadata_transformations": metadata_changes,
                 "packages": [{"name": p["name"], "version": p["version"]} for p in package_manifest],
                 "engine_files": {str(p.relative_to(engine)): hashlib.sha256(p.read_bytes()).hexdigest()

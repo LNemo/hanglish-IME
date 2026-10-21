@@ -26,6 +26,39 @@ class RuntimeAssetsTests(unittest.TestCase):
         self.assertEqual({item['path'] for item in locked['files']}, expected)
         self.assertEqual(locked['engine_version'], specification['selected_version'])
 
+    def test_release_source_closure_excludes_rejected_context_ranker(self):
+        root = Path(__file__).resolve().parents[1]
+        specification = json.loads(
+            (root / 'native/macos/Packaging/engine-files.json').read_text()
+        )
+        selected = {
+            path.relative_to(root).as_posix()
+            for pattern in specification['required']['source_packages']
+            for path in root.glob(pattern)
+            if path.is_file()
+        }
+        self.assertNotIn('hanglish/models/guarded_semantic_ranker.py', selected)
+        self.assertIn('hanglish/models/sentence_ctc.py', selected)
+        self.assertIn('hanglish/models/phonetic_transducer.py', selected)
+        packaged_models = set(specification['required']['models_and_metadata'])
+        packaged_models.update(specification['optional_compatibility']['files'])
+        self.assertFalse(any('context-ranking-improvement' in path
+                             for path in packaged_models))
+
+    def test_release_model_selection_matches_locked_assets(self):
+        root = Path(__file__).resolve().parents[1]
+        packaging = root / 'native/macos/Packaging'
+        specification = json.loads((packaging / 'engine-files.json').read_text())
+        locked = json.loads((packaging / 'runtime-assets.lock.json').read_text())
+        hashes = {entry['path']: entry['sha256'] for entry in locked['files']}
+        selection = specification['release_model_selection']
+        self.assertEqual(selection['release_version'], '0.2.7')
+        self.assertTrue(selection['training_metadata_flags_are_historical'])
+        for model in selection['models'].values():
+            self.assertEqual(hashes[model['checkpoint']], model['checkpoint_sha256'])
+            self.assertEqual(hashes[model['metadata']], model['metadata_sha256'])
+            self.assertNotIn('context-ranking-improvement', model['checkpoint'])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
