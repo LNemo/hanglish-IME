@@ -1,7 +1,7 @@
 {
   "schema": "hanglish-macos-engine-files-v1",
   "description": "Runtime closure for the verified neural engine. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
-  "selected_version": "experimental-score-scale-1-b95e9d9ccb46",
+  "selected_version": "experimental-score-scale-1-04bb07322495",
   "required": {
     "source_packages": [
       "hanglish/__init__.py",
@@ -46,14 +46,14 @@
       "checkpoints/sentence_ranker/tokenizer.json",
       "checkpoints/sentence_ranker/tokenizer_config.json",
       "checkpoints/sentence_ranker/vocab.txt",
-      ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.pt",
-      ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.json",
+      ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.pt",
+      ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.json",
       ".omx/artifacts/phonetic-score-scale-training-v1/model.json",
       ".omx/artifacts/phonetic-choice-calibration-training-v1/weights.json",
-      ".omx/artifacts/sentence-ctc-pilot-v1/model.pt",
-      ".omx/artifacts/sentence-ctc-pilot-v1/model.json",
-      ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt",
-      ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.json"
+      ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.pt",
+      ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.json",
+      ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.pt",
+      ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.json"
     ]
   },
   "optional_compatibility": {

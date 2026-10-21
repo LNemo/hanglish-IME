@@ -1,6 +1,6 @@
 [project]
 name = "hanglish-ime"
-version = "0.2.6"
+version = "0.2.7"
 description = "A Romanized Korean IME"
 readme = "README.md"
 license = "CC-BY-NC-4.0"

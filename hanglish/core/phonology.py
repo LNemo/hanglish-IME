@@ -1,9 +1,9 @@
 """Bounded Korean-to-Revised-Romanization conversion.
 
 This module supplies a deterministic forward check for candidate generation.  It
-implements the common, local sound changes documented in ``docs/phonology.md``;
-it includes a bounded POS-backed predicate rule, not a complete pronunciation
-or morphology analyser.
+implements local sound changes plus source-backed lexical exceptions and a
+bounded POS-backed predicate rule. It is not a complete pronunciation or
+morphology analyser, a proper-name formatter, or academic transliteration.
 """
 
 from __future__ import annotations
@@ -49,10 +49,99 @@ _CODA_RR = {
 
 # These are official RR examples whose inserted ㄴ/ㄹ cannot be inferred from
 # adjacent written jamo alone.  Keeping this map small makes the boundary clear.
-_INSERTION_EXCEPTIONS = {
+_LEXICAL_PRONUNCIATIONS = {
     "학여울": "항녀울",
     "알약": "알략",
+    # Standard Pronunciation art.20: ㄴ+ㄹ -> ㄴㄴ in these lexical items.
+    # 신문로 is also an explicit RR ch.3 art.1 example.
+    "신문로": "신문노",
+    "의견란": "의견난",
+    "생산량": "생산냥",
+    "상견례": "상견녜",
+    "횡단로": "횡단노",
+    "이원론": "이원논",
+    "입원료": "입원뇨",
+    "구근류": "구근뉴",
+    "임진란": "임진난",
+    "결단력": "결단녁",
+    "공권력": "공권녁",
+    "동원령": "동원녕",
+    # Standard Pronunciation art.29: known compound boundaries, not every
+    # consonant+이/여 boundary. Retain 잎's ㅍ for subsequent vowel liaison.
+    "솜이불": "솜니불",
+    "꽃잎": "꽃닢",
+    "막일": "막닐",
+    "홑이불": "홑니불",
+    "삯일": "삯닐",
+    "맨입": "맨닙",
+    "내복약": "내복냑",
+    "한여름": "한녀름",
+    "색연필": "색년필",
+    "늑막염": "늑막념",
+    "콩엿": "콩녓",
+    "담요": "담뇨",
+    "눈요기": "눈뇨기",
+    "영업용": "영업뇽",
+    "식용유": "식용뉴",
+    "백분율": "백분뉼",
+    "밤윷": "밤뉻",
+    "남존여비": "남존녀비",
+    "신여성": "신녀성",
+    # Standard Pronunciation art.15: neutralize before an independent
+    # vowel-initial morpheme, unlike ordinary particle/ending liaison.
+    "값어치": "갑어치",
+    "닭앞": "닥앞",
 }
+
+# RR ch.3 art.1(4): noun ㄱ/ㄷ/ㅂ + ㅎ keeps the written ㅎ. A local
+# aspiration rule cannot distinguish these nouns from 잡혀 -> japyeo.
+_NOUN_H_BOUNDARIES = {
+    "묵호": 0, "집현전": 0, "맏형": 0, "직행열차": 0, "각하": 0, "오죽헌": 1,
+}
+_PARTICLES = (
+    "으로부터", "에서부터", "에게서", "한테서", "으로", "에서", "에게", "한테",
+    "까지", "부터", "처럼", "보다", "하고", "이라도", "라도", "이나", "나",
+    "이", "가", "을", "를", "은", "는", "에", "의", "와", "과", "로", "도", "만",
+)
+_LEXICAL_PREDICATE_ENDINGS = frozenset({
+    "", "다", "고", "게", "기", "는", "던", "지", "지만", "으면", "어서",
+    "어", "어요", "었다", "었어요", "습니다", "습니까", "음",
+})
+_LEXICAL_PREDICATES = {"맛없": "맏없", "넋없": "넉없", "값있": "갑있"}
+
+# Compatibility contract for the model's conservative prefix pruning. Every
+# lexically conditioned rewrite must be represented, including noun ㅎ rules.
+_INSERTION_EXCEPTIONS = {
+    **_LEXICAL_PRONUNCIATIONS,
+    **{noun: noun for noun in _NOUN_H_BOUNDARIES},
+    **_LEXICAL_PREDICATES,
+}
+
+
+def _known_noun_tail(tail: str, depth: int = 0) -> bool:
+    """Recognize at most two particles; do not rewrite an arbitrary prefix."""
+    if not tail:
+        return True
+    return depth < 2 and any(
+        tail.startswith(particle) and _known_noun_tail(tail[len(particle):], depth + 1)
+        for particle in _PARTICLES
+    )
+
+
+def _lexical_pronunciation(run: str) -> tuple[str, frozenset[int]]:
+    for noun, boundary in _NOUN_H_BOUNDARIES.items():
+        if run.startswith(noun) and _known_noun_tail(run[len(noun):]):
+            pronunciation = run
+            if noun == "직행열차":
+                pronunciation = "직행녈차" + run[len(noun):]
+            return pronunciation, frozenset({boundary})
+    for noun, pronunciation in _LEXICAL_PRONUNCIATIONS.items():
+        if run.startswith(noun) and _known_noun_tail(run[len(noun):]):
+            return pronunciation + run[len(noun):], frozenset()
+    for stem, pronunciation in _LEXICAL_PREDICATES.items():
+        if run.startswith(stem) and run[len(stem):] in _LEXICAL_PREDICATE_ENDINGS:
+            return pronunciation + run[len(stem):], frozenset()
+    return run, frozenset()
 
 # ㄼ-final stem syllables with the passive/causative suffix -히-. Match
 # prefixed stems too (짓밟-, 드넓-), but not nouns such as 여덟 in 여덟하고.
@@ -144,6 +233,11 @@ def _apply_pair(left: _Syllable, right: _Syllable) -> None:
     # Obstruents assimilate to the place of a following nasal.  Before ㄹ,
     # the obstruent nasalizes and ㄹ is pronounced ㄴ: 국립 -> 궁닙.
     if right.onset in {"ㄴ", "ㅁ", "ㄹ"}:
+        # Simplify clusters before nasal/liquid assimilation (arts.10–12,18,20).
+        left.coda = {
+            "ㄵ": "ㄴ", "ㄶ": "ㄴ", "ㄻ": "ㅁ", "ㄼ": "ㄹ",
+            "ㄽ": "ㄹ", "ㄾ": "ㄹ", "ㅀ": "ㄹ",
+        }.get(left.coda, left.coda)
         nasalized = True
         if left.coda in _VELAR_CODAS:
             left.coda = "ㅇ"
@@ -169,7 +263,7 @@ def _apply_pair(left: _Syllable, right: _Syllable) -> None:
 
 
 def _romanize_run(run: str) -> str:
-    pronunciation = _INSERTION_EXCEPTIONS.get(run, run)
+    pronunciation, noun_h_boundaries = _lexical_pronunciation(run)
     syllables = [_decompose(char) for char in pronunciation]
     # Predicate-final ㄺ is lateral before ㄱ; noun clusters (흙과, 닭고기)
     # retain the ordinary coda rule. Automatic tensing is not written in RR.
@@ -180,6 +274,18 @@ def _romanize_run(run: str) -> str:
     # ㅎ aspiration, which retain ㄹ. This also covers prefixed 짓밟-.
     for index, char in enumerate(pronunciation):
         right = syllables[index + 1] if index + 1 < len(syllables) else None
+        # Standard Pronunciation art.12: retain ㄹ in 밝히다/얽히다.
+        # Do not apply this to a noun followed by unrelated 하고.
+        if (right is not None and syllables[index].coda == "ㄺ"
+                and right.onset == "ㅎ" and right.vowel in {"ㅣ", "ㅕ"}):
+            syllables[index].coda = "ㄹ"
+            right.onset = "ㅋ"
+            continue
+        if (right is not None and syllables[index].coda == "ㄵ"
+                and right.onset == "ㅎ" and right.vowel in {"ㅣ", "ㅕ"}):
+            syllables[index].coda = "ㄴ"
+            right.onset = "ㅊ"
+            continue
         if (right is not None and char in _LABIAL_HI_STEM_FINALS
                 and right.onset == "ㅎ" and right.vowel in {"ㅣ", "ㅕ"}):
             syllables[index].coda = "ㄹ"
@@ -189,7 +295,9 @@ def _romanize_run(run: str) -> str:
             right is None or right.onset not in {"ㅇ", "ㅎ"}
         ):
             syllables[index].coda = "ㅂ"
-    for left, right in zip(syllables, syllables[1:]):
+    for index, (left, right) in enumerate(zip(syllables, syllables[1:])):
+        if index in noun_h_boundaries:
+            continue
         _apply_pair(left, right)
     pieces = []
     for index, item in enumerate(syllables):

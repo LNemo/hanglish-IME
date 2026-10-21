@@ -247,9 +247,14 @@ def stable_roman_prefix(hangul):
     """RR symbols which appending complete syllables cannot change.
 
     The local pair rules can still alter the final written coda. Exact-word
-    insertion exceptions override those local rules, so defer their prefixes.
+    lexical exceptions override those local rules. Their bounded suffix
+    recognition can change after another syllable is appended, so defer both
+    partial lexemes and any continuation of a known lexeme.
     """
-    if not hangul or any(key.startswith(hangul) for key in _INSERTION_EXCEPTIONS):
+    if not hangul or any(
+        key.startswith(hangul) or hangul.startswith(key)
+        for key in _INSERTION_EXCEPTIONS
+    ):
         return None
     last = ord(hangul[-1])
     no_coda = chr(last - (last - 0xAC00) % 28)

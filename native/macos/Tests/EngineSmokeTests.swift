@@ -10,6 +10,7 @@ struct EngineSmokeTests {
 
     private static let fixtures = [
         Fixture(id: "copula", input: "imnida", expected: "입니다"),
+        Fixture(id: "terminal-ne", input: "halle", expected: "핥네"),
         Fixture(id: "english-particle", input: "testreul sihaenghanda", expected: "test를 시행한다"),
         Fixture(id: "sentence", input: "jeoneun haksaengimnida", expected: "저는 학생입니다"),
         Fixture(id: "protected-url", input: "https://example.com/test", expected: "https://example.com/test"),

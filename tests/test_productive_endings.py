@@ -34,4 +34,4 @@ def test_ambiguous_irregular_classes_need_attested_forms():
 
 
 def test_index_scales_with_boundary_classes_not_all_endings(endings):
-    assert endings.indexed_forms <= 4 * 9
+    assert endings.indexed_forms <= 5 * 9

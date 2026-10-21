@@ -15,7 +15,9 @@ def test_pair_rules_only_mutate_fields_needed_by_prefix_proof():
                 assert (left.onset,left.vowel,right.vowel,right.coda)==('ㄱ','ㅏ',vowel,'ㄹ')
 
 
-@pytest.mark.parametrize('prefix',['입','입니다','국립','같이','굳히','좋고','신라','먹어','읽어','침입해','앞장'])
+# 입 is now a deferred lexical prefix of 입원료; it is covered by the
+# exception-prefix test below rather than the local-only stability proof.
+@pytest.mark.parametrize('prefix',['법','입니다','국립','같이','굳히','좋고','신라','먹어','읽어','침입해','앞장'])
 def test_stable_prefix_survives_every_appended_onset_and_vowel(prefix):
     stable=stable_roman_prefix(prefix)
     assert stable is not None
@@ -40,6 +42,14 @@ def test_complete_paths_still_require_exact_forward_equality():
     assert not compatible_prefix('입','imnida',complete=True)
     assert not compatible_prefix('학여','hangnyeoul',complete=True)
     assert compatible_prefix('학여울','hangnyeoul',complete=True)
+
+
+@pytest.mark.parametrize("word", ["신문로에서", "집현전에", "솜이불을", "맛없어요"])
+def test_lexical_suffixes_do_not_prune_a_valid_complete_word(word):
+    target = romanize_word(word)
+    for end in range(1, len(word) + 1):
+        assert compatible_prefix(word[:end], target)
+    assert compatible_prefix(word, target, complete=True)
 
 
 def test_incompatible_stable_prefix_is_rejected():

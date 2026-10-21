@@ -179,9 +179,9 @@ def test_load_growth_model_injection_is_explicit_idempotent_and_pinned():
                             growth_model=growth)
     assert obj.load_growth_model() is growth and obj.load_growth_model() is growth
     checkpoint = next(value for name, value in obj.growth_artifacts.items()
-                      if name.endswith("sentence-ctc-growth-pilot-v1/model.pt"))
+                      if name.endswith("ctc-rr-retraining-20261020/training-growth/model.pt"))
     metadata = next(value for name, value in obj.growth_artifacts.items()
-                    if name.endswith("sentence-ctc-growth-pilot-v1/model.json"))
+                    if name.endswith("ctc-rr-retraining-20261020/training-growth/model.json"))
     assert checkpoint == EXPECTED_GROWTH_CHECKPOINT_SHA256
     assert metadata == EXPECTED_GROWTH_METADATA_SHA256
 

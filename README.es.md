@@ -30,7 +30,7 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 ## Disponibilidad
 
-**Prototipo nativo actual: macOS 0.2.6 (compilación 8), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
+**Prototipo nativo actual: macOS 0.2.7 (compilación 9), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
 **Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
 
@@ -42,7 +42,7 @@ El instalador usa inglés de forma predeterminada e incluye localización al cor
 
 - Es un método de entrada experimental, no un corrector ortográfico o gramatical terminado.
 - Los cambios de pronunciación, las palabras ambiguas, el vocabulario poco frecuente y la mezcla de coreano e inglés pueden producir propuestas incorrectas.
-- En 1.000 frases de regresión ya utilizadas durante el desarrollo, el motor seleccionado acertó 954 veces con su primera propuesta; en 975 casos había una respuesta aceptada entre las cinco primeras. **No es una medición independiente de precisión en uso real.** Quedaron 46 errores en la primera propuesta.
+- En 1.000 frases de regresión ya utilizadas durante el desarrollo, el motor seleccionado acertó 988 veces con su primera propuesta; en 1.000 casos había una respuesta aceptada entre las cinco primeras. **No es una medición independiente de precisión en uso real.** Quedaron 12 errores en la primera propuesta.
 - Aún no se puede editar dentro de una composición ni volver a convertir palabras individuales.
 - La interfaz web experimental es una herramienta local de desarrollo y queda fuera del ámbito de distribución de este repositorio.
 

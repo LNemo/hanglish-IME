@@ -16,11 +16,14 @@ import time
 
 DATA = Path(__file__).resolve().parents[2] / "data"
 SCORE_SCALE_MODEL = DATA.parent / ".omx/artifacts/phonetic-score-scale-training-v1/model.json"
-PHONETIC_MODEL = DATA.parent / ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.pt"
+PHONETIC_MODEL = (
+    DATA.parent
+    / ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.pt"
+)
 SCORE_SCALE_ARTIFACTS = (
     (SCORE_SCALE_MODEL, "e07462d50da0b67304a82a9a261068ccc84b8055a99b5d70af56db530d245838"),
-    (PHONETIC_MODEL, "f06b0a7cd6c5ccbdfaa376cc29f59e90b3fcf0ae3a157fd2c4f7efaa73b4180d"),
-    (PHONETIC_MODEL.with_suffix(".json"), "c7dcd4ad5aabb5849d89dc8847697c3eab66eaac1679126b06df0c37573f6e9d"),
+    (PHONETIC_MODEL, "ec544c15203bb7fac49f981c1ca1f26769305d413b1a187135affbc8c0c34d62"),
+    (PHONETIC_MODEL.with_suffix(".json"), "fbbf2b26b9fb501a18acb73090be7935e6b50e76a21bbad35adfa52698949109"),
 )
 VERSION = "workbench-1"
 MAX_INPUT = 2000

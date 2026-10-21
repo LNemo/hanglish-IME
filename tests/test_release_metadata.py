@@ -114,12 +114,12 @@ def test_ctc_runtime_metadata_constants_match_asset_lock_without_model_imports()
         (
             ROOT / 'hanglish/core/ctc_word_converter.py',
             'EXPECTED_CTC_METADATA_SHA256',
-            '.omx/artifacts/sentence-ctc-pilot-v1/model.json',
+            '.omx/artifacts/ctc-rr-retraining-20261020/training-word/model.json',
         ),
         (
             ROOT / 'hanglish/core/ctc_union_converter.py',
             'EXPECTED_GROWTH_METADATA_SHA256',
-            '.omx/artifacts/sentence-ctc-growth-pilot-v1/model.json',
+            '.omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.json',
         ),
     ]
     for source, constant, asset in expected:

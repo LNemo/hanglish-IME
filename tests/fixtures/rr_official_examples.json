@@ -1,0 +1,1424 @@
+{
+  "schema": "hanglish-official-rr-fixtures-v1",
+  "created_at": "2026-10-20",
+  "normative_text": {
+    "current_rr_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+    "current_rr_effective": "2024-05-23, MCST Notice 2024-27",
+    "comparison": "All textual RR rules in Ch.1-Ch.3 match the 2018 NIKL compilation except Ch.3 art.6 updates the category term 문화재명 to 국가유산명; current law page renders tables/examples as images, so fixture examples are transcribed from the 2018 NIKL official compilation and should be kept under source review."
+  },
+  "sources": {
+    "current_rr": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+    "nikl_norms_2018_pdf": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+    "standard_pronunciation": "Same NIKL PDF, pp.120-131"
+  },
+  "fixture_count": 186,
+  "fixtures": [
+    {
+      "hangul": "광희문",
+      "rr": "gwanghuimun",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "구미",
+      "rr": "gumi",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "영동",
+      "rr": "yeongdong",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "백암",
+      "rr": "baegam",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "옥천",
+      "rr": "okcheon",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "합덕",
+      "rr": "hapdeok",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "호법",
+      "rr": "hobeop",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "월곶",
+      "rr": "wolgot",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "벚꽃",
+      "rr": "beotkkot",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "한밭",
+      "rr": "hanbat",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "구리",
+      "rr": "guri",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "설악",
+      "rr": "seorak",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "칠곡",
+      "rr": "chilgok",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "임실",
+      "rr": "imsil",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "울릉",
+      "rr": "ulleung",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "대관령",
+      "rr": "daegwallyeong",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "백마",
+      "rr": "baengma",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "신문로",
+      "rr": "sinmunno",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "종로",
+      "rr": "jongno",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "왕십리",
+      "rr": "wangsimni",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "별내",
+      "rr": "byeollae",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "신라",
+      "rr": "silla",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "학여울",
+      "rr": "hangnyeoul",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "알약",
+      "rr": "allyak",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "해돋이",
+      "rr": "haedoji",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "같이",
+      "rr": "gachi",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "굳히다",
+      "rr": "guchida",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "좋고",
+      "rr": "joko",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "놓다",
+      "rr": "nota",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "잡혀",
+      "rr": "japyeo",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "낳지",
+      "rr": "nachi",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "묵호",
+      "rr": "mukho",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "집현전",
+      "rr": "jiphyeonjeon",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "압구정",
+      "rr": "apgujeong",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "낙동강",
+      "rr": "nakdonggang",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "죽변",
+      "rr": "jukbyeon",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "낙성대",
+      "rr": "nakseongdae",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "합정",
+      "rr": "hapjeong",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "팔당",
+      "rr": "paldang",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "샛별",
+      "rr": "saetbyeol",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "울산",
+      "rr": "ulsan",
+      "mode": "rr_normal",
+      "rule": "RR Ch.1-Ch.3 art.1",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "중앙",
+      "rr": "jung-ang",
+      "mode": "rr_hyphen_optional",
+      "rule": "RR Ch.3 art.2",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "반구대",
+      "rr": "ban-gudae",
+      "mode": "rr_hyphen_optional",
+      "rule": "RR Ch.3 art.2",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "세운",
+      "rr": "se-un",
+      "mode": "rr_hyphen_optional",
+      "rule": "RR Ch.3 art.2",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "해운대",
+      "rr": "hae-undae",
+      "mode": "rr_hyphen_optional",
+      "rule": "RR Ch.3 art.2",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "부산",
+      "rr": "busan",
+      "mode": "rr_proper_name",
+      "rule": "RR Ch.3 art.3",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "세종",
+      "rr": "sejong",
+      "mode": "rr_proper_name",
+      "rule": "RR Ch.3 art.3",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "민용하",
+      "rr": "min yongha",
+      "mode": "rr_person_name",
+      "rule": "RR Ch.3 art.4",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "송나리",
+      "rr": "song nari",
+      "mode": "rr_person_name",
+      "rule": "RR Ch.3 art.4",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "한복남",
+      "rr": "han boknam",
+      "mode": "rr_person_name",
+      "rule": "RR Ch.3 art.4",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "홍빛나",
+      "rr": "hong bitna",
+      "mode": "rr_person_name",
+      "rule": "RR Ch.3 art.4",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "충청북도",
+      "rr": "chungcheongbuk-do",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "제주도",
+      "rr": "jeju-do",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "의정부시",
+      "rr": "uijeongbu-si",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "양주군",
+      "rr": "yangju-gun",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "도봉구",
+      "rr": "dobong-gu",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "신창읍",
+      "rr": "sinchang-eup",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "삼죽면",
+      "rr": "samjuk-myeon",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "인왕리",
+      "rr": "inwang-ri",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "당산동",
+      "rr": "dangsandong",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "봉천 1동",
+      "rr": "bongcheon 1(il)-dong",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "종로 2가",
+      "rr": "jongno 2(i)-ga",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "퇴계로 3가",
+      "rr": "toegyero 3(sam)-ga",
+      "mode": "rr_administrative_name",
+      "rule": "RR Ch.3 art.5",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "남산",
+      "rr": "namsan",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "속리산",
+      "rr": "songnisan",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "금강",
+      "rr": "geumgang",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "독도",
+      "rr": "dokdo",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "경복궁",
+      "rr": "gyeongbokgung",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "무량수전",
+      "rr": "muryangsujeon",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "연화교",
+      "rr": "yeonhwagyo",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "극락전",
+      "rr": "geungnakjeon",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "안압지",
+      "rr": "anapji",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "남한산성",
+      "rr": "namhansanseong",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "화랑대",
+      "rr": "hwarangdae",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "불국사",
+      "rr": "bulguksa",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "현충사",
+      "rr": "hyeonchungsa",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "독립문",
+      "rr": "dongnimmun",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "오죽헌",
+      "rr": "ojukheon",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "오죽헌",
+      "rr": "ojukheon",
+      "mode": "rr_normal",
+      "rule": "RR Ch.3 art.1.4 noun ㅎ exception",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Sound-core duplicate of the named-place fixture. Ojukheon spells the retained h: O-ju-k-h-e-o-n."
+    },
+    {
+      "hangul": "촉석루",
+      "rr": "chokseongnu",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "종묘",
+      "rr": "jongmyo",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "다보탑",
+      "rr": "dabotap",
+      "mode": "rr_heritage_or_feature_name",
+      "rule": "RR Ch.3 art.6",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201"
+    },
+    {
+      "hangul": "집",
+      "rr": "jib",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "짚",
+      "rr": "jip",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "밖",
+      "rr": "bakk",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "값",
+      "rr": "gabs",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "붓꽃",
+      "rr": "buskkoch",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "먹는",
+      "rr": "meogneun",
+      "mode": "academic_reversible",
+      "rule": "RR Ch.3 art.8",
+      "source_url": "https://www.law.go.kr/LSW/admRulInfoR.do?admRulSeq=2100000241560&chrClsCd=010201",
+      "notes": "Separate mode: do not train as normal RR."
+    },
+    {
+      "hangul": "밟다",
+      "rr": "bapda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밟는",
+      "rr": "bamneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밟고",
+      "rr": "bapgo",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "삶는",
+      "rr": "samneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "여덟만",
+      "rr": "yeodeolman",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "닭",
+      "rr": "dak",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "흙과",
+      "rr": "heukgwa",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맑다",
+      "rr": "makda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "늙지",
+      "rr": "neukji",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "삶",
+      "rr": "sam",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "젊다",
+      "rr": "jeomda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "읊고",
+      "rr": "eupgo",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "읊다",
+      "rr": "eupda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맑게",
+      "rr": "malge",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "묽고",
+      "rr": "mulgo",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "얽거나",
+      "rr": "eolgeona",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "각하",
+      "rr": "gakha",
+      "mode": "rr_normal",
+      "rule": "RR Ch.3 art.1.4 noun ㅎ exception",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "각하 is a noun. RR retains written ㅎ after ㄱ despite the standard-pronunciation [가카]."
+    },
+    {
+      "hangul": "먹히다",
+      "rr": "meokida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밝히다",
+      "rr": "balkida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맏형",
+      "rr": "mathyeong",
+      "mode": "rr_normal",
+      "rule": "RR Ch.3 art.1.4 noun ㅎ exception",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "맏형 is a noun compound. RR retains written ㅎ after ㄷ despite the standard-pronunciation [마텽]."
+    },
+    {
+      "hangul": "좁히다",
+      "rr": "jopida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "넓히다",
+      "rr": "neolpida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "꽂히다",
+      "rr": "kkochida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "앉히다",
+      "rr": "anchida",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "놓는",
+      "rr": "nonneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "않는",
+      "rr": "anneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "닳지",
+      "rr": "dalchi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "많소",
+      "rr": "manso",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "싫소",
+      "rr": "silso",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "뚫는",
+      "rr": "ttulleun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "핥네",
+      "rr": "halle",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밭이",
+      "rr": "bachi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "곧이",
+      "rr": "goji",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "미닫이",
+      "rr": "midaji",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "굳이",
+      "rr": "guji",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "벼훑이",
+      "rr": "byeohulchi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "먹는",
+      "rr": "meongneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "국물",
+      "rr": "gungmul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "깎는",
+      "rr": "kkangneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "긁는",
+      "rr": "geungneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "흙만",
+      "rr": "heungman",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "닫는",
+      "rr": "danneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "짓는",
+      "rr": "jinneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "옷맵시",
+      "rr": "onmaepsi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "있는",
+      "rr": "inneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맞는",
+      "rr": "manneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "젖멍울",
+      "rr": "jeonmeongul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "쫓는",
+      "rr": "jjonneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "꽃망울",
+      "rr": "kkonmangul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "붙는",
+      "rr": "bunneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "잡는",
+      "rr": "jamneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밥물",
+      "rr": "bammul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "앞마당",
+      "rr": "ammadang",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "읊는",
+      "rr": "eumneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "없는",
+      "rr": "eomneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "담력",
+      "rr": "damnyeok",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "침략",
+      "rr": "chimnyak",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "강릉",
+      "rr": "gangneung",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "항로",
+      "rr": "hangno",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "대통령",
+      "rr": "daetongnyeong",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "의견란",
+      "rr": "uigyeonnan",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "임진란",
+      "rr": "imjinnan",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "생산량",
+      "rr": "saengsannyang",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "결단력",
+      "rr": "gyeoldannyeok",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "공권력",
+      "rr": "gonggwonnyeok",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "동원령",
+      "rr": "dongwonnyeong",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "상견례",
+      "rr": "sanggyeonnye",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "횡단로",
+      "rr": "hoengdanno",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "이원론",
+      "rr": "iwonnon",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "입원료",
+      "rr": "ibwonnyo",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "구근류",
+      "rr": "gugeunnyu",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "솜이불",
+      "rr": "somnibul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "홑이불",
+      "rr": "honnibul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "막일",
+      "rr": "mangnil",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "삯일",
+      "rr": "sangnil",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맨입",
+      "rr": "maennip",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "꽃잎",
+      "rr": "kkonnip",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "내복약",
+      "rr": "naebongnyak",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "한여름",
+      "rr": "hannyeoreum",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "남존여비",
+      "rr": "namjonnyeobi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "신여성",
+      "rr": "sinnyeoseong",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "색연필",
+      "rr": "saengnyeonpil",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "직행열차",
+      "rr": "jikhaengnyeolcha",
+      "mode": "rr_normal",
+      "rule": "RR Ch.3 art.1.4 noun ㅎ exception; Standard Pronunciation art.29",
+      "source_url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=&pageIndex=1&qna_seq=330030",
+      "notes": "직행 and 열차 are noun components. RR retains the ㅎ in 직행; NIKL confirms compound ㄴ insertion in the standard pronunciation [지캥녈차]."
+    },
+    {
+      "hangul": "늑막염",
+      "rr": "neungmangnyeom",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "콩엿",
+      "rr": "kongnyeot",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "담요",
+      "rr": "damnyo",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "눈요기",
+      "rr": "nunnyogi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "영업용",
+      "rr": "yeongeomnyong",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "식용유",
+      "rr": "sigyongnyu",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "백분율",
+      "rr": "baekbunnyul",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밤윷",
+      "rr": "bamnyut",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "맛없다",
+      "rr": "madeopda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "값어치",
+      "rr": "gabeochi",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "넋없다",
+      "rr": "neogeopda",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "닭앞에",
+      "rr": "dagape",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "값있는",
+      "rr": "gabinneun",
+      "mode": "rr_normal",
+      "rule": "Standard Pronunciation art.10-20, 29",
+      "source_url": "https://www.korean.go.kr/common/download.do?c_file_name=1d66f826-df50-418d-a34f-2c38fa1fd45e_0.pdf&file_path=reportData&o_file_name=%ED%95%9C%EA%B5%AD%EC%96%B4%EB%AC%B8%EA%B7%9C%EC%A0%95%EC%A7%91.pdf",
+      "notes": "Expected RR is mechanically derived from the official bracketed standard pronunciation, omitting automatic tensification per RR Ch.3 art.1.4."
+    },
+    {
+      "hangul": "밭이랑",
+      "rr": "bannirang",
+      "mode": "rr_normal_lexical_compound",
+      "rule": "NIKL pronunciation guidance: compound ㄴ insertion",
+      "source_url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=261&pageIndex=1&qna_seq=314079",
+      "notes": "Verified as the lexical compound 밭+이랑. Do not generalize as a blanket rule; a 2024 older response was inconsistent, while NIKL's 2025 and 2026 replies state [반니랑]."
+    },
+    {
+      "hangul": "끝입니다",
+      "rr": "kkeuchimnida",
+      "mode": "rr_normal_morphology",
+      "rule": "NIKL pronunciation guidance: art.17 then art.18",
+      "source_url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=261&pageIndex=1&qna_seq=327365",
+      "notes": "Requires the 서술격 조사 boundary."
+    }
+  ]
+}

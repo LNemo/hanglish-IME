@@ -1,6 +1,6 @@
 """Bounded, on-demand predicate endings with shared phonological prefixes.
 
-Four boundary indexes replace a stem-by-ending cross product. Irregular
+Five boundary indexes replace a stem-by-ending cross product. Irregular
 connective forms require attested dictionary surfaces. This is not a complete
 Korean morphology analyser; see docs/productive-endings.md for its scope.
 """
@@ -52,6 +52,17 @@ class ProductiveEndings:
                 if form:
                     self.ni[romanize_word(form)].add(form)
         self.indexed_forms += sum(map(len, self.ni.values()))
+        self.ne = defaultdict(set)
+        for stem in stems:
+            # Spelling rule 18: plain ㄹ drops before ㄴ-initial endings.
+            # https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=307328
+            # Compound codas (e.g. ㄾ) remain in the written stem; pronunciation
+            # belongs to romanize_word after the complete form is assembled.
+            final = (ord(stem[-1]) - 0xAC00) % 28
+            base = stem[:-1] + chr(ord(stem[-1]) - final) if final == 8 else stem
+            form = base + '네'
+            self.ne[romanize_word(form)].add(form)
+        self.indexed_forms += sum(map(len, self.ne.values()))
 
     def options(self, source):
         found = set()
@@ -62,13 +73,14 @@ class ProductiveEndings:
                         text = stem + ending
                         if romanize_word(text) == source:
                             found.add(text)
-        for tail in ('', '까'):
-            roman_tail = romanize_word(tail)
-            if roman_tail and not source.endswith(roman_tail):
-                continue
-            prefix = source[:-len(roman_tail)] if roman_tail else source
-            for form in self.ni.get(prefix, ()):
-                text = form + tail
-                if romanize_word(text) == source:
-                    found.add(text)
+        for index, tails in ((self.ni, ('', '까')), (self.ne, ('', '요'))):
+            for tail in tails:
+                roman_tail = romanize_word(tail)
+                if roman_tail and not source.endswith(roman_tail):
+                    continue
+                prefix = source[:-len(roman_tail)] if roman_tail else source
+                for form in index.get(prefix, ()):
+                    text = form + tail
+                    if romanize_word(text) == source:
+                        found.add(text)
         return tuple(sorted(found))

@@ -150,9 +150,9 @@ def test_load_word_model_explicit_idempotent_and_artifacts_pinned():
                              labels=[], log_probability=None))
     obj = CTCWordConverter(external_lexicon=False, word_model=model)
     assert obj.load_word_model() is model and obj.load_word_model() is model
-    assert any(name.endswith("sentence-ctc-pilot-v1/model.pt")
+    assert any(name.endswith("ctc-rr-retraining-20261020/training-word/model.pt")
                for name in obj.ctc_word_artifacts)
-    assert any(name.endswith("sentence-ctc-pilot-v1/model.json")
+    assert any(name.endswith("ctc-rr-retraining-20261020/training-word/model.json")
                for name in obj.ctc_word_artifacts)
 
 

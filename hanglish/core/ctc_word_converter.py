@@ -15,11 +15,12 @@ from hanglish.models import sentence_ctc
 from hanglish.models import sentence_transducer
 
 
-DEFAULT_WORD_CHECKPOINT = ROOT / ".omx/artifacts/sentence-ctc-pilot-v1/model.pt"
+DEFAULT_WORD_CHECKPOINT = (
+    ROOT / ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.pt")
 EXPECTED_CTC_CHECKPOINT_SHA256 = (
-    "832e7171a73daad4a02864668447725e7ae790e50ab7458f3a409701f0878663")
+    "fb88a38dc8070fa0877b4d98d1a117940d94b132d33b847610f8bb2b7f89a9c7")
 EXPECTED_CTC_METADATA_SHA256 = (
-    "a5c8b896518209ea8f7de24c3a4d273539378a5ca3a2476cb54c9df527a2209b")
+    "202d47c6eb92b6740c53cd07cbe768809cdc1bda63855bc8cfdb03670ba0c7ac")
 HANGUL = re.compile(r"[가-힣]")
 REASONS = {"complete", "empty_output", "invalid_utf8", "invalid_jamo", "no_valid_path"}
 

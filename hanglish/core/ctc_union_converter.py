@@ -13,11 +13,11 @@ from hanglish.core.neural_converter import ROOT, file_sha256
 
 
 DEFAULT_GROWTH_CHECKPOINT = (
-    ROOT / ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt")
+    ROOT / ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.pt")
 EXPECTED_GROWTH_CHECKPOINT_SHA256 = (
-    "6aba4c441f3f0cb7cd870be80ccbf39a215c87a76890d5e2a90fdbb14c9618a7")
+    "1312683a4e3b3238a793ad2bea2a7427c98953a5bb4996ea91d5e43a6d22108e")
 EXPECTED_GROWTH_METADATA_SHA256 = (
-    "954f8022a2a674dfd379002f0713998e508bae844a0ce211e2cf88131c54ed78")
+    "7b5d3a03fb953d0d5af699008bd3eb0fcec52fad6bf39a2a7d2b7b08fb72e1ea")
 
 
 class CTCUnionConverter(CTCWordConverter):

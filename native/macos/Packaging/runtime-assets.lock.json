@@ -1,6 +1,6 @@
 {
   "schema": "hanglish-runtime-assets-v1",
-  "engine_version": "experimental-score-scale-1-b95e9d9ccb46",
+  "engine_version": "experimental-score-scale-1-04bb07322495",
   "note": "Exact local development assets. Hashes do not establish redistribution permission. No model downloads or public weights are provided.",
   "files": [
     {
@@ -14,9 +14,9 @@
       "distribution": "redistribution-review-required"
     },
     {
-      "path": ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.json",
-      "size": 509,
-      "sha256": "c7dcd4ad5aabb5849d89dc8847697c3eab66eaac1679126b06df0c37573f6e9d",
+      "path": ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.json",
+      "size": 547,
+      "sha256": "fbbf2b26b9fb501a18acb73090be7935e6b50e76a21bbad35adfa52698949109",
       "profiles": [
         "package"
       ],
@@ -24,9 +24,9 @@
       "distribution": "redistribution-review-required"
     },
     {
-      "path": ".omx/artifacts/observed-phonetic-augmented-training-v1/phonetic_transducer.pt",
-      "size": 3877115,
-      "sha256": "f06b0a7cd6c5ccbdfaa376cc29f59e90b3fcf0ae3a157fd2c4f7efaa73b4180d",
+      "path": ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.pt",
+      "size": 3877333,
+      "sha256": "ec544c15203bb7fac49f981c1ca1f26769305d413b1a187135affbc8c0c34d62",
       "profiles": [
         "package"
       ],
@@ -54,23 +54,9 @@
       "distribution": "redistribution-review-required"
     },
     {
-      "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.json",
-      "size": 2752,
-      "sha256": "954f8022a2a674dfd379002f0713998e508bae844a0ce211e2cf88131c54ed78",
-      "profiles": [
-        "package"
-      ],
-      "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required",
-      "metadata_normalization": {
-        "previous_sha256": "8a80b8713c86951895ae031a74271569d4e3d7a164c500d4e3b310fc05c04a04",
-        "transformation": "repository-relative-provenance-v1"
-      }
-    },
-    {
-      "path": ".omx/artifacts/sentence-ctc-growth-pilot-v1/model.pt",
-      "size": 4413318,
-      "sha256": "6aba4c441f3f0cb7cd870be80ccbf39a215c87a76890d5e2a90fdbb14c9618a7",
+      "path": ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.json",
+      "size": 1034,
+      "sha256": "7b5d3a03fb953d0d5af699008bd3eb0fcec52fad6bf39a2a7d2b7b08fb72e1ea",
       "profiles": [
         "package"
       ],
@@ -78,23 +64,29 @@
       "distribution": "redistribution-review-required"
     },
     {
-      "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.json",
-      "size": 2492,
-      "sha256": "a5c8b896518209ea8f7de24c3a4d273539378a5ca3a2476cb54c9df527a2209b",
+      "path": ".omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.pt",
+      "size": 4413318,
+      "sha256": "1312683a4e3b3238a793ad2bea2a7427c98953a5bb4996ea91d5e43a6d22108e",
       "profiles": [
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required",
-      "metadata_normalization": {
-        "previous_sha256": "55896da7ad1a24773d2504f5a470763b76109b0cff4af482a143612d08824dae",
-        "transformation": "repository-relative-provenance-v1"
-      }
+      "distribution": "redistribution-review-required"
     },
     {
-      "path": ".omx/artifacts/sentence-ctc-pilot-v1/model.pt",
+      "path": ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.json",
+      "size": 1032,
+      "sha256": "202d47c6eb92b6740c53cd07cbe768809cdc1bda63855bc8cfdb03670ba0c7ac",
+      "profiles": [
+        "package"
+      ],
+      "kind": "model-or-training-metadata",
+      "distribution": "redistribution-review-required"
+    },
+    {
+      "path": ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.pt",
       "size": 4413318,
-      "sha256": "832e7171a73daad4a02864668447725e7ae790e50ab7458f3a409701f0878663",
+      "sha256": "fb88a38dc8070fa0877b4d98d1a117940d94b132d33b847610f8bb2b7f89a9c7",
       "profiles": [
         "package"
       ],
