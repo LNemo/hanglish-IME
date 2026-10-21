@@ -3,8 +3,9 @@
   "description": "Runtime closure for the verified neural engine. Paths are repository-relative and must be copied without renaming so ROOT-relative artifact checks remain valid.",
   "selected_version": "experimental-score-scale-1-04bb07322495",
   "release_model_selection": {
-    "release_version": "0.2.7",
+    "release_version": "0.2.8",
     "training_metadata_flags_are_historical": true,
+    "model_license_manifest": "licenses/hanglish-models/models.json",
     "models": {
       "phonetic_residual": {
         "checkpoint": ".omx/artifacts/rr-retraining-20261020/training-cpu1/phonetic_transducer.pt",

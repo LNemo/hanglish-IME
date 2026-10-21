@@ -30,9 +30,9 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 ## Disponibilidad
 
-**Prototipo nativo actual: macOS 0.2.7 (compilación 9), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
+**Prototipo nativo actual: macOS 0.2.8 (compilación 10), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
-**Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; la distribución pública de los modelos sigue en preparación.
+**Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; los tres pesos entrenados con KLUE incluidos en el instalador se identifican por separado bajo CC BY-SA 4.0.
 
 Para instalar y configurar la fuente de entrada, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
 
@@ -50,7 +50,7 @@ El instalador usa inglés de forma predeterminada e incluye localización al cor
 
 El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
 
-**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. Solo se puede importar un paquete que coincida exactamente con el [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json); después de normalizar los metadatos de procedencia, una instalación antigua de la versión 0.2.5 ya no coincide con el bloqueo actual. Todavía no hay descargas públicas de modelos.
+**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. Solo se puede importar un paquete que coincida exactamente con el [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json); las instalaciones 0.2.6 o anteriores no coinciden con el bloqueo actual. Todavía no hay descargas públicas de modelos.
 
 En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio las comprobaciones nativas que no requieren modelos:
 
@@ -62,4 +62,6 @@ Comprueban el estado de composición, el protocolo con el proceso del motor y lo
 
 ## Licencia
 
-El código original y los diccionarios propios usan [CC BY-NC 4.0](LICENSE). Permite compartir y adaptar para fines no comerciales con atribución; al compartir material modificado, deben indicarse los cambios. Es software con código disponible bajo condiciones no comerciales, no código abierto según la definición de la OSI. Consulta el [alcance de la licencia (en inglés)](LICENSE) y los [avisos de terceros (en inglés)](THIRD_PARTY_NOTICES.md). Los diccionarios y modelos externos conservan sus condiciones originales.
+El código original y los diccionarios propios usan [CC BY-NC 4.0](LICENSE). Permite compartir y adaptar para fines no comerciales con atribución; al compartir material modificado, deben indicarse los cambios. Es software con código disponible bajo condiciones no comerciales, no código abierto según la definición de la OSI.
+
+El peso del clasificador de frases incluido y los dos pesos CTC entrenados con KLUE se distribuyen por separado bajo [CC BY-SA 4.0](licenses/hanglish-models/LICENSE.txt). El [aviso de los modelos](licenses/hanglish-models/NOTICE.txt) identifica los archivos, sus hashes y la atribución a KLUE. Esos pesos pueden reutilizarse con fines comerciales si se cumplen las condiciones de atribución y CompartirIgual; esto no cambia la licencia no comercial del código de Hanglish. Los demás componentes externos conservan sus condiciones respectivas. Consulta también los [avisos de terceros (en inglés)](THIRD_PARTY_NOTICES.md).

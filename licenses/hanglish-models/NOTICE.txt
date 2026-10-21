@@ -1,0 +1,28 @@
+Hanglish model weights under CC BY-SA 4.0
+
+Copyright 2026 LNemo and Hanglish contributors
+https://github.com/LNemo/hanglish-IME
+
+The three weight files listed in models.json are distributed separately from the
+Hanglish application source code under Creative Commons Attribution-ShareAlike
+4.0 International (CC BY-SA 4.0), to the extent that Hanglish contributors own
+copyright or similar rights in those weights.
+
+CC BY-SA 4.0 permits commercial reuse. The NonCommercial restriction in the
+Hanglish application source license does not apply to these three weight files.
+
+The models were trained with data derived from KLUE v1.1. Credit:
+
+KLUE Team, "KLUE: Korean Language Understanding Evaluation" (2021)
+https://arxiv.org/abs/2105.09680
+https://github.com/KLUE-benchmark/KLUE
+
+KLUE v1.1 is distributed under CC BY-SA 4.0. Training preparation included
+text-window extraction, normalization, and Revised Romanization generation. The
+CTC weights were subsequently retrained after correcting Hanglish's romanization
+and pronunciation processing. The original KLUE corpus is not included.
+
+This notice does not apply CC BY-SA 4.0 to the Hanglish application source code,
+which remains under CC BY-NC 4.0, or replace third-party terms that apply to base
+models, software, tokenizers, or other components. See the surrounding package
+notices for those terms.

@@ -1,7 +1,7 @@
 {
   "schema": "hanglish-runtime-assets-v1",
   "engine_version": "experimental-score-scale-1-04bb07322495",
-  "note": "Exact local development assets. Hashes do not establish redistribution permission. No model downloads or public weights are provided.",
+  "note": "Exact local development assets. Hashes identify bytes; distribution fields record component terms or review status. Assets are not downloaded automatically.",
   "files": [
     {
       "path": ".omx/artifacts/current-phonetic-choice-training-v1/model.json",
@@ -71,7 +71,7 @@
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "CC-BY-SA-4.0"
     },
     {
       "path": ".omx/artifacts/ctc-rr-retraining-20261020/training-word/model.json",
@@ -91,7 +91,7 @@
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "CC-BY-SA-4.0"
     },
     {
       "path": "checkpoints/context_ranker.json",
@@ -263,7 +263,7 @@
         "package"
       ],
       "kind": "model-or-training-metadata",
-      "distribution": "redistribution-review-required"
+      "distribution": "CC-BY-SA-4.0"
     },
     {
       "path": "checkpoints/sentence_ranker/special_tokens_map.json",

@@ -30,9 +30,9 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 ## 支持环境与发布状态
 
-**当前原生原型：macOS 0.2.7（构建 9），Apple Silicon，最低部署目标为 macOS 14 或更高版本。** 目前已在 macOS 27 上进行了本地验证。macOS 14 等未经验证的版本以**未经验证的预览版**提供；最低部署目标不代表兼容性保证。Windows、Android 和 iOS 输入法尚未实现。
+**当前原生原型：macOS 0.2.8（构建 10），Apple Silicon，最低部署目标为 macOS 14 或更高版本。** 目前已在 macOS 27 上进行了本地验证。macOS 14 等未经验证的版本以**未经验证的预览版**提供；最低部署目标不代表兼容性保证。Windows、Android 和 iOS 输入法尚未实现。
 
-**目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款，模型的公开分发方案仍在准备中。
+**目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款；安装包中的三个 KLUE 训练权重另行标注为 CC BY-SA 4.0。
 
 安装与输入源设置请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
 
@@ -50,7 +50,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 仓库包含转换源码、原生 macOS 输入法、构建工具、测试，不包含模型权重、下载或生成的数据集、本地实验产物以及安装镜像。
 
-**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。只能导入与[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)完全一致的安装包；来源元数据规范化后，旧版 0.2.5 安装包不再匹配当前锁定文件。目前尚未提供公开模型下载。
+**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。只能导入与[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)完全一致的安装包；0.2.6 及更早版本的安装包不匹配当前锁定文件。目前尚未提供公开模型下载。
 
 在安装了 Xcode Command Line Tools 的 Mac 上，可从仓库根目录执行不需要模型的原生检查：
 
@@ -62,4 +62,6 @@ bash native/macos/test.sh
 
 ## 许可证
 
-原创代码和自行编写的词典采用 [CC BY-NC 4.0](LICENSE)。允许在署名和非商业用途条件下分享、改编；分享修改后的材料时须注明改动。这是附带非商业条款的源码开放，并非 OSI 定义的开源。请参阅[许可范围（英文）](LICENSE)以及[第三方声明（英文）](THIRD_PARTY_NOTICES.md)。外部词典和模型仍适用各自的原有条款。
+原创代码和自行编写的词典采用 [CC BY-NC 4.0](LICENSE)。允许在署名和非商业用途条件下分享、改编；分享修改后的材料时须注明改动。这是附带非商业条款的源码开放，并非 OSI 定义的开源。
+
+安装包中的句子排序模型权重以及两个用 KLUE 训练的 CTC 权重，另行采用 [CC BY-SA 4.0](licenses/hanglish-models/LICENSE.txt) 分发。具体文件、哈希值和 KLUE 署名列于[模型声明](licenses/hanglish-models/NOTICE.txt)。在遵守署名和相同方式共享条件的前提下，这些权重可用于商业用途；这不会改变 Hanglish 代码的非商业许可证。其他外部组件继续适用各自的条款。另请参阅[第三方声明（英文）](THIRD_PARTY_NOTICES.md)。

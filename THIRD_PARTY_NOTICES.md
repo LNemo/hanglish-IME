@@ -1,8 +1,8 @@
 # Third-party software, dictionaries and models
 
 Project licensing does not replace the terms of external software, data or model
-weights. This inventory records known sources; it is not a declaration that every
-asset is cleared for public redistribution.
+weights. The installation package contains separately licensed components;
+Hanglish’s CC BY-NC 4.0 applies to original project code, not to every bundled file.
 
 ## English dictionary — SCOWL / English Speller Database
 
@@ -47,8 +47,15 @@ Official sources: [release/download guide](https://wordlist.aspell.net/dicts/),
   CC BY-SA 4.0 data. Credit KLUE Team, *KLUE: Korean Language Understanding
   Evaluation* (2021), https://arxiv.org/abs/2105.09680. Extracted/normalized
   training corpora retain applicable upstream terms; the original project's
-  CC BY-NC license does not replace them. This lineage alone does not determine
-  whether trained weights are legally adaptations.
+  CC BY-NC license does not replace them. As a conservative distribution policy,
+  Hanglish separately offers its rights in the sentence-ranker and two retrained
+  CTC weight files under **CC BY-SA 4.0**. The exact three files and their hashes
+  are listed in [the model license manifest](licenses/hanglish-models/models.json);
+  see [the model notice](licenses/hanglish-models/NOTICE.txt) and
+  [full license](licenses/hanglish-models/LICENSE.txt). Those weights permit
+  commercial reuse under their BY-SA terms; Hanglish’s NC condition does not
+  apply to them. Applicable upstream base-model licenses remain separate.
+  This policy does not assert that every trained model is legally an adaptation.
 - Packaged Python and native dependencies retain individual licenses. See the
   [package notices](native/macos/Packaging/THIRD_PARTY_NOTICES.md) and the generated
   `Resources/Licenses/python-distributions.json` in a development package.

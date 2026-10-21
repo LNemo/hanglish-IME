@@ -52,12 +52,49 @@ class RuntimeAssetsTests(unittest.TestCase):
         locked = json.loads((packaging / 'runtime-assets.lock.json').read_text())
         hashes = {entry['path']: entry['sha256'] for entry in locked['files']}
         selection = specification['release_model_selection']
-        self.assertEqual(selection['release_version'], '0.2.7')
+        self.assertEqual(selection['release_version'], '0.2.8')
         self.assertTrue(selection['training_metadata_flags_are_historical'])
+        self.assertEqual(
+            selection['model_license_manifest'],
+            'licenses/hanglish-models/models.json',
+        )
         for model in selection['models'].values():
             self.assertEqual(hashes[model['checkpoint']], model['checkpoint_sha256'])
             self.assertEqual(hashes[model['metadata']], model['metadata_sha256'])
             self.assertNotIn('context-ranking-improvement', model['checkpoint'])
+
+    def test_klue_trained_weights_have_separate_cc_by_sa_license(self):
+        root = Path(__file__).resolve().parents[1]
+        packaging = root / 'native/macos/Packaging'
+        locked = json.loads((packaging / 'runtime-assets.lock.json').read_text())
+        licenses = json.loads(
+            (root / 'licenses/hanglish-models/models.json').read_text()
+        )
+        expected = {
+            'checkpoints/sentence_ranker/model.safetensors':
+                'a68f3bd26733e9bc897a182f78b1decafefa3582fa82b6b2cfcaa34672412ffa',
+            '.omx/artifacts/ctc-rr-retraining-20261020/training-word/model.pt':
+                'fb88a38dc8070fa0877b4d98d1a117940d94b132d33b847610f8bb2b7f89a9c7',
+            '.omx/artifacts/ctc-rr-retraining-20261020/training-growth/model.pt':
+                '1312683a4e3b3238a793ad2bea2a7427c98953a5bb4996ea91d5e43a6d22108e',
+        }
+        self.assertEqual(licenses['license'], 'CC-BY-SA-4.0')
+        self.assertEqual(
+            {item['path']: item['sha256'] for item in licenses['weights']}, expected
+        )
+        entries = {item['path']: item for item in locked['files']}
+        self.assertEqual(
+            {path for path, item in entries.items()
+             if item['distribution'] == 'CC-BY-SA-4.0'},
+            set(expected),
+        )
+        for path, digest in expected.items():
+            self.assertEqual(entries[path]['sha256'], digest)
+            self.assertEqual(entries[path]['distribution'], 'CC-BY-SA-4.0')
+            self.assertEqual(hashlib.sha256((root / path).read_bytes()).hexdigest(), digest)
+        self.assertIn('Attribution-ShareAlike 4.0 International',
+                      (root / 'licenses/hanglish-models/LICENSE.txt').read_text())
+        self.assertTrue((root / 'licenses/hanglish-models/NOTICE.txt').is_file())
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()

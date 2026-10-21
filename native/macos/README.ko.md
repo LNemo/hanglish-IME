@@ -5,7 +5,7 @@
 한국어를 말할 수 있지만 한글로 적는 데 어려움을 느끼는 사람을 위한 입력기다.
 현재는 실험적인 프리뷰 단계다. 전달받은 패키지의 릴리스 안내에서 검증한 환경과 알려진 제한을 확인한다.
 
-Hanglish 0.2.7(빌드 9)은 로마자 문장을 한글 후보로 바꾸는 macOS 입력기다. 입력기 앱,
+Hanglish 0.2.8(빌드 10)은 로마자 문장을 한글 후보로 바꾸는 macOS 입력기다. 입력기 앱,
 Python 3.11 런타임, 변환 엔진, 학습 모델을 하나의 설치 이미지에 묶었다. 설치 후에는
 개발 서버, 가상 환경, Tailscale 연결이 필요하지 않으며 입력 내용도 네트워크로 보내지
 않는다.
@@ -19,7 +19,7 @@ Python 3.11 런타임, 변환 엔진, 학습 모델을 하나의 설치 이미�
 
 공개 설치 파일이 제공되는 버전은 [Hanglish Releases 페이지](https://github.com/LNemo/hanglish-IME/releases)에서 받는다. 설치 파일이 첨부되어 있지 않으면 해당 버전의 공개 다운로드가 없는 상태다. 개발자가 전달한 완성된 설치 파일에도 아래 절차를 적용할 수 있다. Releases 페이지가 열리지 않는다고 Mac에 추가 설정이 필요한 것은 아니다.
 
-`Hanglish-0.2.7-arm64.dmg`처럼 Apple Silicon용 `.dmg` 파일을 선택한다. **Source code** ZIP·tar.gz 파일은 개발용 소스이므로 입력기로 설치할 수 없다. Intel Mac은 지원하지 않는다. **Apple 메뉴 → 이 Mac에 관하여**에서 칩과 macOS 버전을 확인할 수 있다.
+`Hanglish-0.2.8-arm64.dmg`처럼 Apple Silicon용 `.dmg` 파일을 선택한다. **Source code** ZIP·tar.gz 파일은 개발용 소스이므로 입력기로 설치할 수 없다. Intel Mac은 지원하지 않는다. **Apple 메뉴 → 이 Mac에 관하여**에서 칩과 macOS 버전을 확인할 수 있다.
 
 파일명에 `development-NONPUBLIC`이 있으면 ad-hoc 서명을 사용하는 별도의 개발용 패키지이며 공개 설치 파일이 아니다. 릴리스 모드 패키지는 Developer ID 서명과 Apple 공증을 거치고, 함께 제공되는 manifest와 공증 로그로 정확한 산출물을 확인한다. macOS가 실행을 차단하면 보안 기능을 끄지 말고 받은 파일이 맞는지 확인한 뒤 정확한 오류 메시지를 알려준다.
 
@@ -120,13 +120,13 @@ bash native/macos/package.sh
 덮어쓰지 않고 다음 산출물을 생성한다.
 
 ```text
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg.sha256
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg.json
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg.sha256
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg.json
 ```
 
 JSON manifest에는 DMG SHA-256, 소스 커밋과 작업 트리의 clean 여부, 입력 파일 해시,
-버전 `0.2.7`, 빌드 `9`, 아키텍처, 최소 배포 대상, 패키징 모드가 기록된다. 개발 manifest는
+버전 `0.2.8`, 빌드 `10`, 아키텍처, 최소 배포 대상, 패키징 모드가 기록된다. 개발 manifest는
 해당 파일이 비공개 개발용이며 배포 준비가 끝나지 않았음을 표시한다. 완성된 DMG에는
 Python 런타임이 들어 있으므로 설치 대상 Mac에 Python을 따로 설치할 필요는 없다.
 
@@ -144,7 +144,7 @@ bash native/macos/package.sh
 사전 검사는 인증서·팀 ID·프로필 누락이나 불일치, 변경 사항이 남은 작업 트리를 거부한다.
 통과하면 hardened runtime과 timestamp를 적용해 서명하고, DMG 공증과 ticket staple을
 수행한 뒤 `hdiutil`, `codesign`, `stapler`, Gatekeeper로 검사한다. 이후
-`Hanglish-0.2.7-arm64.dmg`, 체크섬, manifest, 공증 로그를 만든다. 이 기술 검증은 GitHub Release를 발행하거나 모델 라이선스 문제를 해결하지 않는다.
+`Hanglish-0.2.8-arm64.dmg`, 체크섬, manifest, 공증 로그를 만든다. 이 기술 검증은 GitHub Release를 발행하지 않는다.
 manifest에는 정확한 소스 커밋과 남은 검증 항목이 기록된다.
 
 `test.sh`는 조합 상태, 엔진 프로세스 관리, Swift 소스 타입 검사를 실행한다. `--live`는
@@ -159,5 +159,4 @@ manifest에는 정확한 소스 커밋과 남은 검증 항목이 기록된다.
 - 포함된 오픈소스 구성요소의 고지와 라이선스는 패키지에 보존한다. KoELECTRA 기반 모델의 원본 모델에는 공식 프로젝트의 Apache-2.0을 적용하는 기준을 사용한다.
   정확한 출처와 학습 데이터 조건은 외부 구성요소 고지를 참고한다.
 
-자체 코드에는 [CC BY-NC 4.0](../../LICENSE)을 적용한다.
-[라이선스 전문(영어)](../../LICENSE)와 [외부 구성요소 고지(영어)](../../THIRD_PARTY_NOTICES.md)를 참고한다.
+자체 코드에는 [CC BY-NC 4.0](../../LICENSE)을 적용한다. 포함된 문장 순위 모델 가중치와 KLUE로 학습한 CTC 가중치 2종은 [CC BY-SA 4.0](../../licenses/hanglish-models/LICENSE.txt)으로 별도 배포하며, 정확한 경로·해시·출처는 [모델 고지(영어)](../../licenses/hanglish-models/NOTICE.txt)에 기록한다. 이 가중치 3종은 저작자 표시와 동일조건변경허락 조건으로 상업적으로도 재사용할 수 있고, Hanglish 코드의 비상업 라이선스는 바뀌지 않는다. 나머지 구성요소는 [외부 구성요소 고지(영어)](../../THIRD_PARTY_NOTICES.md)를 참고한다.

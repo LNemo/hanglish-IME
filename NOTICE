@@ -2,5 +2,11 @@ Copyright 2026 LNemo and Hanglish contributors (https://github.com/LNemo/hanglis
 
 Original Hanglish code, documentation and project-authored seed data are offered under the
 Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) in LICENSE. Third-party files and derived
-data retain their respective terms; see THIRD_PARTY_NOTICES.md. This notice
-does not grant rights to external model weights or training corpora.
+data retain their respective terms; see THIRD_PARTY_NOTICES.md.
+
+The three KLUE-trained weight files identified by path and SHA-256 in
+licenses/hanglish-models/models.json are separately offered under CC BY-SA 4.0
+as described in licenses/hanglish-models/NOTICE.txt. The NonCommercial restriction
+on Hanglish code does not apply to those weight files. Upstream base-model
+licenses and training-data terms remain in force; this notice does not relicense
+third-party contributions or training corpora.

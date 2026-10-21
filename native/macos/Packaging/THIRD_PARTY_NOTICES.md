@@ -41,10 +41,16 @@ provenance. Model weights and upstream attribution remain unchanged.
   https://arxiv.org/abs/2105.09680. Upstream data terms are CC BY-SA 4.0:
   https://github.com/KLUE-benchmark/KLUE/blob/3efd98708a40ff49251fddde35453f8fbb11f536/License.md
   Preparation included text-window extraction/normalization and romanization.
-  This attribution does not settle the distribution terms of trained weights.
+  Hanglish separately offers its rights in these three weight files under
+  CC BY-SA 4.0 as a conservative distribution policy. Exact paths and SHA-256
+  hashes, attribution, and the complete license are included under
+  `Resources/Licenses/Hanglish-models/`. Commercial reuse of these weights is
+  allowed under their BY-SA terms; the NC restriction on original Hanglish code
+  does not apply to them. Upstream base-model licenses remain separate.
+  This policy does not assert that every trained model is legally an adaptation.
 
 No Qwen/EXAONE/Roberta weights, datasets, developer environments, or web server are
-included. Version 0.2.7 selects retrained phonetic and CTC transducers based on the
+included. Version 0.2.8 retains the retrained phonetic and CTC transducers based on the
 corrected romanization rules. The existing semantic and sentence rankers are retained.
 The engine manifest records the selected model paths and hashes; candidate-only flags
 in frozen training metadata describe the training run before release selection.

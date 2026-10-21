@@ -30,9 +30,9 @@ Korean pronunciation does not uniquely determine spelling. Hanglish tries to rec
 
 ## Availability
 
-**Current native prototype: macOS 0.2.7 (build 9), Apple Silicon, with a deployment target of macOS 14 or later.** Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are offered as an **unverified preview**; the deployment target does not guarantee compatibility. Windows, Android, and iOS input methods are not implemented yet.
+**Current native prototype: macOS 0.2.8 (build 10), Apple Silicon, with a deployment target of macOS 14 or later.** Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are offered as an **unverified preview**; the deployment target does not guarantee compatibility. Windows, Android, and iOS input methods are not implemented yet.
 
-There is **no published GitHub Release yet**. The repository is currently private. Original Hanglish code uses noncommercial terms; public model distribution arrangements are still being prepared.
+There is **no published GitHub Release yet**. The repository is currently private. Original Hanglish code uses noncommercial terms; the three KLUE-trained weights bundled with the installer have a separate CC BY-SA 4.0 notice.
 
 For installation and input-source setup, follow the [macOS installation guide](native/macos/README.md) ([한국어](native/macos/README.ko.md)). A complete installer bundles the conversion engine, models, and Python runtime. Once installed, conversion runs locally and does not send your typed text to a server. You do not need a development server, Tailscale, or a separate Python installation to use that package.
 
@@ -50,7 +50,7 @@ The installer uses English by default and includes Korean localization. Developm
 
 The repository contains the conversion source, native macOS input method, build tools, and tests. It does **not** include model weights, downloaded or generated datasets, local experiment artifacts, or installer images.
 
-**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](native/macos/README.md#build-and-verify) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Import requires a bundle that exactly matches the current lock; an older 0.2.5 installation does not match after provenance metadata normalization. Public model downloads are not available yet.
+**A fresh clone can run the model-free baseline, but needs additional assets for the complete learned engine and installer.** Follow [development setup](native/macos/README.md#build-and-verify) for locked dependencies, asset checks and importing from a trusted local installation. [The asset lock](native/macos/Packaging/runtime-assets.lock.json) pins required files by SHA-256. Import requires a bundle that exactly matches the current lock; installations from 0.2.6 or earlier do not match. Public model downloads are not available yet.
 
 On a Mac with Xcode Command Line Tools, run the model-free native checks from the repository root:
 
@@ -62,4 +62,6 @@ These check composition state, engine-process protocol handling, and Swift types
 
 ## License
 
-Original Hanglish code and authored seed data use [CC BY-NC 4.0](LICENSE). Sharing and adaptation require attribution and a noncommercial purpose; indicate changes when sharing modified material. This is source-available software with noncommercial terms, not OSI-defined open source. See [license scope](LICENSE), and [third-party notices](THIRD_PARTY_NOTICES.md). External dictionaries and models retain their own terms.
+Original Hanglish code and authored seed data use [CC BY-NC 4.0](LICENSE). Sharing and adaptation require attribution and a noncommercial purpose; indicate changes when sharing modified material. This is source-available software with noncommercial terms, not OSI-defined open source.
+
+The bundled sentence-ranker weight and the two KLUE-trained CTC weights are distributed separately under [CC BY-SA 4.0](licenses/hanglish-models/LICENSE.txt), with the exact files, hashes and KLUE attribution listed in the [model notice](licenses/hanglish-models/NOTICE.txt). Those weights may be reused commercially subject to attribution and ShareAlike; this does not change the noncommercial license on Hanglish code. Other external components retain their respective terms. See the [third-party notices](THIRD_PARTY_NOTICES.md).

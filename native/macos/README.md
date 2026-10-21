@@ -4,7 +4,7 @@
 
 Hanglish is for people who can speak Korean but find it difficult to write in Hangul. Type Korean pronunciation with Latin letters, request Korean candidates, and choose the spelling you want.
 
-The current prototype is **0.2.7 (build 9), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are an **unverified preview**. The minimum target is a build setting, not a compatibility guarantee. This is an experimental preview. Check the release notes for the tested systems and known limitations of the package you receive.
+The current prototype is **0.2.8 (build 10), for Apple Silicon (arm64), with a deployment target of macOS 14 or later**. Local testing has been performed on macOS 27. Other macOS versions, including macOS 14, are an **unverified preview**. The minimum target is a build setting, not a compatibility guarantee. This is an experimental preview. Check the release notes for the tested systems and known limitations of the package you receive.
 
 A complete installer includes the input method, Python 3.11 runtime, conversion engine, and trained models. After installation, conversion runs locally; typed text is not sent to a server. A development server, virtual environment, and Tailscale connection are not required.
 
@@ -12,7 +12,7 @@ A complete installer includes the input method, Python 3.11 runtime, conversion 
 
 When a public installer is available, download it from the [Hanglish Releases page](https://github.com/LNemo/hanglish-IME/releases). If no installer assets are listed, there is no public download for that version. These steps also apply to a complete installer supplied by the maintainer. An unavailable Releases page does not mean your Mac needs additional setup.
 
-Choose the Apple Silicon `.dmg` asset, such as `Hanglish-0.2.7-arm64.dmg`. The **Source code** ZIP and tar.gz archives are for developers and cannot be installed as an input method. Intel Macs are not supported. You can check your Mac's chip and macOS version in **Apple menu → About This Mac**.
+Choose the Apple Silicon `.dmg` asset, such as `Hanglish-0.2.8-arm64.dmg`. The **Source code** ZIP and tar.gz archives are for developers and cannot be installed as an input method. Intel Macs are not supported. You can check your Mac's chip and macOS version in **Apple menu → About This Mac**.
 
 Packages with `development-NONPUBLIC` in the filename are separate development builds with ad-hoc signatures. They are not the public installer. Release-mode packages require Developer ID signing and Apple notarization; their accompanying manifest and notarization log identify the exact artifact. Do not disable macOS security checks to install a package that is blocked; check that you obtained the intended package and report the exact message.
 
@@ -110,13 +110,13 @@ Development mode is the default. `package.sh` builds the input method and instal
 runs checks, and produces these files without overwriting existing artifacts:
 
 ```text
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg.sha256
-dist/Hanglish-0.2.7-arm64-development-NONPUBLIC.dmg.json
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg.sha256
+dist/Hanglish-0.2.8-arm64-development-NONPUBLIC.dmg.json
 ```
 
 The JSON manifest records the DMG SHA-256, source commit and clean-worktree state,
-the hashed release inputs, version `0.2.7`, build `9`, architecture, minimum deployment
+the hashed release inputs, version `0.2.8`, build `10`, architecture, minimum deployment
 target, and packaging mode. A development manifest marks the artifact as nonpublic and
 not publication-ready. The complete package includes Python, so the destination Mac
 does not need a separate Python installation.
@@ -136,8 +136,7 @@ Release preflight rejects a missing or mismatched identity, team ID, profile, or
 worktree. When those checks pass, the script signs with hardened runtime and timestamps,
 submits the DMG for notarization, staples the accepted ticket, verifies it with
 `hdiutil`, `codesign`, `stapler`, and Gatekeeper, then writes
-`Hanglish-0.2.7-arm64.dmg`, its checksum, manifest, and notarization log. These technical checks do not publish a GitHub Release or resolve model-license
-questions. The manifest identifies the exact source commit and validation gaps.
+`Hanglish-0.2.8-arm64.dmg`, its checksum, manifest, and notarization log. These technical checks do not publish a GitHub Release. The manifest identifies the exact source commit and validation gaps.
 
 `test.sh` checks composition state, engine-process handling, and Swift types. `--live` additionally starts the supplied bundled engine, checks representative conversions, and verifies its selected model version. Actual input-source selection, typing, and icon appearance still need UI testing.
 
@@ -148,4 +147,4 @@ questions. The manifest identifies the exact source commit and validation gaps.
 - Developer ID signing and notarization are required before a general installer release. The current development artifact is ad-hoc signed, marked nonpublic, and must not be published as the public release.
 - Preserve bundled third-party licenses and notices. For the KoELECTRA base model, Hanglish uses the official project’s Apache-2.0 license as its licensing basis; see the third-party notices for the pinned source and training-data terms.
 
-Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE); see [full license](../../LICENSE) and [third-party notices](../../THIRD_PARTY_NOTICES.md).
+Original Hanglish code uses [CC BY-NC 4.0](../../LICENSE). The bundled sentence-ranker weight and two KLUE-trained CTC weights are distributed separately under [CC BY-SA 4.0](../../licenses/hanglish-models/LICENSE.txt); their exact paths, hashes and attribution are in the [model notice](../../licenses/hanglish-models/NOTICE.txt). Those three weights permit commercial reuse subject to attribution and ShareAlike, without changing the noncommercial license on Hanglish code. See the [third-party notices](../../THIRD_PARTY_NOTICES.md) for the remaining components.

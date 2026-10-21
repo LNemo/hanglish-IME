@@ -42,6 +42,30 @@ def copy_file(source, destination):
     shutil.copy2(source, destination)
 
 
+def bundle_model_licenses(engine, notice):
+    manifest_path = ROOT / "licenses/hanglish-models/models.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("schema") != "hanglish-model-license-v1":
+        raise ValueError("Unsupported Hanglish model license manifest")
+    if manifest.get("license") != "CC-BY-SA-4.0":
+        raise ValueError("Unexpected Hanglish model license")
+    weights = manifest.get("weights")
+    if not isinstance(weights, list) or len(weights) != 3:
+        raise ValueError("Hanglish model license manifest must identify three weights")
+    for item in weights:
+        path = item.get("path")
+        expected = item.get("sha256")
+        if not isinstance(path, str) or not isinstance(expected, str):
+            raise ValueError("Invalid Hanglish model license entry")
+        packaged = engine / path
+        if not packaged.is_file() or hashlib.sha256(packaged.read_bytes()).hexdigest() != expected:
+            raise ValueError(f"Licensed model identity differs: {path}")
+    for name in ("LICENSE.txt", "NOTICE.txt", "models.json"):
+        copy_file(ROOT / "licenses/hanglish-models" / name,
+                  notice / "Hanglish-models" / name)
+    return manifest
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--resources", type=Path, required=True)
@@ -125,6 +149,7 @@ def main():
     copy_file(source_notice, notice / source_notice.name)
     copy_file(Path(__file__).with_name("wordfreq-NOTICE.md"), notice / "wordfreq-NOTICE.md")
     copy_file(Path(__file__).with_name("wordfreq-LICENSE.txt"), notice / "wordfreq-LICENSE.txt")
+    model_licenses = bundle_model_licenses(engine, notice)
     (notice / "python-distributions.json").write_text(json.dumps(package_manifest, ensure_ascii=False, indent=2) + "\n")
     for link in runtime.rglob("*"):
         if link.is_symlink() and not link.resolve().is_relative_to(runtime):
@@ -154,6 +179,7 @@ def main():
                 "engine_version": packaged_version,
                 "source_engine_version": specification["selected_version"],
                 "model_selection": specification["release_model_selection"],
+                "model_licenses": model_licenses,
                 "metadata_transformations": metadata_changes,
                 "packages": [{"name": p["name"], "version": p["version"]} for p in package_manifest],
                 "engine_files": {str(p.relative_to(engine)): hashlib.sha256(p.read_bytes()).hexdigest()
