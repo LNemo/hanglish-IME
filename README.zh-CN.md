@@ -30,9 +30,9 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 ## 支持环境与发布状态
 
-**当前原生原型：macOS 0.2.8（构建 10），Apple Silicon，最低部署目标为 macOS 14 或更高版本。** 目前已在 macOS 27 上进行了本地验证。macOS 14 等未经验证的版本以**未经验证的预览版**提供；最低部署目标不代表兼容性保证。Windows、Android 和 iOS 输入法尚未实现。
+**当前原生原型：macOS 0.2.9（构建 11），Apple Silicon，最低部署目标为 macOS 14 或更高版本。** 目前已在 macOS 27 上进行了本地验证。macOS 14 等未经验证的版本以**未经验证的预览版**提供；最低部署目标不代表兼容性保证。Windows、Android 和 iOS 输入法尚未实现。
 
-**目前尚未发布 GitHub Release。** 仓库当前为私有仓库。原创代码采用非商业用途条款；安装包中的三个 KLUE 训练权重另行标注为 CC BY-SA 4.0。
+可从 [GitHub Releases](https://github.com/LNemo/hanglish-IME/releases/tag/v0.2.9) 下载已签名并通过 Apple 公证的 macOS 预览版。原创代码采用非商业用途条款；安装包中的三个 KLUE 训练权重另行标注为 CC BY-SA 4.0。
 
 安装与输入源设置请参阅 [macOS 安装指南（English）](native/macos/README.md)或[한국어版](native/macos/README.ko.md)。完整安装包包含转换引擎、模型和 Python 运行时。安装后，转换在本机进行，不会把输入的文本发送到服务器。使用该安装包不需要开发服务器、Tailscale，也不需要另行安装 Python。
 
@@ -50,7 +50,7 @@ Hanglish 是一款实验阶段的输入法，面向**会说韩语，但难以用
 
 仓库包含转换源码、原生 macOS 输入法、构建工具、测试，不包含模型权重、下载或生成的数据集、本地实验产物以及安装镜像。
 
-**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。只能导入与[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)完全一致的安装包；0.2.6 及更早版本的安装包不匹配当前锁定文件。目前尚未提供公开模型下载。
+**新 clone 的源码可以运行无需模型的基础转换。完整学习型引擎和独立安装包需要额外资源。** [开发环境准备（英文）](native/macos/README.md#build-and-verify)介绍锁定依赖、资源校验及从可信本地安装导入的步骤。只能导入与[资源锁定文件](native/macos/Packaging/runtime-assets.lock.json)完全一致的安装包；0.2.6 及更早版本的安装包不匹配当前锁定文件。模型包含在 macOS 安装包中，不提供单独的模型下载。
 
 在安装了 Xcode Command Line Tools 的 Mac 上，可从仓库根目录执行不需要模型的原生检查：
 

@@ -62,10 +62,21 @@ done
 
 if [[ "$package_mode" == release ]]; then
   command -v uv >/dev/null || { echo 'Release packaging requires uv.' >&2; exit 1; }
+  release_python_dir="$(mktemp -d "/tmp/hanglish-python-release.XXXXXX")"
   release_environment="$(mktemp -d "$task_dir/build/release-venv.XXXXXX")"
-  cleanup_paths+=("$release_environment")
+  cleanup_paths+=("$release_python_dir" "$release_environment")
+  uv python install --install-dir "$release_python_dir" --no-bin 3.11.11
+  release_python="$(
+    UV_PYTHON_INSTALL_DIR="$release_python_dir" \
+      uv python find --managed-python --no-project 3.11.11
+  )"
+  [[ -x "$release_python" && "$release_python" == "$release_python_dir"/* ]] || {
+    echo 'uv did not resolve the isolated release Python installation.' >&2
+    exit 1
+  }
   env UV_PROJECT_ENVIRONMENT="$release_environment" \
-    uv sync --project "$repo_dir" --frozen --extra learning --no-dev --python 3.11
+    uv sync --project "$repo_dir" --frozen --extra learning --no-dev \
+      --python "$release_python"
   python="$release_environment/bin/python"
 fi
 
@@ -129,8 +140,12 @@ if [[ "$package_mode" == development ]]; then
     'This artifact uses ad-hoc signing and must not be published as a general release.' \
     > "$stage/NONPUBLIC-DEVELOPMENT-BUILD.txt"
 fi
-"$python" "$task_dir/Packaging/release_tools.py" audit-stage \
-  --stage "$stage" --forbid-root "$repo_dir"
+audit_args=("$python" "$task_dir/Packaging/release_tools.py" audit-stage \
+  --stage "$stage" --forbid-root "$repo_dir")
+if [[ "$package_mode" == release ]]; then
+  audit_args+=(--forbid-user-home)
+fi
+"${audit_args[@]}"
 if [[ "$package_mode" == release ]]; then
   "$python" "$task_dir/Packaging/release_tools.py" verify-source \
     --repo "$repo_dir" --commit "$release_commit"

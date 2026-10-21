@@ -30,9 +30,9 @@ La pronunciación coreana no determina una única escritura. Hanglish intenta re
 
 ## Disponibilidad
 
-**Prototipo nativo actual: macOS 0.2.8 (compilación 10), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
+**Prototipo nativo actual: macOS 0.2.9 (compilación 11), Apple Silicon, con macOS 14 o posterior como destino mínimo.** Las pruebas locales se han realizado en macOS 27. Las demás versiones, incluido macOS 14, se ofrecen como **versión preliminar sin verificar**; el destino mínimo no garantiza la compatibilidad. Aún no hay métodos de entrada implementados para Windows, Android o iOS.
 
-**Todavía no se ha publicado ninguna GitHub Release.** El repositorio es privado por ahora. El código original usa condiciones no comerciales; los tres pesos entrenados con KLUE incluidos en el instalador se identifican por separado bajo CC BY-SA 4.0.
+Descarga la versión preliminar de macOS firmada y notarizada desde [GitHub Releases](https://github.com/LNemo/hanglish-IME/releases/tag/v0.2.9). El código original usa condiciones no comerciales; los tres pesos entrenados con KLUE incluidos en el instalador se identifican por separado bajo CC BY-SA 4.0.
 
 Para instalar y configurar la fuente de entrada, consulta la [guía de instalación para macOS (English)](native/macos/README.md) o la [versión en 한국어](native/macos/README.ko.md). El instalador completo incluye el motor, los modelos y el entorno de ejecución de Python. Una vez instalado, convierte el texto localmente y no lo envía a un servidor. No necesitas un servidor de desarrollo, Tailscale ni instalar Python por separado.
 
@@ -50,7 +50,7 @@ El instalador usa inglés de forma predeterminada e incluye localización al cor
 
 El repositorio contiene el código del conversor, el método de entrada nativo para macOS, herramientas de compilación, pruebas. No incluye los pesos de los modelos, datos descargados o generados, resultados de experimentos locales ni imágenes del instalador.
 
-**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. Solo se puede importar un paquete que coincida exactamente con el [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json); las instalaciones 0.2.6 o anteriores no coinciden con el bloqueo actual. Todavía no hay descargas públicas de modelos.
+**Un clon nuevo permite ejecutar la conversión básica sin modelos. El motor aprendido completo y el instalador requieren recursos adicionales.** La [guía de desarrollo (en inglés)](native/macos/README.md#build-and-verify) explica las dependencias fijadas, la verificación de recursos y la importación desde una instalación local de confianza. Solo se puede importar un paquete que coincida exactamente con el [archivo de recursos fijados](native/macos/Packaging/runtime-assets.lock.json); las instalaciones 0.2.6 o anteriores no coinciden con el bloqueo actual. Los modelos se incluyen en el instalador de macOS; no se ofrecen descargas de modelos por separado.
 
 En un Mac con Xcode Command Line Tools, ejecuta desde la raíz del repositorio las comprobaciones nativas que no requieren modelos:
 

@@ -191,6 +191,40 @@ def test_stage_audit_checks_project_metadata_keys(tmp_path):
     assert issues == ["absolute build path in Payload/Engine/checkpoints/model.json"]
 
 
+def test_stage_audit_rejects_current_user_home_in_text_and_binary(tmp_path, monkeypatch):
+    private_home = tmp_path / "private-home"
+    monkeypatch.setattr(release.Path, "home", classmethod(lambda cls: private_home))
+    text = tmp_path / "Payload/Python/sysconfig.py"
+    binary = tmp_path / "Payload/Python/libpython.dylib"
+    text.parent.mkdir(parents=True)
+    text.write_bytes(b"prefix = " + str(private_home).encode())
+    binary.write_bytes(b"binary\0" + str(private_home).encode() + b"\0data")
+
+    assert release.find_stage_issues(tmp_path, "") == []
+    assert release.find_stage_issues(tmp_path, "", True) == [
+        "current-user home path in Payload/Python/libpython.dylib",
+        "current-user home path in Payload/Python/sysconfig.py",
+    ]
+
+
+def test_binary_path_scan_detects_a_match_across_chunk_boundary(tmp_path):
+    binary = tmp_path / "runtime.bin"
+    binary.write_bytes(b"abcdef/private/user/data")
+
+    assert release.file_contains_bytes(binary, b"/private/user", chunk_size=10)
+    assert not release.file_contains_bytes(binary, b"/different/user", chunk_size=10)
+
+
+def test_release_package_uses_an_isolated_pinned_python_installation():
+    script = (ROOT / "native/macos/package.sh").read_text(encoding="utf-8")
+
+    assert 'hanglish-python-release.XXXXXX' in script
+    assert 'uv python install --install-dir "$release_python_dir" --no-bin 3.11.11' in script
+    assert 'uv python find --managed-python --no-project 3.11.11' in script
+    assert '--python "$release_python"' in script
+    assert 'audit_args+=(--forbid-user-home)' in script
+
+
 def test_artifact_manifest_uses_portable_name_and_records_inputs(tmp_path, monkeypatch):
     artifact = tmp_path / "Hanglish-0.2.6-arm64.dmg"
     artifact.write_bytes(b"dmg")

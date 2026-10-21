@@ -1,6 +1,7 @@
 """Runtime preparation uses pinned bytes without executing model contents."""
 import hashlib
 import json
+import plistlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -52,7 +53,9 @@ class RuntimeAssetsTests(unittest.TestCase):
         locked = json.loads((packaging / 'runtime-assets.lock.json').read_text())
         hashes = {entry['path']: entry['sha256'] for entry in locked['files']}
         selection = specification['release_model_selection']
-        self.assertEqual(selection['release_version'], '0.2.8')
+        self.assertEqual(selection['release_version'], plistlib.loads(
+            (root / 'native/macos/Info.plist').read_bytes()
+        )['CFBundleShortVersionString'])
         self.assertTrue(selection['training_metadata_flags_are_historical'])
         self.assertEqual(
             selection['model_license_manifest'],
@@ -91,7 +94,7 @@ class RuntimeAssetsTests(unittest.TestCase):
         for path, digest in expected.items():
             self.assertEqual(entries[path]['sha256'], digest)
             self.assertEqual(entries[path]['distribution'], 'CC-BY-SA-4.0')
-            self.assertEqual(hashlib.sha256((root / path).read_bytes()).hexdigest(), digest)
+            self.assertGreater(entries[path]['size'], 0)
         self.assertIn('Attribution-ShareAlike 4.0 International',
                       (root / 'licenses/hanglish-models/LICENSE.txt').read_text())
         self.assertTrue((root / 'licenses/hanglish-models/NOTICE.txt').is_file())

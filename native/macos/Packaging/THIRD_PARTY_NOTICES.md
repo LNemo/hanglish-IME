@@ -50,7 +50,7 @@ provenance. Model weights and upstream attribution remain unchanged.
   This policy does not assert that every trained model is legally an adaptation.
 
 No Qwen/EXAONE/Roberta weights, datasets, developer environments, or web server are
-included. Version 0.2.8 retains the retrained phonetic and CTC transducers based on the
+included. Version 0.2.9 retains the retrained phonetic and CTC transducers based on the
 corrected romanization rules. The existing semantic and sentence rankers are retained.
 The engine manifest records the selected model paths and hashes; candidate-only flags
 in frozen training metadata describe the training run before release selection.

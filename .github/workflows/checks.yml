@@ -50,6 +50,7 @@ jobs:
           tests/test_release_metadata.py
           tests/test_release_packaging.py
           tests/test_package_guides.py
+          tests/test_bundle_model_licenses.py
           -q
 
   macos:

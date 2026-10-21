@@ -194,15 +194,20 @@ def write_manifest(
     output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def find_stage_issues(stage: Path, forbidden_root: str) -> list[str]:
+def find_stage_issues(
+    stage: Path, forbidden_root: str, forbid_user_home: bool = False
+) -> list[str]:
     issues: list[str] = []
     internal_words = ("audit", "readiness", "followup", "worklog")
+    private_home = str(Path.home()).encode() if forbid_user_home else b""
     for path in sorted(stage.rglob("*")):
         if path.is_dir() or path.is_symlink():
             continue
         relative = str(path.relative_to(stage))
         if any(word in path.name.lower() for word in internal_words):
             issues.append(f"internal document name: {relative}")
+        if private_home and file_contains_bytes(path, private_home):
+            issues.append(f"current-user home path in {relative}")
         if path.suffix.lower() != ".json":
             continue
         project_metadata = ".omx" in path.parts or "checkpoints" in path.parts
@@ -243,6 +248,19 @@ def find_stage_issues(stage: Path, forbidden_root: str) -> list[str]:
                 ):
                     issues.append(f"absolute build path in {relative}")
     return issues
+
+
+def file_contains_bytes(path: Path, needle: bytes, chunk_size: int = 1024 * 1024) -> bool:
+    if not needle:
+        return False
+    overlap = b""
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(chunk_size), b""):
+            combined = overlap + chunk
+            if needle in combined:
+                return True
+            overlap = combined[-(len(needle) - 1):] if len(needle) > 1 else b""
+    return False
 
 
 def verify_release_artifact(dmg: Path, runner: Runner = run) -> None:
@@ -347,6 +365,7 @@ def main() -> int:
     audit = subparsers.add_parser("audit-stage")
     audit.add_argument("--stage", type=Path, required=True)
     audit.add_argument("--forbid-root", default="")
+    audit.add_argument("--forbid-user-home", action="store_true")
     verification = subparsers.add_parser("verify-release")
     verification.add_argument("--dmg", type=Path, required=True)
     args = parser.parse_args()
@@ -387,7 +406,9 @@ def main() -> int:
             )
             print(f"Artifact manifest: {args.output}")
         elif args.command == "audit-stage":
-            issues = find_stage_issues(args.stage, args.forbid_root)
+            issues = find_stage_issues(
+                args.stage, args.forbid_root, args.forbid_user_home
+            )
             if issues:
                 raise ValueError("stage audit failed:\n- " + "\n- ".join(issues))
             print("Stage audit passed.")
